@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MazoteSoft | Next-Gen Mobile Apps & Games Studio</title>
+  <meta name="description" content="MazoteSoft is a premier mobile development studio specializing in high-performance iOS and Android apps and immersive mobile games. Powered by Unity, Swift, Kotlin, and Flutter.">
+  <meta name="keywords" content="MazoteSoft, mobile app development, mobile game development, Unity games, iOS apps, Android apps, Flutter, mobile studio">
+  <meta name="author" content="MazoteSoft">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MazoteSoft | Next-Gen Mobile Apps & Games Studio">
+  <meta property="og:description" content="We turn bold ideas into chart-topping mobile apps and addictive mobile games. Discover our work and collaborate with us.">
+  <meta property="og:url" content="https://mazotesoft.com">
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%230066FF'/><stop offset='100%25' stop-color='%2300C2FF'/></linearGradient></defs><rect width='100' height='100' rx='24' fill='%230A192F'/><path d='M25 72 L25 32 L40 54 L50 40 L60 54 L75 32 L75 72' stroke='url(%23g)' stroke-width='9' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='50' cy='68' r='4' fill='%2300C2FF'/></svg>">
+</head>
+<body>
+
+  <!-- Subtle ambient decorative glow orbs -->
+  <div class="glow-orb orb-1" aria-hidden="true"></div>
+  <div class="glow-orb orb-2" aria-hidden="true"></div>
+  <div class="glow-orb orb-3" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="#home" class="brand-logo" aria-label="MazoteSoft Home">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="10" fill="url(#logo-grad)"/>
+            <path d="M10 29V13L16 22L20 16L24 22L30 13V29" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="20" cy="27" r="1.8" fill="#FFFFFF"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0284C7"/>
+                <stop offset="1" stop-color="#1D4ED8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">Mazote<span class="accent-text">Soft</span></span>
+          <span class="logo-sub">APPS & GAMES STUDIO</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#tech" class="nav-link">Technologies</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contact" class="btn btn-primary btn-sm">
+          <span>Let's Talk</span>
+          <svg class="icon-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge-pill">
+            <span class="badge-dot"></span>
+            <span>Mobile Apps & Games Development Studio</span>
+          </div>
+          <h1 class="hero-title">
+            Engineering High-Impact <span class="gradient-text">Mobile Apps</span> & Addictive <span class="gradient-text">Games</span>.
+          </h1>
+          <p class="hero-description">
+            At <strong>MazoteSoft</strong>, we bring creative visions to life on iOS and Android. From intuitive productivity applications to immersive, adrenaline-pumping mobile games, we architect smooth 60 FPS experiences built for global scale.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#services" class="btn btn-primary btn-lg">
+              <span>Explore Services</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#portfolio" class="btn btn-secondary btn-lg">
+              <span>View Projects</span>
+            </a>
+          </div>
+
+          <div class="hero-trust">
+            <div class="trust-avatars">
+              <span class="avatar-tag" title="iOS & Android Apps">📱</span>
+              <span class="avatar-tag" title="Unity & 3D Games">🎮</span>
+              <span class="avatar-tag" title="High Performance">⚡</span>
+            </div>
+            <div class="trust-text">
+              <div class="stars">★★★★★</div>
+              <p>Top-tier code quality, agile delivery & player-centric game design</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Hero Showcase Card -->
+        <div class="hero-visual">
+          <div class="device-mockup">
+            <div class="device-screen">
+              <div class="screen-notch"></div>
+              <div class="screen-top-bar">
+                <span>9:41</span>
+                <div class="screen-status-icons">
+                  <span>5G</span>
+                  <span>100%</span>
+                </div>
+              </div>
+
+              <!-- Content inside device -->
+              <div class="screen-app-preview">
+                <div class="preview-badge">MazoteSoft Studio</div>
+                <h3 class="preview-title">RogueDraft Arena</h3>
+                <div class="game-hud">
+                  <div class="hud-stat">
+                    <span class="hud-label">FPS</span>
+                    <span class="hud-val text-blue">60</span>
+                  </div>
+                  <div class="hud-stat">
+                    <span class="hud-label">ENGINE</span>
+                    <span class="hud-val">UNITY</span>
+                  </div>
+                  <div class="hud-stat">
+                    <span class="hud-label">PLATFORM</span>
+                    <span class="hud-val">CROSS</span>
+                  </div>
+                </div>
+
+                <div class="card-stack-demo">
+                  <div class="demo-card card-front">
+                    <div class="card-icon">⚔️</div>
+                    <div class="card-info">
+                      <h4>Arcane Blade</h4>
+                      <span>Damage: 450 • Crit: +28%</span>
+                    </div>
+                  </div>
+                  <div class="demo-card card-back">
+                    <div class="card-icon">🛡️</div>
+                    <div class="card-info">
+                      <h4>Titan Aegis</h4>
+                      <span>Armor: 600 • Reflect: 35%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="screen-actions">
+                  <span class="pill-tag">📱 App Store Ready</span>
+                  <span class="pill-tag">🤖 Google Play Verified</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Badges around mockup -->
+            <div class="floating-badge badge-top-right">
+              <div class="floating-icon">🎮</div>
+              <div>
+                <strong>Mobile Gaming</strong>
+                <span>60 FPS Fluid Gameplay</span>
+              </div>
+            </div>
+
+            <div class="floating-badge badge-bottom-left">
+              <div class="floating-icon">🚀</div>
+              <div>
+                <strong>Modern Apps</strong>
+                <span>Swift, Kotlin & Flutter</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS STRIP -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number" data-target="100">100%</span>
+            <span class="stat-label">Mobile Focused Engineering</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-target="60">60 FPS</span>
+            <span class="stat-label">Silky Smooth Target Performance</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-target="99.9">99.9%</span>
+            <span class="stat-label">Crash-Free Stability Goal</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-target="24">24/7</span>
+            <span class="stat-label">Dedicated Partner Communication</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">ABOUT US</span>
+          <h2 class="section-title">Passionate Creators of the Mobile Digital Frontier</h2>
+          <p class="section-subtitle">
+            At MazoteSoft, we bridge creative storytelling with robust software engineering to deliver games and mobile apps that captivate audiences worldwide.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card highlight-card">
+            <div class="about-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Our Mission</h3>
+            <p>
+              To craft digital products that stand out in crowded app stores. We build responsive, intuitive mobile apps that solve everyday real-world challenges, paired with captivating mobile games that spark joy and competition.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <div class="about-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Player & User First Philosophy</h3>
+            <p>
+              Whether it’s a roguelike deckbuilder with deep tactical mechanics or a clean utility app, we obsess over tactile micro-interactions, responsive touch controls, and zero-latency feedback loops.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <div class="about-icon-wrapper">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <h3>Agile & Transparent</h3>
+            <p>
+              From pre-production prototypes to store deployment and LiveOps updates, our development process is modular, iterative, and transparent. You get functional test builds at every milestone.
+            </p>
+          </div>
+        </div>
+
+        <!-- Core Strengths Strip -->
+        <div class="strengths-wrapper">
+          <div class="strength-item">
+            <span class="strength-check">✓</span>
+            <span>Native iOS & Android Architecture</span>
+          </div>
+          <div class="strength-item">
+            <span class="strength-check">✓</span>
+            <span>Unity 2D/3D Game Optimization</span>
+          </div>
+          <div class="strength-item">
+            <span class="strength-check">✓</span>
+            <span>Monetization & Ad Mediation Strategy</span>
+          </div>
+          <div class="strength-item">
+            <span class="strength-check">✓</span>
+            <span>App Store Optimization (ASO) Mastery</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">SERVICES</span>
+          <h2 class="section-title">End-to-End Mobile Development Services</h2>
+          <p class="section-subtitle">
+            From initial wireframes and game design documents to polished production releases on the Apple App Store and Google Play Store.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1: Mobile Game Dev -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="3"></rect><path d="M6 12h4m-2-2v4m10-2h.01m-3 0h.01"></path></svg>
+            </div>
+            <h3>Mobile Game Development</h3>
+            <p>
+              Full-cycle 2D and 3D game creation for iOS and Android. We specialize in casual games, roguelikes, action runners, and tactical strategy with addictive core gameplay loops and balanced progression.
+            </p>
+            <ul class="service-features">
+              <li>Unity Engine & C# Architecture</li>
+              <li>Physics-based mechanics & animations</li>
+              <li>Save states, cloud sync & offline play</li>
+            </ul>
+          </div>
+
+          <!-- Service 2: Mobile Apps -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <h3>Custom Mobile Applications</h3>
+            <p>
+              High-performance, secure, and intuitive utility, business, and entertainment apps. Built with Flutter, React Native, or Native platforms to ensure smooth 60 FPS transitions and rapid time-to-market.
+            </p>
+            <ul class="service-features">
+              <li>Cross-platform iOS & Android codebases</li>
+              <li>Real-time push notifications & background tasks</li>
+              <li>Local storage & offline-first data sync</li>
+            </ul>
+          </div>
+
+          <!-- Service 3: UI/UX & Game Art -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+            </div>
+            <h3>UI/UX & Interactive Design</h3>
+            <p>
+              Visual design that converts. We craft ergonomic interfaces, polished game HUDs, visual effects (VFX), responsive touch controls, and cohesive design systems tailored for mobile ergonomics.
+            </p>
+            <ul class="service-features">
+              <li>Interactive prototypes in Figma</li>
+              <li>Custom game UI, icons & sprite assets</li>
+              <li>Smooth micro-animations & tactile haptics</li>
+            </ul>
+          </div>
+
+          <!-- Service 4: Backend & APIs -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            </div>
+            <h3>Cloud Backend & Multiplayer</h3>
+            <p>
+              Scalable serverless backends, real-time multiplayer networking, global leaderboards, authentication, and secure databases powered by Firebase, AWS, and RESTful microservices.
+            </p>
+            <ul class="service-features">
+              <li>Firebase Firestore, Auth & Cloud Functions</li>
+              <li>Live multiplayer & competitive leaderboards</li>
+              <li>Automated analytics & crash telemetry</li>
+            </ul>
+          </div>
+
+          <!-- Service 5: Monetization & LiveOps -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <h3>Monetization & Ad Mediation</h3>
+            <p>
+              Maximize revenue without degrading player retention. We implement seamless In-App Purchases (IAP), rewarded video ads, interstitial ad mediation, and battle pass/subscription architectures.
+            </p>
+            <ul class="service-features">
+              <li>Google AdMob, Unity Ads & AppLovin MAX</li>
+              <li>Apple StoreKit 2 & Google Play Billing</li>
+              <li>A/B testing for pricing & ad placements</li>
+            </ul>
+          </div>
+
+          <!-- Service 6: Store Publishing & QA -->
+          <div class="service-card">
+            <div class="service-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <h3>Publishing, QA & ASO</h3>
+            <p>
+              Hassle-free release lifecycle. We handle Apple App Store guidelines, Google Play target API compliance, automated device testing, battery profiling, and App Store Optimization (ASO).
+            </p>
+            <ul class="service-features">
+              <li>Compliance review & metadata optimization</li>
+              <li>Multi-device resolution & screen adaptation</li>
+              <li>Crash-rate reduction & memory leak profiling</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SHOWCASE SECTION -->
+    <section class="section portfolio-section" id="portfolio">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">OUR PORTFOLIO</span>
+          <h2 class="section-title">Featured Apps & Games</h2>
+          <p class="section-subtitle">
+            A glimpse into the digital experiences and mobile titles crafted with MazoteSoft precision.
+          </p>
+
+          <!-- Portfolio Filter Buttons -->
+          <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="game">Mobile Games</button>
+            <button class="filter-btn" data-filter="app">Mobile Apps</button>
+          </div>
+        </div>
+
+        <div class="portfolio-grid" id="portfolioGrid">
+          <!-- Item 1: RogueDraft (Game) -->
+          <div class="project-card" data-category="game">
+            <div class="project-media">
+              <div class="project-gradient-bg game-bg-1">
+                <span class="project-badge">Mobile Game</span>
+                <div class="media-icon">⚔️</div>
+                <div class="mockup-game-preview">
+                  <div class="game-tag">ROGUELIKE TACTICS</div>
+                  <h4>RogueDraft</h4>
+                  <p>Deckbuilder RPG for iOS & Android</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>Unity</span>
+                <span>C#</span>
+                <span>Turn-Based</span>
+                <span>Mobile</span>
+              </div>
+              <h3 class="project-title">RogueDraft</h3>
+              <p class="project-desc">
+                A tactical mobile card-battler combining roguelike draft mechanics, procedurally generated dungeons, and responsive touch-first strategy combat.
+              </p>
+              <div class="project-stats">
+                <div><strong>60 FPS</strong> Target</div>
+                <div><strong>Unity</strong> Engine</div>
+                <div><strong>Offline</strong> Capable</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2: LottoCol (App) -->
+          <div class="project-card" data-category="app">
+            <div class="project-media">
+              <div class="project-gradient-bg app-bg-1">
+                <span class="project-badge">Mobile App</span>
+                <div class="media-icon">📊</div>
+                <div class="mockup-game-preview">
+                  <div class="game-tag">FINTECH & UTILITY</div>
+                  <h4>LottoCol</h4>
+                  <p>Smart Lottery Analytics & Tracker</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>Flutter</span>
+                <span>Dart</span>
+                <span>REST API</span>
+                <span>Analytics</span>
+              </div>
+              <h3 class="project-title">LottoCol Mobile</h3>
+              <p class="project-desc">
+                Modern utility application providing real-time lottery verification, historical number statistics, probability modeling, and instant push alerts.
+              </p>
+              <div class="project-stats">
+                <div><strong>Instant</strong> Sync</div>
+                <div><strong>Clean UI</strong> 2.0</div>
+                <div><strong>iOS / Android</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3: CyberPulse Runner (Game) -->
+          <div class="project-card" data-category="game">
+            <div class="project-media">
+              <div class="project-gradient-bg game-bg-2">
+                <span class="project-badge">Mobile Game</span>
+                <div class="media-icon">⚡</div>
+                <div class="mockup-game-preview">
+                  <div class="game-tag">FAST-PACED ACTION</div>
+                  <h4>CyberPulse</h4>
+                  <p>Endless Synthwave Cyber-Runner</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>3D Mobile</span>
+                <span>ShaderGraph</span>
+                <span>Audio Reactive</span>
+              </div>
+              <h3 class="project-title">CyberPulse: Neon Rush</h3>
+              <p class="project-desc">
+                Adrenaline-fueled 3D endless runner featuring dynamic neon shaders, rhythmic obstacle challenges, and competitive global leaderboards.
+              </p>
+              <div class="project-stats">
+                <div><strong>High-Speed</strong> Loop</div>
+                <div><strong>Haptic</strong> Feedback</div>
+                <div><strong>Global</strong> Board</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4: TaskFlow Companion (App) -->
+          <div class="project-card" data-category="app">
+            <div class="project-media">
+              <div class="project-gradient-bg app-bg-2">
+                <span class="project-badge">Mobile App</span>
+                <div class="media-icon">🎯</div>
+                <div class="mockup-game-preview">
+                  <div class="game-tag">PRODUCTIVITY</div>
+                  <h4>TaskFlow Mobile</h4>
+                  <p>Gamified Habit & Focus Manager</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <div class="project-tags">
+                <span>React Native</span>
+                <span>SQLite</span>
+                <span>Interactive Widgets</span>
+              </div>
+              <h3 class="project-title">TaskFlow Companion</h3>
+              <p class="project-desc">
+                Gamified productivity assistant with daily streaks, home screen widgets, and offline-first encrypted sync for peak performance.
+              </p>
+              <div class="project-stats">
+                <div><strong>Offline-First</strong></div>
+                <div><strong>Dark Mode</strong></div>
+                <div><strong>iOS Widget</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGIES SECTION -->
+    <section class="section tech-section" id="tech">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">TECH STACK</span>
+          <h2 class="section-title">Engineered with World-Class Tools</h2>
+          <p class="section-subtitle">
+            We pick the right engine and language for your project's performance, target platforms, and roadmap.
+          </p>
+        </div>
+
+        <div class="tech-grid">
+          <div class="tech-badge-card">
+            <span class="tech-icon">🎮</span>
+            <h4>Unity 3D/2D</h4>
+            <p>Industry-standard cross-platform game development</p>
+          </div>
+          <div class="tech-badge-card">
+            <span class="tech-icon">📱</span>
+            <h4>Flutter & Dart</h4>
+            <p>Fast, expressive native compilation for iOS and Android</p>
+          </div>
+          <div class="tech-badge-card">
+            <span class="tech-icon">🍏</span>
+            <h4>Swift & iOS</h4>
+            <p>Pixel-perfect Apple ecosystem design and performance</p>
+          </div>
+          <div class="tech-badge-card">
+            <span class="tech-icon">🤖</span>
+            <h4>Kotlin & Android</h4>
+            <p>Modern, expressive Android architecture and services</p>
+          </div>
+          <div class="tech-badge-card">
+            <span class="tech-icon">🔥</span>
+            <h4>Firebase & Cloud</h4>
+            <p>Realtime DB, Cloud Messaging, Auth & Crashlytics</p>
+          </div>
+          <div class="tech-badge-card">
+            <span class="tech-icon">🎨</span>
+            <h4>Figma & Blender</h4>
+            <p>Cutting-edge UI systems, 3D asset modeling and texturing</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US / ADVANTAGES -->
+    <section class="section why-section">
+      <div class="container">
+        <div class="why-grid">
+          <div class="why-content">
+            <span class="section-tag">THE MAZOTESOFT ADVANTAGE</span>
+            <h2 class="section-title">Why Studio Partners & Founders Trust MazoteSoft</h2>
+            <p class="section-subtitle">
+              We operate not just as contract programmers, but as technical co-creators invested in the commercial and gameplay success of your release.
+            </p>
+
+            <div class="why-list">
+              <div class="why-item">
+                <div class="why-bullet">01</div>
+                <div>
+                  <h4>Zero-Compromise Performance</h4>
+                  <p>Battery-efficient algorithms, lightweight assets, and stable framerates across budget to flagship devices.</p>
+                </div>
+              </div>
+              <div class="why-item">
+                <div class="why-bullet">02</div>
+                <div>
+                  <h4>Commercial Viability from Day One</h4>
+                  <p>In-app monetization, retention funnels, and app store compliance planned into the architecture.</p>
+                </div>
+              </div>
+              <div class="why-item">
+                <div class="why-bullet">03</div>
+                <div>
+                  <h4>Transparent Sprints & Playable Demos</h4>
+                  <p>Weekly milestone builds accessible on TestFlight and Google Play Internal Testing.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="why-cta-card">
+            <div class="cta-glow"></div>
+            <span class="ready-badge">HAVE A GAME OR APP IDEA?</span>
+            <h3>Let's Turn Your Concept Into Playable Reality.</h3>
+            <p>
+              Whether you need full-cycle game development, a mobile MVP, or optimization for an existing project, our engineers are ready.
+            </p>
+            <div class="card-action-btn">
+              <a href="#contact" class="btn btn-primary btn-block">Start Your Project</a>
+              <a href="https://wa.me/573000000000?text=Hello%20MazoteSoft!%20I%20have%20a%20mobile%20app%2Fgame%20project%20I'd%20like%20to%20discuss." target="_blank" rel="noopener noreferrer" class="btn btn-outline-white btn-block">
+                Chat via WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">CONTACT US</span>
+          <h2 class="section-title">Let's Build Something Exceptional</h2>
+          <p class="section-subtitle">
+            Tell us about your mobile app or game project. We'll analyze your requirements and get back within 24 hours.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Info Column -->
+          <div class="contact-info-col">
+            <div class="info-card">
+              <div class="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div>
+                <h4>Direct Email</h4>
+                <a href="mailto:mazotesoft@gmail.com" class="info-link">mazotesoft@gmail.com</a>
+                <p class="info-sub">Fast response within 24 business hours</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon whatsapp-accent-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.37C9.37 7.37 9.1 7.43 8.88 7.67C8.65 7.92 8.03 8.5 8.03 9.68C8.03 10.86 8.89 12 9.01 12.16C9.13 12.33 10.7 14.75 13.1 15.78C13.67 16.03 14.12 16.18 14.46 16.29C15.03 16.47 15.56 16.44 15.97 16.38C16.43 16.31 17.39 15.8 17.59 15.24C17.79 14.67 17.79 14.19 17.73 14.09C17.67 13.99 17.51 13.93 17.27 13.81C17.03 13.69 15.86 13.11 15.64 13.03C15.42 12.95 15.26 12.91 15.1 13.15C14.94 13.39 14.48 13.93 14.34 14.09C14.2 14.25 14.06 14.27 13.82 14.15C13.58 14.03 12.57 13.7 11.37 12.63C10.44 11.8 9.81 10.77 9.63 10.46C9.45 10.15 9.61 9.99 9.73 9.87C9.84 9.76 9.98 9.58 10.12 9.42C10.26 9.26 10.3 9.14 10.4 8.94C10.5 8.74 10.44 8.56 10.38 8.44C10.32 8.32 9.86 7.19 9.67 6.72C9.48 6.27 9.29 6.33 9.15 6.32C9.02 6.32 8.86 6.32 8.7 6.32L9.53 7.37Z"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Direct WhatsApp</h4>
+                <a href="https://wa.me/573000000000?text=Hello%20MazoteSoft!%20I'm%20reaching%20out%20about%20a%20mobile%20project." target="_blank" rel="noopener noreferrer" class="info-link">Click to Chat on WhatsApp</a>
+                <p class="info-sub">Instant messaging & quick consultation</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              </div>
+              <div>
+                <h4>Working Availability</h4>
+                <p class="info-text">Monday - Friday (Remote Worldwide)</p>
+                <p class="info-sub">Agile sprints across global timezones</p>
+              </div>
+            </div>
+
+            <!-- GitHub link box -->
+            <div class="info-card github-card">
+              <div class="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Official GitHub</h4>
+                <a href="https://github.com/MazoteSoft" target="_blank" rel="noopener noreferrer" class="info-link">github.com/MazoteSoft</a>
+                <p class="info-sub">Open source tools and repositories</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Form Column -->
+          <div class="contact-form-col">
+            <div class="form-wrapper">
+              <h3 class="form-title">Send a Message</h3>
+              <p class="form-subtitle">Fill in the form below and we'll reply right away.</p>
+
+              <form id="contactForm" novalidate>
+                <div class="form-group">
+                  <label for="name">Your Name / Company <span class="required">*</span></label>
+                  <input type="text" id="name" name="name" placeholder="e.g. Alex Morgan" required>
+                  <span class="field-error" id="nameError">Please enter your name</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Work Email <span class="required">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="alex@company.com" required>
+                  <span class="field-error" id="emailError">Please enter a valid email address</span>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="projectType">Project Type</label>
+                    <select id="projectType" name="projectType">
+                      <option value="Mobile Game Development">Mobile Game Development (Unity/3D)</option>
+                      <option value="Mobile Application">Custom Mobile App (iOS / Android)</option>
+                      <option value="UI/UX & Art Design">UI/UX & Game Art</option>
+                      <option value="Code Optimization & QA">Optimization, QA & LiveOps</option>
+                      <option value="Other">Consultation / Other</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="budget">Estimated Timeline</label>
+                    <select id="budget" name="budget">
+                      <option value="Immediate">Urgent (&lt; 1 month)</option>
+                      <option value="1-3 Months" selected>1 - 3 Months</option>
+                      <option value="3-6 Months">3 - 6 Months</option>
+                      <option value="Planning Phase">Exploratory / Planning</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="message">Project Description <span class="required">*</span></label>
+                  <textarea id="message" name="message" rows="4" placeholder="Tell us about your game mechanics, app concept, target platforms, or goals..." required></textarea>
+                  <span class="field-error" id="messageError">Please describe your project briefly</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block submit-btn" id="submitBtn">
+                  <span>Send Project Inquiry</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+
+                <!-- Feedback Toast inside Form -->
+                <div class="form-feedback success-msg" id="formSuccess">
+                  <div class="feedback-icon">✓</div>
+                  <div>
+                    <strong>Thank you! Your inquiry has been sent.</strong>
+                    <p>Our team at MazoteSoft will review your requirements and reach out via email shortly.</p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="40" height="40" rx="10" fill="url(#footer-grad)"/>
+                <path d="M10 29V13L16 22L20 16L24 22L30 13V29" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="20" cy="27" r="1.8" fill="#FFFFFF"/>
+                <defs>
+                  <linearGradient id="footer-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#0284C7"/>
+                    <stop offset="1" stop-color="#1D4ED8"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="logo-text">
+              <span class="logo-name">Mazote<span class="accent-text">Soft</span></span>
+            </div>
+          </div>
+          <p class="footer-about">
+            High-performance mobile application and game development studio. Transforming creative visions into captivating digital products.
+          </p>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Featured Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Expertise</h4>
+          <ul>
+            <li><a href="#services">Mobile Game Development</a></li>
+            <li><a href="#services">iOS & Android Apps</a></li>
+            <li><a href="#services">Unity Engine & 3D</a></li>
+            <li><a href="#services">LiveOps & Monetization</a></li>
+            <li><a href="#services">ASO & Publishing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:mazotesoft@gmail.com">Email Us</a></li>
+            <li><a href="https://github.com/MazoteSoft" target="_blank" rel="noopener noreferrer">GitHub Organization</a></li>
+            <li><a href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">WhatsApp Direct</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 MazoteSoft. All rights reserved. Crafted with precision for iOS & Android.</p>
+        <div class="footer-bottom-links">
+          <a href="#home">Privacy Policy</a>
+          <span class="dot-separator">•</span>
+          <a href="#home">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/573000000000?text=Hello%20MazoteSoft!%20I'm%20interested%20in%20developing%20a%20mobile%20app%20or%20game." 
+     class="whatsapp-float" 
+     id="whatsappButton" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="Chat with MazoteSoft on WhatsApp">
+    <div class="whatsapp-pulse"></div>
+    <div class="whatsapp-tooltip">
+      <span>Chat with us on WhatsApp! 💬</span>
+    </div>
+    <svg class="whatsapp-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M16 2C8.268 2 2 8.268 2 16C2 18.736 2.784 21.328 4.236 23.552L2.732 29.268L8.608 27.796C10.748 29.176 13.284 29.996 16 29.996C23.732 29.996 30 23.728 30 16C30 8.268 23.732 2 16 2ZM16 27.604C13.568 27.604 11.296 26.88 9.384 25.624L9.004 25.372L4.996 26.376L6.028 22.484L5.752 22.064C4.424 20.048 3.708 17.684 3.708 15.236C3.708 8.948 8.828 3.828 15.116 3.828C21.404 3.828 26.524 8.948 26.524 15.236C26.528 22.08 21.808 27.604 16 27.604ZM21.908 18.892C21.584 18.728 20.008 17.952 19.712 17.844C19.416 17.736 19.2 17.684 18.984 18.008C18.768 18.332 18.148 19.06 17.956 19.276C17.764 19.492 17.572 19.52 17.248 19.356C16.924 19.192 15.88 18.852 14.648 17.752C13.684 16.892 13.036 15.828 12.844 15.504C12.652 15.18 12.824 15.004 12.988 14.844C13.136 14.696 13.316 14.464 13.48 14.276C13.644 14.088 13.696 13.952 13.804 13.736C13.912 13.52 13.86 13.332 13.78 13.172C13.7 13.012 13.08 11.484 12.824 10.868C12.572 10.268 12.32 10.352 12.132 10.344C11.952 10.336 11.736 10.336 11.52 10.336C11.304 10.336 10.952 10.416 10.656 10.74C10.36 11.064 9.524 11.848 9.524 13.444C9.524 15.04 10.684 16.58 10.844 16.796C11.004 17.012 13.128 20.292 16.38 21.696C17.152 22.032 17.756 22.232 18.224 22.38C18.996 22.628 19.7 22.592 20.256 22.508C20.876 22.416 22.164 21.728 22.432 20.972C22.704 20.216 22.704 19.568 22.624 19.432C22.544 19.296 22.328 19.216 22.004 19.052L21.908 18.892Z" fill="white"/>
+    </svg>
+  </a>
+
+  <!-- JavaScript -->
+  <script src="main.js"></script>
+</body>
+</html>
