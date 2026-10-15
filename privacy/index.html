@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | MazoteSoft & Rogue Draft</title>
+  <meta name="description" content="Official Privacy Policy for MazoteSoft and mobile games including Rogue Draft. Information on data collection, Google AdMob, Firebase, GDPR, and CCPA compliance.">
+  <meta name="author" content="MazoteSoft">
+  <link rel="canonical" href="https://mazotesoft.com/privacy">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Privacy Policy | MazoteSoft">
+  <meta property="og:description" content="Privacy Policy and data practices for MazoteSoft apps and games, including Rogue Draft.">
+  <meta property="og:url" content="https://mazotesoft.com/privacy">
+
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%230066FF'/><stop offset='100%25' stop-color='%2300C2FF'/></linearGradient></defs><rect width='100' height='100' rx='24' fill='%230A192F'/><path d='M25 72 L25 32 L40 54 L50 40 L60 54 L75 32 L75 72' stroke='url(%23g)' stroke-width='9' stroke-linecap='round' stroke-linejoin='round' fill='none'/><circle cx='50' cy='68' r='4' fill='%2300C2FF'/></svg>">
+
+  <style>
+    /* Dedicated Privacy Policy layout enhancements */
+    .privacy-wrapper {
+      padding: 120px 0 80px;
+      min-height: 100vh;
+    }
+    .privacy-card {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 48px;
+      box-shadow: 0 10px 40px rgba(11, 21, 47, 0.05);
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .privacy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #E0F2FE;
+      color: #0066FF;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .privacy-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 38px;
+      font-weight: 800;
+      color: #070D1E;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .privacy-meta {
+      font-size: 14px;
+      color: #64748B;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #E2E8F0;
+      margin-bottom: 32px;
+    }
+    .lang-switcher {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .lang-btn {
+      padding: 8px 18px;
+      border-radius: 10px;
+      border: 1px solid #E2E8F0;
+      background: #F8FAFC;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      color: #475569;
+      transition: all 0.2s ease;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: #0066FF;
+      color: #FFFFFF;
+      border-color: #0066FF;
+    }
+    .privacy-content h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #070D1E;
+      margin-top: 36px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .privacy-content h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #1E293B;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    .privacy-content p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #334155;
+      margin-bottom: 14px;
+    }
+    .privacy-content ul {
+      margin: 10px 0 18px 24px;
+      color: #334155;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .privacy-content li {
+      margin-bottom: 6px;
+    }
+    .info-box {
+      background: #F0F9FF;
+      border-left: 4px solid #0066FF;
+      padding: 16px 20px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+    }
+    .info-box p {
+      margin: 0;
+      color: #0369A1;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .partner-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 14px;
+    }
+    .partner-table th, .partner-table td {
+      border: 1px solid #E2E8F0;
+      padding: 12px 16px;
+      text-align: left;
+    }
+    .partner-table th {
+      background: #F8FAFC;
+      font-weight: 700;
+      color: #070D1E;
+    }
+    .partner-table td a {
+      color: #0066FF;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .privacy-card {
+        padding: 28px 20px;
+        border-radius: 16px;
+      }
+      .privacy-header h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="site-header" id="header" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px);">
+    <div class="container header-container">
+      <a href="/" class="brand-logo" aria-label="MazoteSoft Home">
+        <div class="logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="10" fill="url(#logo-grad)"/>
+            <path d="M10 29V13L16 22L20 16L24 22L30 13V29" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="20" cy="27" r="1.8" fill="#FFFFFF"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0284C7"/>
+                <stop offset="1" stop-color="#1D4ED8"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">Mazote<span class="accent-text">Soft</span></span>
+          <span class="logo-sub">APPS & GAMES STUDIO</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <a href="/" class="btn btn-outline btn-sm">
+          <span>← Back to Home</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PRIVACY POLICY CONTAINER -->
+  <main class="privacy-wrapper">
+    <div class="container">
+      <div class="privacy-card">
+        
+        <div class="privacy-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Official Compliance Document
+        </div>
+
+        <div class="privacy-header">
+          <h1>Privacy Policy</h1>
+          <div class="privacy-meta">
+            <strong>Publisher:</strong> MazoteSoft &bull; <strong>Applications Covered:</strong> Rogue Draft (<code>com.roguedraft.game</code>), LottoCol, and studio mobile apps &bull; <strong>Last Updated:</strong> October 14, 2026
+          </div>
+        </div>
+
+        <!-- Language Switcher Tabs -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" onclick="switchLang('en')">English (EN)</button>
+          <button class="lang-btn" onclick="switchLang('es')">Español (ES)</button>
+        </div>
+
+        <!-- ENGLISH VERSION -->
+        <div id="content-en" class="privacy-content">
+          <div class="info-box">
+            <p><strong>Summary:</strong> MazoteSoft respects your privacy. We do not sell your personal data. We collect minimal technical and gameplay telemetry to operate online leaderboards, display ads via Google AdMob, and process in-app purchases through Google Play.</p>
+          </div>
+
+          <h2>1. Introduction and Scope</h2>
+          <p>This Privacy Policy applies to the mobile games, applications, and related services operated by <strong>MazoteSoft</strong> ("we", "us", or "our"), including but not limited to <strong>Rogue Draft</strong> (Package: <code>com.roguedraft.game</code>) and <strong>LottoCol: Loterías de Colombia</strong>. By downloading, accessing, or playing our games, you consent to the information collection and handling practices described herein.</p>
+
+          <h2>2. Information We Collect and Process</h2>
+          <p>We believe in data minimization. Depending on how you interact with our games, we may collect the following categories of information:</p>
+
+          <h3>A. Automatically Collected Device & Technical Data</h3>
+          <ul>
+            <li><strong>Device Identifiers:</strong> Mobile advertising identifiers (Google Advertising ID - GAID, IDFA), device model, operating system version, screen resolution, and system language.</li>
+            <li><strong>Performance & Diagnostics:</strong> Anonymous crash logs, frame rate statistics, and session duration to ensure smooth 60 FPS gameplay and stability.</li>
+            <li><strong>Network & Location:</strong> IP address (used strictly to derive coarse country/region for localization and regional ad compliance; precise GPS is never requested).</li>
+          </ul>
+
+          <h3>B. Gameplay & Progression Data</h3>
+          <ul>
+            <li><strong>Leaderboard Records:</strong> High scores, player chosen nicknames, and daily run participation stored securely in Google Cloud Firestore.</li>
+            <li><strong>Local Game State:</strong> Player levels, unlocked cosmetics, and sound preferences stored locally on your device via PlayerPrefs with cryptographic hash validation.</li>
+          </ul>
+
+          <h3>C. In-App Purchase Records</h3>
+          <ul>
+            <li>Purchases (such as Patronage Tiers and Ad-Free upgrades) are processed directly by <strong>Google Play In-App Billing</strong>. MazoteSoft never receives or stores your credit card number, bank details, or billing address. We only verify the digital transaction receipt to grant your permanent entitlements.</li>
+          </ul>
+
+          <h2>3. Third-Party Service Providers and Advertising</h2>
+          <p>To provide advertising, cloud synchronization, and core engine functionality, our applications integrate trusted industry-standard SDKs:</p>
+
+          <table class="partner-table">
+            <thead>
+              <tr>
+                <th>Service Provider</th>
+                <th>Purpose</th>
+                <th>Privacy Policy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Google AdMob</strong></td>
+                <td>Displaying banner, interstitial, rewarded video, and native ads.</td>
+                <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy & Terms</a></td>
+              </tr>
+              <tr>
+                <td><strong>Google Play Services</strong></td>
+                <td>App distribution, in-app billing, and security validation.</td>
+                <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Play Services Policy</a></td>
+              </tr>
+              <tr>
+                <td><strong>Google Cloud Firestore</strong></td>
+                <td>Anonymous leaderboard synchronization and daily challenge rankings.</td>
+                <td><a href="https://cloud.google.com/terms/cloud-privacy-notice" target="_blank" rel="noopener noreferrer">Google Cloud Privacy</a></td>
+              </tr>
+              <tr>
+                <td><strong>Unity Technologies</strong></td>
+                <td>Game engine runtime and graphics pipeline rendering.</td>
+                <td><a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Unity Privacy Policy</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>4. European Privacy Rights (GDPR / UK Data Protection)</h2>
+          <p>If you are located in the European Economic Area (EEA) or the United Kingdom, you are entitled to specific rights under the General Data Protection Regulation (GDPR):</p>
+          <ul>
+            <li><strong>Consent Management (UMP):</strong> In accordance with Google's EU User Consent Policy, our games implement the certified <strong>Google User Messaging Platform (UMP)</strong>. When launching the app, EEA/UK users are presented with a clear consent form allowing them to consent to, reject, or customize personalized advertising.</li>
+            <li><strong>Revocation of Consent:</strong> You may modify your consent choices at any time through the in-game Settings panel or by resetting your device's Advertising ID.</li>
+            <li><strong>Your Rights:</strong> You have the right to request access to, rectification of, or deletion of your personal data, as well as the right to object to processing.</li>
+          </ul>
+
+          <h2>5. California Consumer Privacy Rights (CCPA / CPRA)</h2>
+          <p>For California residents, the California Consumer Privacy Act (CCPA) provides the right to know what personal information is collected, request its deletion, and opt out of the "sale" or "sharing" of personal data:</p>
+          <ul>
+            <li><strong>We Do Not Sell Personal Information:</strong> MazoteSoft does not sell personal data for monetary compensation.</li>
+            <li><strong>Opt-Out of Interest-Based Ads:</strong> You can opt out of cross-context behavioral advertising directly on your Android device via <em>Settings > Google > Ads > Delete advertising ID</em> or <em>Opt out of Ads Personalization</em>.</li>
+          </ul>
+
+          <h2>6. Children's Privacy (COPPA Compliance)</h2>
+          <p>Our games (including Rogue Draft) are designed for general audiences and are <strong>not directed to children under 13 years of age</strong> (or under 16 in the European Union). We do not knowingly collect personal identifiable information from children. If you believe a child has provided us with personal information, please contact us immediately and we will take prompt steps to remove such data.</p>
+
+          <h2>7. Data Security and Retention</h2>
+          <p>We implement technical and organizational security measures to protect your data, including TLS/HTTPS encryption for all cloud network transmissions and client-side cryptographic hashing for game state integrity. We retain anonymous leaderboard scores only for as long as necessary to maintain active competition ladders.</p>
+
+          <h2>8. Updates to This Policy</h2>
+          <p>We may update this Privacy Policy from time to time to reflect changes in our games, technology, or legal requirements. Any modifications will be posted directly on this page with an updated "Last Updated" date.</p>
+
+          <h2>9. Contact Us</h2>
+          <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data rights, please contact our Data Protection representative at:</p>
+          <ul>
+            <li><strong>Entity:</strong> MazoteSoft</li>
+            <li><strong>Contact Email:</strong> <a href="mailto:mazotesoft@gmail.com">mazotesoft@gmail.com</a></li>
+            <li><strong>Official Website:</strong> <a href="https://mazotesoft.com">https://mazotesoft.com</a></li>
+          </ul>
+        </div>
+
+        <!-- SPANISH VERSION -->
+        <div id="content-es" class="privacy-content" style="display: none;">
+          <div class="info-box">
+            <p><strong>Resumen:</strong> En MazoteSoft respetamos tu privacidad. No vendemos tus datos personales. Recopilamos telemetría técnica y de juego mínima para operar las tablas de clasificación mundiales, mostrar anuncios a través de Google AdMob y procesar compras mediante Google Play.</p>
+          </div>
+
+          <h2>1. Introducción y Alcance</h2>
+          <p>Esta Política de Privacidad se aplica a los juegos móviles, aplicaciones y servicios operados por <strong>MazoteSoft</strong> ("nosotros" o "nuestro"), incluyendo entre otros a <strong>Rogue Draft</strong> (Paquete: <code>com.roguedraft.game</code>) y <strong>LottoCol: Loterías de Colombia</strong>. Al descargar o jugar a nuestros títulos, aceptas las prácticas de recopilación y tratamiento de información descritas en este documento.</p>
+
+          <h2>2. Información que Recopilamos y Procesamos</h2>
+          <p>Operamos bajo el principio de minimización de datos. Según tu interacción con nuestras aplicaciones, podemos procesar:</p>
+
+          <h3>A. Datos Técnicos y del Dispositivo Recopilados Automáticamente</h3>
+          <ul>
+            <li><strong>Identificadores de Dispositivo:</strong> Identificador de publicidad móvil (Google Advertising ID - GAID, IDFA), modelo del dispositivo, versión del sistema operativo, resolución de pantalla e idioma configurado.</li>
+            <li><strong>Rendimiento y Diagnóstico:</strong> Registros anónimos de fallos (crashes), tasa de cuadros por segundo (FPS) y duración de partida para asegurar 60 FPS estables y alta fluidez.</li>
+            <li><strong>Red y Ubicación Aproximada:</strong> Dirección IP utilizada exclusivamente para determinar país/región aproximada para localización de idioma y cumplimiento publicitario regional (nunca solicitamos GPS exacto).</li>
+          </ul>
+
+          <h3>B. Datos de Progresión y Juego</h3>
+          <ul>
+            <li><strong>Récords de Clasificación:</strong> Puntuaciones máximas, apodo elegido por el jugador y participación en el Desafío Diario, sincronizados de forma anónima en Google Cloud Firestore.</li>
+            <li><strong>Estado de Juego Local:</strong> Niveles alcanzados, cosméticos desbloqueados y ajustes de audio, guardados localmente en tu dispositivo mediante PlayerPrefs con verificación criptográfica.</li>
+          </ul>
+
+          <h3>C. Registro de Compras en la Aplicación</h3>
+          <ul>
+            <li>Las transacciones de tiers de mecenazgo y eliminación de anuncios se procesan de forma segura y directa por <strong>Google Play In-App Billing</strong>. MazoteSoft nunca tiene acceso ni almacena números de tarjeta de crédito ni cuentas bancarias. Únicamente validamos el recibo digital para activar tus ventajas permanentes.</li>
+          </ul>
+
+          <h2>3. Proveedores de Servicios y Redes Publicitarias</h2>
+          <p>Para ofrecer publicidad, sincronización en la nube y funcionamiento del motor de juego, nuestras aplicaciones integran herramientas oficiales de terceros:</p>
+
+          <table class="partner-table">
+            <thead>
+              <tr>
+                <th>Proveedor</th>
+                <th>Finalidad</th>
+                <th>Política de Privacidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Google AdMob</strong></td>
+                <td>Entrega de anuncios en banners, intersticiales, videos recompensados y nativos.</td>
+                <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacidad de Google</a></td>
+              </tr>
+              <tr>
+                <td><strong>Google Play Services</strong></td>
+                <td>Distribución, facturación dentro de la app y seguridad del sistema.</td>
+                <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Servicios de Google Play</a></td>
+              </tr>
+              <tr>
+                <td><strong>Google Cloud Firestore</strong></td>
+                <td>Sincronización anónima de puntuaciones mundiales y tablas de honor.</td>
+                <td><a href="https://cloud.google.com/terms/cloud-privacy-notice" target="_blank" rel="noopener noreferrer">Privacidad de Google Cloud</a></td>
+              </tr>
+              <tr>
+                <td><strong>Unity Technologies</strong></td>
+                <td>Motor de desarrollo gráfico y renderizado en tiempo real.</td>
+                <td><a href="https://unity.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Privacidad de Unity</a></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>4. Derechos de Privacidad en Europa (RGPD / GDPR)</h2>
+          <p>Si te encuentras en el Espacio Económico Europeo (EEE) o el Reino Unido, cuentas con derechos específicos bajo el Reglamento General de Protección de Datos:</p>
+          <ul>
+            <li><strong>Gestión de Consentimiento (UMP):</strong> Conforme a la política de consentimiento de la UE de Google, implementamos el sistema certificado <strong>Google User Messaging Platform (UMP)</strong>. Al iniciar el juego, los usuarios en Europa pueden aceptar, rechazar o configurar de manera transparente los anuncios personalizados.</li>
+            <li><strong>Revocación de Consentimiento:</strong> Puedes modificar tus preferencias de consentimiento en cualquier momento desde los Ajustes del juego o restableciendo el ID de Publicidad en tu dispositivo.</li>
+            <li><strong>Tus Derechos:</strong> Tienes derecho a acceder, rectificar, eliminar o limitar el tratamiento de cualquier dato asociado.</li>
+          </ul>
+
+          <h2>5. Derechos de Privacidad de California (CCPA / CPRA)</h2>
+          <p>Para residentes de California, la ley CCPA otorga el derecho a conocer qué datos se procesan y solicitar su eliminación:</p>
+          <ul>
+            <li><strong>No Vendemos Información Personal:</strong> MazoteSoft no comercializa datos personales de usuarios con fines de lucro.</li>
+            <li><strong>Control de Publicidad:</strong> Puedes desactivar la personalización de anuncios en cualquier momento en tu móvil Android desde <em>Ajustes > Google > Anuncios > Eliminar ID de publicidad</em>.</li>
+          </ul>
+
+          <h2>6. Privacidad Infantil (Cumplimiento COPPA)</h2>
+          <p>Nuestros juegos (incluido Rogue Draft) están destinados al público general y <strong>no están dirigidos a niños menores de 13 años</strong> (o menores de 16 años en la Unión Europea). No recopilamos conscientemente datos personales de menores. Si consideras que un menor nos ha facilitado información, contáctanos de inmediato para proceder a su eliminación.</p>
+
+          <h2>7. Seguridad y Retención</h2>
+          <p>Aplicamos cifrado TLS/HTTPS en todas las comunicaciones en red y hashes criptográficos en local para garantizar la integridad de los datos. La información de puntuaciones se mantiene solo durante el tiempo necesario para la funcionalidad competitiva del juego.</p>
+
+          <h2>8. Cambios a esta Política</h2>
+          <p>Podemos actualizar esta política periódicamente para reflejar mejoras técnicas o requerimientos legales. Toda actualización se publicará directamente en esta página indicando la fecha de última revisión.</p>
+
+          <h2>9. Información de Contacto</h2>
+          <p>Para cualquier duda, aclaración o solicitud sobre privacidad de datos, puedes comunicarte con nosotros a:</p>
+          <ul>
+            <li><strong>Estudio:</strong> MazoteSoft</li>
+            <li><strong>Correo de Contacto:</strong> <a href="mailto:mazotesoft@gmail.com">mazotesoft@gmail.com</a></li>
+            <li><strong>Sitio Web Oficial:</strong> <a href="https://mazotesoft.com">https://mazotesoft.com</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>&copy; 2026 MazoteSoft. All rights reserved. Crafted with precision for iOS & Android.</p>
+        <div class="footer-bottom-links">
+          <a href="/privacy">Privacy Policy</a>
+          <span class="dot-separator">•</span>
+          <a href="/">Home</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      const en = document.getElementById('content-en');
+      const es = document.getElementById('content-es');
+      const btns = document.querySelectorAll('.lang-btn');
+
+      if (lang === 'es') {
+        en.style.display = 'none';
+        es.style.display = 'block';
+        btns[0].classList.remove('active');
+        btns[1].classList.add('active');
+      } else {
+        es.style.display = 'none';
+        en.style.display = 'block';
+        btns[1].classList.remove('active');
+        btns[0].classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
