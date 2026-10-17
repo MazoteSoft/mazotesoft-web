@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rogue Draft | Arcane Roguelike Norse Card Game — MazoteSoft</title>
+  <meta name="description" content="Rogue Draft es un roguelike táctico de cartas en tiempo real con mitología nórdica arcana, monolito de 6 permutaciones dinámicas, audio háptico Ébano ASMR y 54 cartas coleccionables.">
+  <meta name="keywords" content="Rogue Draft, MazoteSoft, roguelike de cartas, card battler, mitología nórdica, drafting táctico, juego indie Android, Unity card game, deckbuilder">
+  <meta name="author" content="MazoteSoft">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rogue Draft | Arcane Roguelike Norse Card Game">
+  <meta property="og:description" content="Drafting táctico en tiempo real, mitología nórdica y audio Ébano ASMR anti-fatiga. Domina las 6 permutaciones rúnicas del Valhalla.">
+  <meta property="og:image" content="assets/feature_graphic.png">
+  <meta property="og:url" content="https://mazotesoft.com/roguedraft">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rogue Draft | Arcane Roguelike Norse Card Game">
+  <meta name="twitter:description" content="Tactical real-time Norse roguelike card game by MazoteSoft. 54 unique cards, 6 monolith permutations, and ebony tactile ASMR audio.">
+  <meta name="twitter:image" content="assets/feature_graphic.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/app_icon_512.png">
+
+  <!-- Google Fonts: Cinzel & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       NAVIGATION HEADER
+       ========================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-container">
+      <a href="https://mazotesoft.com" class="nav-brand" aria-label="MazoteSoft Studio">
+        <div class="nav-brand-icon">
+          <img src="assets/app_icon.png" alt="Rogue Draft Icon">
+        </div>
+        <div class="nav-brand-text">
+          <span class="brand-title">ROGUE <span>DRAFT</span></span>
+          <span class="brand-sub">BY MAZOTESOFT STUDIO</span>
+        </div>
+      </a>
+
+      <!-- Navigation Menu -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#hero" class="nav-link active">Inicio</a>
+        <a href="#monolith" class="nav-link">Monolito</a>
+        <a href="#grimoire" class="nav-link">Grimorio</a>
+        <a href="#modes" class="nav-link">Modos de Juego</a>
+        <a href="#tiers" class="nav-link">Tiers de Mecenazgo</a>
+        <a href="#soundboard" class="nav-link">Audio ASMR</a>
+        <a href="#faq" class="nav-link">Preguntas</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#playstore" class="btn btn-primary btn-sm">
+          <span>Unirse a la Beta</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-layer">
+      <img src="assets/hero_bg.jpg" alt="Fondo Nórdico Arcano" class="hero-bg-image">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge-container">
+          <div class="hero-badge-pill">
+            <span class="hero-badge-pulse"></span>
+            <span>Closed Beta Activa en Google Play</span>
+          </div>
+          <span class="section-tag" style="margin-bottom: 0;">VERSIÓN 1.0.1</span>
+        </div>
+
+        <h1 class="hero-title">
+          ROGUE <span class="title-accent">DRAFT</span><br>
+          ARCANE NORSE TACTICS
+        </h1>
+
+        <p class="hero-lead">
+          Un roguelike de cartas en tiempo real donde la forja nórdica y la agilidad mental se funden. 
+          Manipula altares monolíticos que mutan cada ronda, desata cartas míticas y experimenta una respuesta sensorial táctil anti-fatiga única en dispositivos móviles.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#playstore" class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.793 12 3.61 22.186a2.008 2.008 0 0 1-.22-.387V2.2c.068-.137.142-.268.219-.386zm11.605 11.606l2.385 2.385-11.83 6.83 9.445-9.215zm2.385-2.84l-2.385 2.385L5.764 3.75l11.83 6.83zm1.185 1.185c.42.242.686.69.686 1.235 0 .546-.266.993-.686 1.235l-2.146 1.238-2.613-2.473 2.613-2.473 2.146 1.238z"/></svg>
+            <span>Descargar en Google Play</span>
+          </a>
+
+          <a href="#grimoire" class="btn btn-secondary btn-lg">
+            <span>Explorar Grimorio</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <span class="stat-value gold">54</span>
+            <span class="stat-label">Cartas y Runas</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="stat-value blue">6</span>
+            <span class="stat-label">Permutaciones</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="stat-value green">100%</span>
+            <span class="stat-label">Offline Capable</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="stat-value purple">9</span>
+            <span class="stat-label">Idiomas Oficiales</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D Card Stack Showcase -->
+      <div class="hero-visual">
+        <div class="card-showcase-stack">
+          <!-- Card 1: Helheim Scythe -->
+          <div class="stack-card stack-card-1">
+            <img src="assets/card_hel.jpg" alt="Guadaña de Helheim">
+          </div>
+          <!-- Card 2: Freyja's Mirror -->
+          <div class="stack-card stack-card-2">
+            <img src="assets/card_freya.jpg" alt="Espejo de Freyja">
+          </div>
+          <!-- Card 3: Surtr's Blade -->
+          <div class="stack-card stack-card-3">
+            <img src="assets/card_surtr.jpg" alt="Mandoble Volcánico de Surtr">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FEATURE PILLARS STRIP
+       ========================================================================== */ -->
+  <section class="feature-strip">
+    <div class="container feature-strip-grid">
+      <div class="pillar-item">
+        <div class="pillar-icon-box">⚡</div>
+        <div class="pillar-info">
+          <h4>Drafting Táctico en Tiempo Real</h4>
+          <p>Decisiones de milisegundos sin pausas artificiales ni micro-transacciones pay-to-win.</p>
+        </div>
+      </div>
+
+      <div class="pillar-item">
+        <div class="pillar-icon-box">🏛️</div>
+        <div class="pillar-info">
+          <h4>Monolito de 6 Permutaciones</h4>
+          <p>Los tres altares rotan dinámicamente exigiendo una adaptación mental constante.</p>
+        </div>
+      </div>
+
+      <div class="pillar-item">
+        <div class="pillar-icon-box">🎧</div>
+        <div class="pillar-info">
+          <h4>Sonido Ébano ASMR</h4>
+          <p>Respuesta auditiva y háptica de madera natural diseñada para cero fatiga sensorial.</p>
+        </div>
+      </div>
+
+      <div class="pillar-item">
+        <div class="pillar-icon-box">💎</div>
+        <div class="pillar-info">
+          <h4>Mejora Prorrateada Justa</h4>
+          <p>Si decides apoyar el proyecto con un tier superior, solo pagas la diferencia real.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       MONOLITH & PERMUTATIONS SECTION
+       ========================================================================== -->
+  <section class="monolith-section" id="monolith">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">NÚCLEO DEL SISTEMA DE JUEGO</span>
+        <h2 class="section-title">El Monolito Rúnico de <span class="accent-gold">6 Permutaciones</span></h2>
+        <p class="section-subtitle">
+          En la base de la pantalla descansa el altar sagrado de los Aesir. Sus tres ranuras absorben Ataque, Defensa y Utilidad, 
+          pero en cada nueva ronda el orden se reconfigura para desafiar tu memoria muscular y reflejos.
+        </p>
+      </div>
+
+      <div class="monolith-wrapper">
+        <!-- Visual Monolith Presentation -->
+        <div class="monolith-visual-card">
+          <div class="monolith-media-box">
+            <img src="assets/monolith_adu.jpg" alt="Monolito Rúnico Tríada ADU">
+          </div>
+
+          <div class="monolith-altar-slots" id="altarSlotsContainer">
+            <div class="altar-slot attack-slot active">
+              <div class="altar-slot-icon">⚔️</div>
+              <div class="altar-slot-name">Ataque</div>
+              <div class="altar-slot-desc">Ranura #1</div>
+            </div>
+            <div class="altar-slot defense-slot active">
+              <div class="altar-slot-icon">🛡️</div>
+              <div class="altar-slot-name">Defensa</div>
+              <div class="altar-slot-desc">Ranura #2</div>
+            </div>
+            <div class="altar-slot utility-slot active">
+              <div class="altar-slot-icon">🧪</div>
+              <div class="altar-slot-name">Utilidad</div>
+              <div class="altar-slot-desc">Ranura #3</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Permutations Selector -->
+        <div class="permutations-selector">
+          <div style="margin-bottom: 12px;">
+            <h3 id="permDescTitle" style="color: #fff; font-size: 1.35rem; margin-bottom: 6px;">[ADU] — Ataque • Defensa • Utilidad</h3>
+            <p id="permDescText" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+              La tríada clásica del norte. La espada abre el camino, el escudo sostiene la línea y el elixir nutre la victoria.
+            </p>
+          </div>
+
+          <div class="permutation-item active" data-perm="ADU">
+            <div class="perm-left">
+              <span class="perm-code">[ADU]</span>
+              <div class="perm-details">
+                <h4>Tríada Clásica Equilibrada</h4>
+                <p>Ataque ➔ Defensa ➔ Utilidad</p>
+              </div>
+            </div>
+            <div class="perm-badges">
+              <span class="perm-badge badge-a">A</span>
+              <span class="perm-badge badge-d">D</span>
+              <span class="perm-badge badge-u">U</span>
+            </div>
+          </div>
+
+          <div class="permutation-item" data-perm="AUD">
+            <div class="perm-left">
+              <span class="perm-code">[AUD]</span>
+              <div class="perm-details">
+                <h4>Presión y Alquimia</h4>
+                <p>Ataque ➔ Utilidad ➔ Defensa</p>
+              </div>
+            </div>
+            <div class="perm-badges">
+              <span class="perm-badge badge-a">A</span>
+              <span class="perm-badge badge-u">U</span>
+              <span class="perm-badge badge-d">D</span>
+            </div>
+          </div>
+
+          <div class="permutation-item" data-perm="DAU">
+            <div class="perm-left">
+              <span class="perm-code">[DAU]</span>
+              <div class="perm-details">
+                <h4>Contragolpe Táctico</h4>
+                <p>Defensa ➔ Ataque ➔ Utilidad</p>
+              </div>
+            </div>
+            <div class="perm-badges">
+              <span class="perm-badge badge-d">D</span>
+              <span class="perm-badge badge-a">A</span>
+              <span class="perm-badge badge-u">U</span>
+            </div>
+          </div>
+
+          <div class="permutation-item" data-perm="DUA">
+            <div class="perm-left">
+              <span class="perm-code">[DUA]</span>
+              <div class="perm-details">
+                <h4>Bastión del Sabio</h4>
+                <p>Defensa ➔ Utilidad ➔ Ataque</p>
+              </div>
+            </div>
+            <div class="perm-badges">
+              <span class="perm-badge badge-d">D</span>
+              <span class="perm-badge badge-u">U</span>
+              <span class="perm-badge badge-a">A</span>
+            </div>
+          </div>
+
+          <div class="permutation-item" data-perm="UAD">
+            <div class="perm-left">
+              <span class="perm-code">[UAD]</span>
+              <div class="perm-details">
+                <h4>Cronomancia Ofensiva</h4>
+                <p>Utilidad ➔ Ataque ➔ Defensa</p>
+              </div>
+            </div>
+            <div class="perm-badges">
+              <span class="perm-badge badge-u">U</span>
+              <span class="perm-badge badge-a">A</span>
+              <span class="perm-badge badge-d">D</span>
+            </div>
+          </div>
+
+          <div class="permutation-item" data-perm="UDA">
+            <div class="perm-left">
+              <span class="perm-code">[UDA]</span>
+              <div class="perm-details">
+                <h4>Danza de Runas Invertida</h4>
+                <p>Utilidad ➔ Defensa ➔ Ataque</p>
+              </div>
+            </div>
+            <div class="perm-badges">
+              <span class="perm-badge badge-u">U</span>
+              <span class="perm-badge badge-d">D</span>
+              <span class="perm-badge badge-a">A</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       THE INTERACTIVE GRIMORIO SECTION
+       ========================================================================== -->
+  <section class="grimoire-section" id="grimoire">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">COMPENDIO OFICIAL</span>
+        <h2 class="section-title">El Grimorio <span class="accent-gold">Arcano</span></h2>
+        <p class="section-subtitle">
+          54 cartas y artefactos legendarios. Cada naipe posee proporciones áureas 3:4, cuatro gemas angulares romboédricas para lectura veloz 
+          y una placa inferior de plata y basalto con su nombre original en nórdico antiguo.
+        </p>
+      </div>
+
+      <div class="grimoire-controls">
+        <div class="grimoire-filter-bar">
+          <button class="filter-btn active" data-category="all">
+            <span>Todas</span>
+            <span class="filter-count">54</span>
+          </button>
+          <button class="filter-btn" data-category="attack">
+            <span>🔴 Ataque</span>
+            <span class="filter-count">13</span>
+          </button>
+          <button class="filter-btn" data-category="defense">
+            <span>🔵 Defensa</span>
+            <span class="filter-count">13</span>
+          </button>
+          <button class="filter-btn" data-category="utility">
+            <span>🟢 Utilidad</span>
+            <span class="filter-count">13</span>
+          </button>
+          <button class="filter-btn" data-category="mythic">
+            <span>👑 Míticas</span>
+            <span class="filter-count">5</span>
+          </button>
+          <button class="filter-btn" data-category="special">
+            <span>⭐ Especiales</span>
+            <span class="filter-count">10</span>
+          </button>
+        </div>
+
+        <div class="grimoire-search-container">
+          <svg class="search-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="grimoire-search-input" id="grimoireSearch" placeholder="Buscar por nombre nórdico, efecto o táctica...">
+        </div>
+      </div>
+
+      <!-- Live Cards Grid (Populated by script.js) -->
+      <div class="grimoire-grid" id="grimoireGrid">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CARD INSPECTOR MODAL -->
+  <div class="card-modal-backdrop" id="cardModalBackdrop" aria-hidden="true">
+    <div class="card-modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Cerrar modal">✕</button>
+
+      <div class="modal-card-visual" id="modalCardVisual">
+        <div class="modal-card-img-wrapper">
+          <img src="assets/card_surtr.jpg" alt="Carta">
+        </div>
+      </div>
+
+      <div class="modal-card-info">
+        <div class="modal-card-tag" id="modalCardTag">ATAQUE • RUBÍ MAGMA</div>
+        <h3 class="modal-card-title" id="modalCardTitle">Mandoble de Surtr</h3>
+        <div class="modal-card-norse" id="modalCardNorse">« LAEVATEINN »</div>
+
+        <div class="modal-card-stats">
+          <div class="modal-stat-box">
+            <span>Puntos de Altar</span>
+            <strong id="modalCardPts">+100 PTS</strong>
+          </div>
+          <div class="modal-stat-box">
+            <span>Rareza</span>
+            <strong id="modalCardRarity">Común</strong>
+          </div>
+        </div>
+
+        <div class="modal-lore-block">
+          <h5>Lore Arcano del Compendio</h5>
+          <p id="modalCardLore">
+            "El mandoble legendario forjado en las grietas ardientes de Muspelheim..."
+          </p>
+        </div>
+
+        <div class="modal-tactical-hint">
+          <strong style="color: #fff; display: block; margin-bottom: 4px;">Consejo de Drafting:</strong>
+          <span id="modalCardTactics">Coloca en la ranura de Ataque en momentos de ritmo alto para activar bonificaciones de combo x2.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       GAME MODES SECTION
+       ========================================================================== -->
+  <section class="modes-section" id="modes">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">VARIEDAD TÁCTICA</span>
+        <h2 class="section-title">Cuatro Modos de <span class="accent-gold">Desafío Rúnico</span></h2>
+        <p class="section-subtitle">
+          Desde el ascenso clásico roguelike por rondas hasta pruebas frenéticas de desactivación de bombas y marcadores mundiales.
+        </p>
+      </div>
+
+      <div class="modes-grid">
+        <!-- Mode 1: Ascenso Rúnico -->
+        <div class="mode-card">
+          <div class="mode-header">
+            <div class="mode-icon">⚔️</div>
+            <span class="mode-badge badge-featured">Principal</span>
+          </div>
+          <h3>Ascenso Rúnico</h3>
+          <p>La experiencia roguelike definitiva. Avanza a lo largo de 30 rondas implacables con transiciones de nivel, selección de 30 bendiciones y alteración continua de la velocidad del carril.</p>
+          <ul class="mode-features-list">
+            <li>30 niveles de dificultad progresiva</li>
+            <li>Sistema de 3 vidas con revivir táctico</li>
+            <li>Recompensas de bendiciones arcanas</li>
+          </ul>
+        </div>
+
+        <!-- Mode 2: Furia de Ragnarök -->
+        <div class="mode-card">
+          <div class="mode-header">
+            <div class="mode-icon">🔥</div>
+            <span class="mode-badge badge-survival">Supervivencia</span>
+          </div>
+          <h3>Furia de Ragnarök</h3>
+          <p>El fuego de Surtr consume el mazo. El temporizador de combustión se reduce a la mitad y cada error acelera la llegada del invierno eterno Fimbulvetr.</p>
+          <ul class="mode-features-list">
+            <li>Velocidad de cinta acelerada</li>
+            <li>Multiplicadores de frenesí x3 y x5</li>
+            <li>Máxima exigencia de reflejos</li>
+          </ul>
+        </div>
+
+        <!-- Mode 3: Bomb Rush -->
+        <div class="mode-card">
+          <div class="mode-header">
+            <div class="mode-icon">💣</div>
+            <span class="mode-badge badge-speed">Desactivación</span>
+          </div>
+          <h3>Bomb Rush</h3>
+          <p>Invasión masiva de Bombas Alquímicas Míticas entremezcladas con cartas regulares. Realiza flicks y swipes hacia los nichos laterales antes de que exploten en el monolito.</p>
+          <ul class="mode-features-list">
+            <li>Mecánica de descarte activo (Flick Out)</li>
+            <li>Gestión de Nichos Laterales</li>
+            <li>Entrenamiento de precisión pura</li>
+          </ul>
+        </div>
+
+        <!-- Mode 4: Daily Seeded Run -->
+        <div class="mode-card">
+          <div class="mode-header">
+            <div class="mode-icon">🏆</div>
+            <span class="mode-badge badge-global">Competitivo</span>
+          </div>
+          <h3>Desafío Diario (Daily Run)</h3>
+          <p>Una semilla matemática idéntica generada para todos los jugadores del mundo cada 24 horas. Un único intento para grabar tu nombre en la cima del Hall de Campeones.</p>
+          <ul class="mode-features-list">
+            <li>Misma cola de cartas global</li>
+            <li>Marcador mundial sincronizado</li>
+            <li>Insignia de Archimago del Día</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       TIERS DE MECENAZGO & PRORATED UPGRADE (TRANSPARENTE Y JUSTO)
+       ========================================================================== -->
+  <section class="tiers-section" id="tiers">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">MONETIZACIÓN ÉTICA & TRANSPARENTE</span>
+        <h2 class="section-title">Apoya el Desarrollo con <span class="accent-gold">Tiers de Mecenazgo</span></h2>
+        <p class="section-subtitle">
+          Cero cajas de botín, cero energía de espera y cero compras oscuras. Puedes jugar el 100% del juego gratis, 
+          o adquirir cosméticos de coleccionista y eliminar toda publicidad para siempre.
+        </p>
+      </div>
+
+      <!-- Prorated Upgrade Interactive Banner -->
+      <div class="prorated-banner">
+        <div class="prorated-info">
+          <div class="prorated-icon">⚖️</div>
+          <div class="prorated-text">
+            <h4>Tu Progreso se Respeta: Sistema de Mejora Prorrateada</h4>
+            <p>
+              ¿Compraste el Tier 1 y luego quieres la experiencia de Fundador? 
+              <strong>Solo pagas la diferencia.</strong> La tienda de Google Play recalcula tu tarifa automáticamente.
+            </p>
+          </div>
+        </div>
+
+        <div class="upgrade-calculator-box">
+          <label for="upgradeCalcSelect">Tengo:</label>
+          <select id="upgradeCalcSelect" class="calc-select" aria-label="Seleccionar tier actual">
+            <option value="0">Tier 0 (Gratuito)</option>
+            <option value="1">Tier 1 ($2.99 USD)</option>
+            <option value="2">Tier 2 ($4.99 USD)</option>
+            <option value="3">Tier 3 Fundador ($9.99 USD)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 4 Tiers Comparison Grid -->
+      <div class="tiers-grid">
+        <!-- Tier 0: Gratuito -->
+        <div class="tier-card">
+          <div class="tier-header">
+            <span class="tier-badge">NIVEL 0</span>
+            <h3 class="tier-name">Gratuito</h3>
+          </div>
+          <div class="tier-pricing">
+            <span class="price-cur">$</span>
+            <span class="price-main">0</span>
+            <span class="price-type">/ para siempre</span>
+          </div>
+          <div class="tier-cardback-preview">
+            <img src="assets/cardback_obsidiana.jpg" alt="Dorso Clásico">
+          </div>
+          <ul class="tier-features">
+            <li><span class="check-icon">✓</span> Acceso 100% completo a los 30 niveles</li>
+            <li><span class="check-icon">✓</span> Las 54 cartas y 30 bendiciones desbloqueadas</li>
+            <li><span class="check-icon">✓</span> Todos los 4 modos de juego disponibles</li>
+            <li><span class="check-icon">✓</span> Smart Interstitials no invasivos (1 cada 2 partidas largas con 180s cooldown)</li>
+            <li><span class="check-icon">✓</span> Revivir opcional mediante video recompensado</li>
+            <li class="excluded"><span class="check-icon">✕</span> Experiencia libre de anuncios</li>
+            <li class="excluded"><span class="check-icon">✕</span> Dorsos de coleccionista exclusivos</li>
+          </ul>
+          <div class="tier-footer">
+            <a href="#playstore" class="btn btn-secondary" style="width: 100%;">Descargar Gratis</a>
+          </div>
+        </div>
+
+        <!-- Tier 1: Iniciado Nórdico -->
+        <div class="tier-card">
+          <div class="tier-header">
+            <span class="tier-badge">NIVEL 1</span>
+            <h3 class="tier-name">Iniciado Nórdico</h3>
+          </div>
+          <div class="tier-pricing">
+            <span class="price-cur">$</span>
+            <span class="price-main" id="t1PriceDisplay">2.99</span>
+            <span class="price-type">USD (pago único)</span>
+            <div><span class="prorated-tag" id="t1ProratedTag" style="display: none;">✓ Activo</span></div>
+          </div>
+          <div class="tier-cardback-preview">
+            <img src="assets/cardback_obsidiana.jpg" alt="Dorso Obsidiana Nórdica">
+          </div>
+          <ul class="tier-features">
+            <li><span class="check-icon">✓</span> <strong>CERO PUBLICIDAD PARA SIEMPRE:</strong> Pantallas de resumen puras y limpias</li>
+            <li><span class="check-icon">✓</span> <strong>Revivir Instantáneo en 1 Toque:</strong> Sin anuncios de espera</li>
+            <li><span class="check-icon">✓</span> <strong>Dorso Obsidiana Oscura:</strong> Estética de piedra volcánica grabada</li>
+            <li><span class="check-icon">✓</span> Perfil de sonido Ébano ASMR puro anti-fatiga</li>
+            <li class="excluded"><span class="check-icon">✕</span> Jukebox Arcano ambiental</li>
+            <li class="excluded"><span class="check-icon">✕</span> Personalización de firmas sonoras</li>
+          </ul>
+          <div class="tier-footer">
+            <a href="#playstore" class="btn btn-secondary" style="width: 100%;">Elegir Iniciado</a>
+          </div>
+        </div>
+
+        <!-- Tier 2: Campeón de Midgard -->
+        <div class="tier-card">
+          <div class="tier-header">
+            <span class="tier-badge">NIVEL 2</span>
+            <h3 class="tier-name">Campeón de Midgard</h3>
+          </div>
+          <div class="tier-pricing">
+            <span class="price-cur">$</span>
+            <span class="price-main" id="t2PriceDisplay">4.99</span>
+            <span class="price-type">USD (pago único)</span>
+            <div><span class="prorated-tag" id="t2ProratedTag" style="display: none;">¡Ahorras $2.99 USD!</span></div>
+          </div>
+          <div class="tier-cardback-preview">
+            <img src="assets/cardback_celestial.jpg" alt="Dorso Celestial Rúnico">
+          </div>
+          <ul class="tier-features">
+            <li><span class="check-icon">✓</span> <strong>Todo lo incluido en el Tier 1</strong> (100% Ad-Free)</li>
+            <li><span class="check-icon">✓</span> <strong>Dorso Celestial Rúnico:</strong> Destellos zafiro y constelaciones de Asgard</li>
+            <li><span class="check-icon">✓</span> <strong>Jukebox Arcano (4 Pistas):</strong> Sinfonía Soberana, Corona del Valhalla, Fiordo de las Valquirias y Pulso Synthwave</li>
+            <li><span class="check-icon">✓</span> Marco dorado resplandeciente en el monolito</li>
+            <li class="excluded"><span class="check-icon">✕</span> Mesa de mezclas de audio táctil</li>
+            <li class="excluded"><span class="check-icon">✕</span> Nombre inmortal en los créditos</li>
+          </ul>
+          <div class="tier-footer">
+            <a href="#playstore" class="btn btn-secondary" style="width: 100%;">Elegir Campeón</a>
+          </div>
+        </div>
+
+        <!-- Tier 3: Fundador del Valhalla (Featured) -->
+        <div class="tier-card tier-founder">
+          <div class="tier-ribbon">MÁS CODICIADO</div>
+          <div class="tier-header">
+            <span class="tier-badge" style="color: var(--gem-mythic);">NIVEL 3 • EDICIÓN FUNDADOR</span>
+            <h3 class="tier-name" style="color: var(--gem-mythic);">Fundador del Valhalla</h3>
+          </div>
+          <div class="tier-pricing">
+            <span class="price-cur">$</span>
+            <span class="price-main" id="t3PriceDisplay" style="color: var(--gem-mythic);">9.99</span>
+            <span class="price-type">USD (pago único)</span>
+            <div><span class="prorated-tag" id="t3ProratedTag" style="display: none;">¡Mejora con Descuento!</span></div>
+          </div>
+          <div class="tier-cardback-preview" style="border-color: var(--gem-mythic); box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);">
+            <img src="assets/cardback_runico.jpg" alt="Dorso Oro Obsidiana Fundador">
+          </div>
+          <ul class="tier-features">
+            <li><span class="check-icon">✓</span> <strong>Todo lo incluido en Tier 1 y Tier 2</strong></li>
+            <li><span class="check-icon">✓</span> <strong>Dorso Supremo Oro Obsidiana de Fundador</strong></li>
+            <li><span class="check-icon">✓</span> <strong>Soundboard Táctil Completo:</strong> Personaliza 7 sonidos de arrastre y 7 sonidos de éxito</li>
+            <li><span class="check-icon">✓</span> <strong>Jukebox Arcano Expandido (8 Pistas):</strong> Incluye 4 temas orquestales exclusivos de Fundador</li>
+            <li><span class="check-icon">✓</span> <strong>Inscripción Inmortal:</strong> Tu nombre grabado con honor en los créditos del Salón de Campeones</li>
+            <li><span class="check-icon">✓</span> Insignia de Fundador dorada visible en el perfil</li>
+          </ul>
+          <div class="tier-footer">
+            <a href="#playstore" class="btn btn-primary" style="width: 100%;">Convertirse en Fundador</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       EBONY ASMR & AUDIO EXPERIENCE SHOWCASE
+       ========================================================================== -->
+  <section class="audio-section" id="soundboard">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">EXPERIENCIA SENSORIAL</span>
+        <h2 class="section-title">Sonido Ébano ASMR y <span class="accent-gold">Respuesta Táctil</span></h2>
+        <p class="section-subtitle">
+          Muchos juegos móviles saturan el oído con pitidos estridentes. Rogue Draft utiliza frecuencias acústicas 
+          de madera de ébano, cristal resonante y choque de basalto, diseñadas para jugar durante horas con cero fatiga.
+        </p>
+      </div>
+
+      <div class="audio-grid">
+        <!-- Interactive Soundboard -->
+        <div class="audio-interactive-card">
+          <div class="audio-card-header">
+            <h4 class="soundboard-title">Soundboard Interactivo de Demostración</h4>
+            <span class="soundboard-badge">Tier 3 Custom Studio</span>
+          </div>
+
+          <div class="soundboard-tabs">
+            <button class="sb-tab-btn active" data-tab="drag">Firmas de Arrastre (Drag)</button>
+            <button class="sb-tab-btn" data-tab="snap">Firmas de Éxito (Snap)</button>
+          </div>
+
+          <div class="sound-pads-grid" id="soundPadsGrid">
+            <!-- Rendered by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Audio Lore & Features -->
+        <div class="audio-lore">
+          <h3>Ingeniería Acústica Diseñada para la Concentración</h3>
+          <p>
+            Cada carta que se desliza por el carril posee una firma sónica particular. Al tocar el monolito inferior, 
+            el golpe de madera natural estimula el sistema nervioso parasimpático, reforzando la sensación física de satisfacción sin generar cansancio auditivo.
+          </p>
+
+          <div class="audio-pill-list">
+            <div class="audio-pill">
+              <span class="audio-pill-icon">🪵</span>
+              <div class="audio-pill-text">
+                <strong>Frecuencia Ébano 280 Hz</strong>
+                <span>Cálido, seco y 100% orgánico, emulando fichas de juego artesanal nórdico.</span>
+              </div>
+            </div>
+
+            <div class="audio-pill">
+              <span class="audio-pill-icon">🎚️</span>
+              <div class="audio-pill-text">
+                <strong>Personalización Exclusiva de Fundador</strong>
+                <span>Elige entre 7 firmas de deslizamiento y 7 de impacto para moldear tu propia atmósfera.</span>
+              </div>
+            </div>
+
+            <div class="audio-pill">
+              <span class="audio-pill-icon">🎵</span>
+              <div class="audio-pill-text">
+                <strong>Jukebox Ambiental de 8 Pistas</strong>
+                <span>Composiciones orquestales rúnicas y synthwave nórdico que fluyen con el drafting.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FAQ SECTION
+       ========================================================================== -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">DUDAS RESUELTAS</span>
+        <h2 class="section-title">Preguntas <span class="accent-gold">Frecuentes</span></h2>
+        <p class="section-subtitle">
+          Todo lo que necesitas saber sobre el bucle de juego, compatibilidad, compras justas y acceso a la beta.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-question">
+            <span>¿Rogue Draft contiene mecánicas Pay-to-Win?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Rotundamente NO. No existen cartas más poderosas bloqueadas tras muros de pago ni potenciadores que alteren la puntuación en base a dinero real. 
+              El éxito en el juego depende estrictamente de tu velocidad de lectura de runas, coordinación de permutaciones y elecciones tácticas de bendiciones.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Puedo jugar sin conexión a Internet (Offline)?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Sí, Rogue Draft es 100% jugable offline. Puedes disfrutar de todo el Ascenso Rúnico de 30 rondas, el modo Furia de Ragnarök y Bomb Rush 
+              sin necesidad de datos móviles ni Wi-Fi. La conexión a Internet solo se utiliza para sincronizar los marcadores mundiales del Desafío Diario.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Cómo funciona exactamente el sistema de Mejora Prorrateada?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Google Play detecta si ya compraste un tier inferior. Si compraste el Tier 1 ($2.99 USD) y luego decides adquirir el Tier 2 ($4.99 USD), 
+              la tienda solo te cobrará $2.00 USD. De igual forma, si pasas del Tier 2 al Tier 3 Fundador ($9.99 USD), solo pagarás los $5.00 USD restantes. Tu inversión inicial jamás se pierde.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿Cómo me uno a la Closed Beta en Google Play?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Simplemente pulsa el botón de Google Play en esta página. Si estás registrado en el programa de pruebas cerrado de MazoteSoft, 
+              podrás descargar la versión v1.0.1 inmediatamente y recibir todas las actualizaciones anticipadas directamente en tu dispositivo Android.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>¿En qué idiomas está disponible el juego?</span>
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Rogue Draft cuenta con traducción nativa completa a 9 idiomas: Inglés (en-US, idioma principal), Español, Francés, Alemán, 
+              Italiano, Portugués, Ruso, Chino Simplificado y Japonés. El idioma se detecta automáticamente de tu sistema y puede modificarse en cualquier momento desde el menú de Ajustes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CALL TO ACTION BANNER (PLAY STORE)
+       ========================================================================== -->
+  <section class="cta-banner-section" id="playstore">
+    <div class="container">
+      <div class="cta-banner-card">
+        <h2>Únete a las Pruebas de <span class="accent-gold">Rogue Draft</span></h2>
+        <p>
+          Sé de los primeros en conquistar el monolito de 6 permutaciones. Descarga la versión beta oficial en Google Play y desafía al destino nórdico.
+        </p>
+
+        <div class="store-badge-row">
+          <a href="https://play.google.com/store/apps/details?id=com.mazotesoft.roguedraft" target="_blank" rel="noopener noreferrer" class="google-play-badge-btn">
+            <svg class="gp-icon-svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3.609 1.814L13.793 12 3.61 22.186a2.008 2.008 0 0 1-.22-.387V2.2c.068-.137.142-.268.219-.386zm11.605 11.606l2.385 2.385-11.83 6.83 9.445-9.215zm2.385-2.84l-2.385 2.385L5.764 3.75l11.83 6.83zm1.185 1.185c.42.242.686.69.686 1.235 0 .546-.266.993-.686 1.235l-2.146 1.238-2.613-2.473 2.613-2.473 2.146 1.238z"/>
+            </svg>
+            <div class="gp-text-group">
+              <span class="gp-sub">DISPONIBLE EN</span>
+              <span class="gp-title">Google Play</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>ROGUE DRAFT</h4>
+          <p>
+            Arcane Roguelike Norse Card Game desarrollado por MazoteSoft Studio. 
+            Diseñado con pasión por la táctica pura, el arte de fantasía oscura y la excelencia sensorial en dispositivos móviles.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navegación</h5>
+          <ul>
+            <li><a href="#hero">Inicio</a></li>
+            <li><a href="#monolith">El Monolito</a></li>
+            <li><a href="#grimoire">El Grimorio</a></li>
+            <li><a href="#modes">Modos de Juego</a></li>
+            <li><a href="#tiers">Tiers de Mecenazgo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>MazoteSoft Studio</h5>
+          <ul>
+            <li><a href="https://mazotesoft.com">Estudio Principal</a></li>
+            <li><a href="https://mazotesoft.com#portfolio">Portafolio</a></li>
+            <li><a href="https://mazotesoft.com#services">Servicios</a></li>
+            <li><a href="https://mazotesoft.com#contact">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Legal y Soporte</h5>
+          <ul>
+            <li><a href="https://mazotesoft.com/privacy">Política de Privacidad</a></li>
+            <li><a href="mailto:mazotesoft@gmail.com">Soporte Técnico</a></li>
+            <li><a href="https://github.com/MazoteSoft" target="_blank" rel="noopener noreferrer">GitHub Oficial</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 MazoteSoft. Todos los derechos reservados. Rogue Draft es una marca de MazoteSoft Studio.</p>
+        <div class="footer-links-row">
+          <a href="https://mazotesoft.com/privacy">Privacidad</a>
+          <a href="https://mazotesoft.com">MazoteSoft.com</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
