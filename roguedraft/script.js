@@ -686,7 +686,7 @@ const GRIMOIRE_CARDS = [
     category: 'mythic',
     gem: 'mythic',
     pts: 180,
-    art: '/roguedraft/assets/card_patrocinada_tier3_fundador.jpg',
+    art: '/roguedraft/assets/card_especial_reliquia.jpg',
     lore: 'El comodín definitivo creado por las estrellas fugaces de Asgard. Encaja armónicamente en cualquiera de las tres ranuras del monolito.',
     tactics: 'Úsala en la ranura que más te convenga para rescatar un combo en apuros.',
     rarity: 'Mítica'
@@ -699,7 +699,7 @@ const GRIMOIRE_CARDS = [
     category: 'mythic',
     gem: 'mythic',
     pts: 250,
-    art: '/roguedraft/assets/card_recompensa_ataque.jpg',
+    art: '/roguedraft/assets/card_especial_goblin.jpg',
     lore: 'Criatura escurridiza que corretea por el tablero cargada con lingotes dorados robados de la forja de los enanos.',
     tactics: 'Atrápala rápidamente hacia el Nicho Derecho Mítico para reclamar una lluvia de puntos extra.',
     rarity: 'Mítica'
@@ -712,7 +712,7 @@ const GRIMOIRE_CARDS = [
     category: 'mythic',
     gem: 'mythic',
     pts: 190,
-    art: '/roguedraft/assets/card_recompensa_defensa.jpg',
+    art: '/roguedraft/assets/card_especial_espectro.jpg',
     lore: 'Aparición luminosa que sobrevuela el tablero otorgando inmunidad temporal a las penalizaciones de descarte.',
     tactics: 'Ubícala en el Nicho Derecho para activar el aura de protección espectral.',
     rarity: 'Mítica'
@@ -725,7 +725,7 @@ const GRIMOIRE_CARDS = [
     category: 'mythic',
     gem: 'mythic',
     pts: 220,
-    art: '/roguedraft/assets/Card_Menu_Special.jpg',
+    art: '/roguedraft/assets/card_especial_tiempo.jpg',
     lore: 'Una esquirla suspendida del fluir cósmico que ralentiza drásticamente la caída de cartas sin afectar tus movimientos.',
     tactics: 'Indispensable en niveles superiores al 20 para reorganizar el draft con calma.',
     rarity: 'Mítica'
