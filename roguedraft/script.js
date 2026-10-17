@@ -51,63 +51,63 @@ function initNavbar() {
    ========================================================================== */
 const PERMUTATIONS_DATA = {
   'ADU': {
-    name: 'Ataque • Defensa • Utilidad',
-    badge: 'Equilibrado / Rítmico',
-    desc: 'La tríada clásica del norte. La espada abre el camino, el escudo sostiene la línea y el elixir nutre la victoria.',
+    name: 'Attack • Defense • Utility',
+    badge: 'Balanced Triad',
+    desc: 'The classical northern triad. The sword opens the breach, the shield anchors the frontline, and the elixir secures victory.',
     slots: [
-      { type: 'attack', name: 'Ataque', icon: '⚔️', desc: 'Espadas, Hachas y Relámpagos' },
-      { type: 'defense', name: 'Defensa', icon: '🛡️', desc: 'Escudos, Muros y Yelmos' },
-      { type: 'utility', name: 'Utilidad', icon: '🧪', desc: 'Pociones, Grimorios y Relojes' }
+      { type: 'attack', name: 'Attack', icon: '⚔️', desc: 'Swords, Axes & Lightning' },
+      { type: 'defense', name: 'Defense', icon: '🛡️', desc: 'Shields, Walls & Helms' },
+      { type: 'utility', name: 'Utility', icon: '🧪', desc: 'Potions, Grimoires & Relics' }
     ]
   },
   'AUD': {
-    name: 'Ataque • Utilidad • Defensa',
-    badge: 'Presión Arcana',
-    desc: 'Potencia tus recursos inmediatamente tras el golpe inicial. Requiere velocidad refleja para consolidar la guardia al final.',
+    name: 'Attack • Utility • Defense',
+    badge: 'Arcane Pressure',
+    desc: 'Empower your resources immediately after the initial strike. Demands reflex speed to lock in defense at the end.',
     slots: [
-      { type: 'attack', name: 'Ataque', icon: '⚔️', desc: 'Espadas, Hachas y Relámpagos' },
-      { type: 'utility', name: 'Utilidad', icon: '🧪', desc: 'Pociones, Grimorios y Relojes' },
-      { type: 'defense', name: 'Defensa', icon: '🛡️', desc: 'Escudos, Muros y Yelmos' }
+      { type: 'attack', name: 'Attack', icon: '⚔️', desc: 'Swords, Axes & Lightning' },
+      { type: 'utility', name: 'Utility', icon: '🧪', desc: 'Potions, Grimoires & Relics' },
+      { type: 'defense', name: 'Defense', icon: '🛡️', desc: 'Shields, Walls & Helms' }
     ]
   },
   'DAU': {
-    name: 'Defensa • Ataque • Utilidad',
-    badge: 'Contragolpe Táctico',
-    desc: 'Prioriza la muralla para neutralizar la agresión enemiga antes de desatar la réplica ofensiva con soporte alquímico.',
+    name: 'Defense • Attack • Utility',
+    badge: 'Tactical Counter',
+    desc: 'Prioritize defensive bulwarks to absorb incoming assaults before unleashing an alchemically supported counterattack.',
     slots: [
-      { type: 'defense', name: 'Defensa', icon: '🛡️', desc: 'Escudos, Muros y Yelmos' },
-      { type: 'attack', name: 'Ataque', icon: '⚔️', desc: 'Espadas, Hachas y Relámpagos' },
-      { type: 'utility', name: 'Utilidad', icon: '🧪', desc: 'Pociones, Grimorios y Relojes' }
+      { type: 'defense', name: 'Defense', icon: '🛡️', desc: 'Shields, Walls & Helms' },
+      { type: 'attack', name: 'Attack', icon: '⚔️', desc: 'Swords, Axes & Lightning' },
+      { type: 'utility', name: 'Utility', icon: '🧪', desc: 'Potions, Grimoires & Relics' }
     ]
   },
   'DUA': {
-    name: 'Defensa • Utilidad • Ataque',
-    badge: 'Bastión del Sabio',
-    desc: 'La configuración defensiva más sólida. Absorbe el impacto, prepara los artilugios arcanos y culmina con el remate letal.',
+    name: 'Defense • Utility • Attack',
+    badge: "Sage's Bastion",
+    desc: 'The sturdiest defensive permutation. Absorb the initial surge, prepare arcane artifacts, and finish with a lethal strike.',
     slots: [
-      { type: 'defense', name: 'Defensa', icon: '🛡️', desc: 'Escudos, Muros y Yelmos' },
-      { type: 'utility', name: 'Utilidad', icon: '🧪', desc: 'Pociones, Grimorios y Relojes' },
-      { type: 'attack', name: 'Ataque', icon: '⚔️', desc: 'Espadas, Hachas y Relámpagos' }
+      { type: 'defense', name: 'Defense', icon: '🛡️', desc: 'Shields, Walls & Helms' },
+      { type: 'utility', name: 'Utility', icon: '🧪', desc: 'Potions, Grimoires & Relics' },
+      { type: 'attack', name: 'Attack', icon: '⚔️', desc: 'Swords, Axes & Lightning' }
     ]
   },
   'UAD': {
-    name: 'Utilidad • Ataque • Defensa',
-    badge: 'Estrategia de Cronomante',
-    desc: 'Manipula el tiempo y los multiplicadores de maná antes de desencadenar la ofensiva y proteger tu núcleo.',
+    name: 'Utility • Attack • Defense',
+    badge: 'Offensive Chronomancy',
+    desc: 'Manipulate time dilation and mana multipliers before unleashing your offensive forces and shielding your core.',
     slots: [
-      { type: 'utility', name: 'Utilidad', icon: '🧪', desc: 'Pociones, Grimorios y Relojes' },
-      { type: 'attack', name: 'Ataque', icon: '⚔️', desc: 'Espadas, Hachas y Relámpagos' },
-      { type: 'defense', name: 'Defensa', icon: '🛡️', desc: 'Escudos, Muros y Yelmos' }
+      { type: 'utility', name: 'Utility', icon: '🧪', desc: 'Potions, Grimoires & Relics' },
+      { type: 'attack', name: 'Attack', icon: '⚔️', desc: 'Swords, Axes & Lightning' },
+      { type: 'defense', name: 'Defense', icon: '🛡️', desc: 'Shields, Walls & Helms' }
     ]
   },
   'UDA': {
-    name: 'Utilidad • Defensa • Ataque',
-    badge: 'Danza de Runas',
-    desc: 'La permutación más exigente a alta velocidad: exige al jugador desacelerar el instinto agresivo para preparar la mesa perfecta.',
+    name: 'Utility • Defense • Attack',
+    badge: 'Inverted Runic Dance',
+    desc: 'The most demanding high-tempo permutation: requires tempering aggressive instincts to craft the ideal board state.',
     slots: [
-      { type: 'utility', name: 'Utilidad', icon: '🧪', desc: 'Pociones, Grimorios y Relojes' },
-      { type: 'defense', name: 'Defensa', icon: '🛡️', desc: 'Escudos, Muros y Yelmos' },
-      { type: 'attack', name: 'Ataque', icon: '⚔️', desc: 'Espadas, Hachas y Relámpagos' }
+      { type: 'utility', name: 'Utility', icon: '🧪', desc: 'Potions, Grimoires & Relics' },
+      { type: 'defense', name: 'Defense', icon: '🛡️', desc: 'Shields, Walls & Helms' },
+      { type: 'attack', name: 'Attack', icon: '⚔️', desc: 'Swords, Axes & Lightning' }
     ]
   }
 };
@@ -138,7 +138,7 @@ function initMonolithPermutations() {
           slotEl.innerHTML = `
             <div class="altar-slot-icon">${slot.icon}</div>
             <div class="altar-slot-name">${slot.name}</div>
-            <div class="altar-slot-desc">Ranura #${index + 1}</div>
+            <div class="altar-slot-desc">Slot #${index + 1}</div>
           `;
           altarSlotsContainer.appendChild(slotEl);
         });
@@ -155,712 +155,712 @@ const GRIMOIRE_CARDS = [
   {
     id: 'laevateinn',
     norse: 'LAEVATEINN',
-    name: 'Mandoble de Surtr',
+    name: 'Surtr's Greatsword',
     nameEn: 'Surtr\'s Volcanic Blade',
     category: 'attack',
     gem: 'ruby',
     pts: 100,
     art: '/roguedraft/assets/card_ataque_mandoble_surtr.jpg',
-    lore: 'El mandoble legendario forjado en las grietas ardientes de Muspelheim. Al caer sobre el altar, desata una lluvia de ascuas que pulveriza la resistencia del destino.',
-    tactics: 'Coloca en la ranura de Ataque en momentos de ritmo alto para activar bonificaciones de combo x2.',
-    rarity: 'Común'
+    lore: "The legendary greatsword forged in the fiery fissures of Muspelheim. Dropping onto the altar unleashes a rain of cinders that shatters fate itself.",
+    tactics: "Place into the Attack slot during high-tempo runs to trigger x2 combo multipliers.",
+    rarity: 'Common'
   },
   {
     id: 'heljarljar',
     norse: 'HELJARLJAR',
-    name: 'Guadaña de Helheim',
+    name: 'Scythe of Helheim',
     nameEn: 'Scythe of Helheim',
     category: 'attack',
     gem: 'ruby',
     pts: 95,
     art: '/roguedraft/assets/card_ataque_guadana_hel.jpg',
-    lore: 'Segadora de almas de la reina del inframundo nórdico. Su filo de obsidiana drena la energía vital de las sombras para alimentar tu puntuación.',
-    tactics: 'Especialmente veloz en el draft; su silueta esbelta facilita su identificación rápida en el carril central.',
-    rarity: 'Común'
+    lore: "The soul-reaper blade of the Norse underworld queen. Its obsidian edge siphons vital energy from the shadows to fuel your score.",
+    tactics: "Extremely agile in draft; its sleek silhouette makes it instantly identifiable on the central conveyor.",
+    rarity: 'Common'
   },
   {
     id: 'runasverd',
     norse: 'RUNASVERD',
-    name: 'Espada de Acero Rúnico',
+    name: 'Steel Runesword',
     nameEn: 'Steel Runesword',
     category: 'attack',
     gem: 'ruby',
     pts: 60,
     art: '/roguedraft/assets/card_ataque_espada.png',
-    lore: 'Espada templada en agua de manantial glacial con runas Algiz y Tiwaz incrustadas a lo largo de su hoja.',
-    tactics: 'La piedra angular de todo mazo de ataque básico. Fácil de validar en cualquier permutación.',
-    rarity: 'Común'
+    lore: "A blade tempered in glacial spring water with Algiz and Tiwaz runes etched along its keen edge.",
+    tactics: "The cornerstone of any offensive drafting strategy. Highly reliable in all 6 permutations.",
+    rarity: 'Common'
   },
   {
     id: 'vigox_blodug',
     norse: 'VIGOX BLODUG',
-    name: 'Hacha de Guerra Sangrienta',
+    name: 'Bloody Battleaxe',
     nameEn: 'Bloody Battleaxe',
     category: 'attack',
     gem: 'ruby',
     pts: 70,
     art: '/roguedraft/assets/card_ataque_hacha.png',
-    lore: 'Pesada hacha de asedio empuñada por los invasores berserkers. El peso de su filo corta la indecisión.',
-    tactics: 'Otorga una lectura táctica sólida en niveles con velocidad moderada.',
-    rarity: 'Común'
+    lore: "A heavy siege axe wielded by berserker vanguards. The sheer weight of its cleaving edge cuts through hesitation.",
+    tactics: "Provides a solid tactical read in early levels with steady conveyor speeds.",
+    rarity: 'Common'
   },
   {
     id: 'elding_himins',
     norse: 'ELDING HIMINS',
-    name: 'Rayo Celestial',
+    name: 'Heavenly Lightning',
     nameEn: 'Heavenly Lightning',
     category: 'attack',
     gem: 'ruby',
     pts: 85,
     art: '/roguedraft/assets/card_ataque_rayo.png',
-    lore: 'Un destello arrancado del cielo de Asgard. Golpea con la velocidad fulminante del rayo.',
-    tactics: 'Ideal para ejecutar swipes rápidos hacia la ranura de ataque sin dudar.',
-    rarity: 'Poco Común'
+    lore: "A blazing spark torn from the stormy skies of Asgard. Strikes with blinding, decisive velocity.",
+    tactics: "Ideal for executing instant, lightning-fast flicks directly into the Attack slot without pausing.",
+    rarity: 'Uncommon'
   },
   {
     id: 'fornkraftr',
     norse: 'FORNKRAFTR',
-    name: 'Poder Ancestral',
+    name: 'Ancient Power',
     nameEn: 'Ancient Power',
     category: 'attack',
     gem: 'ruby',
     pts: 75,
     art: '/roguedraft/assets/card_ataque_poder_ancestral.png',
-    lore: 'La fuerza primordial de los gigantes de roca que modelaron los primeros fiordos de Midgard.',
-    tactics: 'Estabiliza el medidor de daño en rondas avanzadas de draft.',
-    rarity: 'Común'
+    lore: "The primordial strength of the stone giants who chiseled the very first fjords of Midgard.",
+    tactics: "Stabilizes your score threshold in deeper procedural levels.",
+    rarity: 'Common'
   },
   {
     id: 'bolvadr_knifr',
     norse: 'BOLVADR KNIFR',
-    name: 'Cuchilla Maldita',
+    name: 'Cursed Blade',
     nameEn: 'Cursed Blade',
     category: 'attack',
     gem: 'ruby',
     pts: 80,
     art: '/roguedraft/assets/card_ataque_cuchilla_maldita.png',
-    lore: 'Daga envenenada con hiel de dragón. Aquellos que la empuñan sienten el pulso oscuro del Ragnarök.',
-    tactics: 'Su rápida respuesta al arrastre recompensa a los jugadores de reflejos afilados.',
-    rarity: 'Común'
+    lore: "A ritual dagger steeped in dark seidr sorcery. It demands precise timing in exchange for devastating point surges.",
+    tactics: "High risk, high reward. Verify that your monolith has an active Attack slot before releasing.",
+    rarity: 'Uncommon'
   },
   {
     id: 'geirr_odins',
     norse: 'GEIRR ODINS',
-    name: 'Lanza de Odín (Gungnir)',
+    name: 'Odin's Spear (Gungnir)',
     nameEn: 'Odin\'s Spear Gungnir',
     category: 'attack',
     gem: 'ruby',
     pts: 110,
     art: '/roguedraft/assets/card_ataque_lanza_odin.png',
-    lore: 'La lanza que jamás yerra el blanco, tallada en la madera sagrada de Yggdrasil por los enanos hijos de Ivaldi.',
-    tactics: 'Tiene un imán de validación natural muy tolerante en la zona de ataque.',
-    rarity: 'Rara'
+    lore: "The divine spear that never misses its target. Forged by the Sons of Ivaldi, it pulses with absolute authority.",
+    tactics: "A high-value card granting +120 PTS. Prioritize grabbing it early from the draft flow.",
+    rarity: 'Rare'
   },
   {
     id: 'hamarr_thors',
     norse: 'HAMARR THORS',
-    name: 'Martillo del Trueno (Mjölnir)',
+    name: 'Thor's Hammer (Mjölnir)',
     nameEn: 'Thor\'s Hammer Mjölnir',
     category: 'attack',
     gem: 'ruby',
     pts: 120,
     art: '/roguedraft/assets/card_ataque_martillo_thor.png',
-    lore: 'El arma más temida por los Jötunn. Su impacto resuena a través de los nueve reinos con un trueno destructor.',
-    tactics: 'Produce un feedback háptico ASMR extra denso al caer sobre el monolito.',
-    rarity: 'Rara'
+    lore: "The crushing weapon of the God of Thunder. When slammed into the altar, thunderclaps shake the table and shatter doubts.",
+    tactics: "High-point flagship card (+135 PTS). Synergizes exceptionally with active Frenzy multipliers.",
+    rarity: 'Rare'
   },
   {
     id: 'alfbogi',
     norse: 'ALFBOGI',
-    name: 'Arco Élfico de Alfheim',
+    name: 'Elven Bow of Alfheim',
     nameEn: 'Elven Bow of Alfheim',
     category: 'attack',
     gem: 'ruby',
     pts: 65,
     art: '/roguedraft/assets/card_ataque_arco_elfico.png',
-    lore: 'Arco flexible trenzado con pelo de corcel lunar y madera de tejo bendecida por los elfos de la luz.',
-    tactics: 'Gran precisión para drafts de ritmo acelerado.',
-    rarity: 'Común'
+    lore: "Crafted from luminous petrified white bough and strung with celestial silk. Fires arrows of condensed starlight.",
+    tactics: "High visual clarity; ideal for swift flick maneuvers into the designated slot.",
+    rarity: 'Common'
   },
   {
     id: 'fenrisklaer',
     norse: 'FENRISKLAER',
-    name: 'Garras de Fenrir',
+    name: 'Fenrir's Claws',
     nameEn: 'Fenrir\'s Claws',
     category: 'attack',
     gem: 'ruby',
     pts: 90,
     art: '/roguedraft/assets/card_ataque_garras_fenrir.png',
-    lore: 'Filosas como esquirlas de hielo negro, capaces de desgarrar las cadenas cósmicas que apresan al gran lobo.',
-    tactics: 'Aumenta el multiplicador de puntos si se coloca en menos de 0.8 segundos.',
-    rarity: 'Poco Común'
+    lore: "Fangs and claws of the unchained primordial wolf. Their feral hunger devours obstacles in the card stream.",
+    tactics: "Fast drafting signature card. Gives high scoring value in aggressive runs.",
+    rarity: 'Uncommon'
   },
   {
     id: 'fafniskylfa',
     norse: 'FAFNISKYLFA',
-    name: 'Maza de Cráneo de Dragón',
+    name: 'Dragon-skull Mace',
     nameEn: 'Dragon-skull Mace',
     category: 'attack',
     gem: 'ruby',
     pts: 85,
     art: '/roguedraft/assets/card_ataque_maza_fafnir.jpg',
-    lore: 'Forjada con los colmillos y el hueso petrificado de Fafnir. Desprende un vapor tóxico y dorado.',
-    tactics: 'Excelente peso visual para evitar confusiones con cartas de defensa.',
-    rarity: 'Poco Común'
+    lore: "A devastating war club carved from the petrified skull of the dragon Fáfnir, crowned in gilded greed and cursed scales.",
+    tactics: "Generates high score momentum when chained in succession during Frenzy mode.",
+    rarity: 'Uncommon'
   },
   {
     id: 'berserkslag',
     norse: 'BERSERKSLAG',
-    name: 'Mangual del Berserker',
+    name: 'Berserker Flail',
     nameEn: 'Berserker Flail',
     category: 'attack',
     gem: 'ruby',
     pts: 75,
     art: '/roguedraft/assets/card_ataque_mangual_berserker.jpg',
-    lore: 'Tres bolas de hierro con púas unidas por cadenas de sangre. Despierta la furia ciega de los guerreros del oso.',
-    tactics: 'Recompensa series de colocaciones continuas sin pausas intermedias.',
-    rarity: 'Común'
+    lore: "Three spiked iron orbs linked by heavy volcanic chains, swung in uncontrollable battle delirium.",
+    tactics: "Easily recognized by its heavy silhouette. Great for rapid clearing of incoming card queues.",
+    rarity: 'Common'
   },
 
   // --- 13 DEFENSE CARDS (Blue Sapphire) ---
   {
     id: 'freyjuspegell',
     norse: 'FREYJUSPEGELL',
-    name: 'Espejo Reliquia de Freyja',
+    name: 'Freyja's Mirror',
     nameEn: 'Freyja\'s Relic Mirror',
     category: 'defense',
     gem: 'sapphire',
     pts: 100,
     art: '/roguedraft/assets/card_defensa_espejo_freya.jpg',
-    lore: 'Superficie de plata celestial que refleja las lágrimas de ámbar de la diosa del amor y la guerra, disipando la agresión.',
-    tactics: 'Coloca en la ranura central o lateral de defensa para salvaguardar tu racha de vidas.',
-    rarity: 'Rara'
+    lore: "The sacred scrying glass of the goddess of love and seidr magic. Reflects hostile energies into harmonic light.",
+    tactics: "Essential in defensive permutations [DAU] and [DUA] to anchor health early.",
+    rarity: 'Common'
   },
   {
     id: 'niflkruna',
     norse: 'NIFLKRUNA',
-    name: 'Corona Glacial de Niflheim',
+    name: 'Glacial Crown of Niflheim',
     nameEn: 'Glacial Crown of Niflheim',
     category: 'defense',
     gem: 'sapphire',
     pts: 95,
     art: '/roguedraft/assets/card_defensa_corona_glacial.jpg',
-    lore: 'Diadema de escarcha eterna tallada de los glaciares originarios del cosmos nórdico. Congela los errores con serenidad.',
-    tactics: 'Su tono azul cobalto profundo la hace inconfundible incluso durante la Niebla Oscura.',
-    rarity: 'Común'
+    lore: "A royal diadem sculpted from eternal primordial rime. Emits a freezing aura that stabilizes the heart of the altar.",
+    tactics: "Distinctive cold sapphire palette makes it a reliable target for reflex drafting.",
+    rarity: 'Common'
   },
   {
     id: 'skjoldr_hlifar',
     norse: 'SKJOLDR HLIFAR',
-    name: 'Escudo Protector',
+    name: 'Shield of Protection',
     nameEn: 'Shield of Protection',
     category: 'defense',
     gem: 'sapphire',
     pts: 60,
     art: '/roguedraft/assets/card_defensa_escudo.png',
-    lore: 'Roble macizo revestido de piel de buey y un gran umbo de hierro pulido para frenar cualquier embate.',
-    tactics: 'La base de tu defensa en las primeras rondas del Ascenso Rúnico.',
-    rarity: 'Común'
+    lore: "Reinforced ashwood round shield bound with heavy iron hoops. Bears the protective Aegishjalmr ward.",
+    tactics: "Standard defensive workhorse. Perfectly tuned for basic rhythm anchoring.",
+    rarity: 'Common'
   },
   {
     id: 'isvegr',
     norse: 'ISVEGR',
-    name: 'Muralla Glacial',
+    name: 'Glacial Wall',
     nameEn: 'Glacial Wall',
     category: 'defense',
     gem: 'sapphire',
     pts: 70,
     art: '/roguedraft/assets/card_defensa_hielo.png',
-    lore: 'Bloque monumental de hielo indestructible que detiene flechas ardientes y alientos de dragón.',
-    tactics: 'Excelente estabilidad y visibilidad en altares permutados.',
-    rarity: 'Común'
+    lore: "A monolithic barrier of enchanted mountain ice that halts relentless onslaughts.",
+    tactics: "High score yield (+80 PTS) for standard defense cards.",
+    rarity: 'Common'
   },
   {
     id: 'hjalmr_valkyrju',
     norse: 'HJALMR VALKYRJU',
-    name: 'Yelmo de Valquiria',
+    name: 'Valkyrie Helm',
     nameEn: 'Valkyrie Helm',
     category: 'defense',
     gem: 'sapphire',
     pts: 85,
     art: '/roguedraft/assets/card_defensa_yelmo.png',
-    lore: 'Adornado con alas de cisne plateadas, bendecido para guiar a los espíritus heroicos hacia el descanso eterno.',
-    tactics: 'Otorga una lectura táctica nítida cuando el reloj de arena apremia.',
-    rarity: 'Poco Común'
+    lore: "The winged helm worn by the choosers of the slain as they descend over fiery battlefields.",
+    tactics: "Offers great visual contrast against volcanic or darker background realms.",
+    rarity: 'Uncommon'
   },
   {
     id: 'ljosskjoldr',
     norse: 'LJOSSKJOLDR',
-    name: 'Aegis Divino',
+    name: 'Divine Aegis',
     nameEn: 'Divine Aegis',
     category: 'defense',
     gem: 'sapphire',
     pts: 105,
     art: '/roguedraft/assets/card_defensa_aegis_divino.png',
-    lore: 'Escudo incandescente de luz solar bendecido por Baldur. Ciega a los demonios que pretenden alterar tu draft.',
-    tactics: 'Puntaje de defensa superior para escalar la tabla de clasificación mundial.',
-    rarity: 'Rara'
+    lore: "A radiant kite shield imbued with the dawn light of Valhalla. Protects against cognitive fatigue.",
+    tactics: "Awards +115 PTS. Prioritize when entering levels with accelerated card queues.",
+    rarity: 'Rare'
   },
   {
     id: 'brotin_brynja',
     norse: 'BROTIN BRYNJA',
-    name: 'Armadura Fracturada',
+    name: 'Fractured Armor',
     nameEn: 'Fractured Armor',
     category: 'defense',
     gem: 'sapphire',
     pts: 55,
     art: '/roguedraft/assets/card_defensa_armadura_fracturada.png',
-    lore: 'Cota de malla curtida por mil batallas; aunque agrietada, aún contiene el coraje indestructible de su portador.',
-    tactics: 'Aparece frecuentemente; no la dejes expirar en la cinta de descarte.',
-    rarity: 'Común'
+    lore: "Battle-scarred mail forged of blackened meteoric steel, still holding firm against doom.",
+    tactics: "Reliable intermediate point generator (+75 PTS) for routine drafting rhythms.",
+    rarity: 'Common'
   },
   {
     id: 'drekaskjoldr',
     norse: 'DREKASKJOLDR',
-    name: 'Escudo de Dragón',
+    name: 'Dragon Shield',
     nameEn: 'Dragon Shield',
     category: 'defense',
     gem: 'sapphire',
     pts: 90,
     art: '/roguedraft/assets/card_defensa_escudo_dragon.png',
-    lore: 'Escamas carmesí y azules ensambladas con remaches de bronce de Nidavellir, resistentes al calor del tártaro.',
-    tactics: 'Combina estéticamente con el monolito rúnico en permutaciones DUA y DAU.',
-    rarity: 'Poco Común'
+    lore: "Reinforced with iridescent scales plucked from slain serpents of the deep sea trenches.",
+    tactics: "Offers instant recognition thanks to its crimson-and-azure reflective sheen.",
+    rarity: 'Uncommon'
   },
   {
     id: 'nordurljosakapa',
     norse: 'NORDURLJOSAKAPA',
-    name: 'Manto de la Aurora',
+    name: 'Aurora Mantle',
     nameEn: 'Aurora Mantle',
     category: 'defense',
     gem: 'sapphire',
     pts: 80,
     art: '/roguedraft/assets/card_defensa_manto_aurora.png',
-    lore: 'Tejido etéreo con los destellos verdes y violetas de la aurora boreal que cruza el cielo ártico.',
-    tactics: 'Mitiga el estrés visual en pantallas OLED gracias a su tono fluido.',
-    rarity: 'Común'
+    lore: "A flowing cape woven from shimmering green and violet ribbons of the northern lights.",
+    tactics: "Calms visual stress during intense card-clearing sequences.",
+    rarity: 'Uncommon'
   },
   {
     id: 'steinmurr',
     norse: 'STEINMURR',
-    name: 'Bastión de Piedra Rúnica',
+    name: 'Runic Stone Bastion',
     nameEn: 'Runic Stone Bastion',
     category: 'defense',
     gem: 'sapphire',
     pts: 75,
     art: '/roguedraft/assets/card_defensa_bastion_runico.png',
-    lore: 'Menhir vertical grabado con encantamientos de protección que anclan el alma al suelo sagrado.',
-    tactics: 'Su masa volumétrica ayuda a fijar el drag and drop sin titubeos.',
-    rarity: 'Común'
+    lore: "A wall of ancient granite megaliths etched with defensive bindrunes by master stonemasons.",
+    tactics: "Simple and immediate placement target in left-aligned defense permutations.",
+    rarity: 'Common'
   },
   {
     id: 'jotunngloi',
     norse: 'JOTUNNGLOI',
-    name: 'Guantelete del Gigante',
+    name: 'Giant's Gauntlet',
     nameEn: 'Giant\'s Gauntlet',
     category: 'defense',
     gem: 'sapphire',
     pts: 80,
     art: '/roguedraft/assets/card_defensa_guantelete_gigante.png',
-    lore: 'Guantelete de placas de hierro colosal que permite detener el filo de espadas legendarias a mano limpia.',
-    tactics: 'Seguridad máxima contra penalizaciones de tiempo.',
-    rarity: 'Común'
+    lore: "A colossal iron gauntlet worn by frost giants capable of crushing mountain peaks bare-handed.",
+    tactics: "Grants +125 PTS. Maximize by validating during active Frenzy fever windows.",
+    rarity: 'Rare'
   },
   {
     id: 'gleipnir',
     norse: 'GLEIPNIR',
-    name: 'Grilletes Cósmicos de Gleipnir',
+    name: 'Gleipnir Cosmic Shackles',
     nameEn: 'Gleipnir Cosmic Shackles',
     category: 'defense',
     gem: 'sapphire',
     pts: 110,
     art: '/roguedraft/assets/card_defensa_grilletes_gleipnir.jpg',
-    lore: 'Seda mágica suave como el viento pero más resistente que el acero, hecha con el suspiro de los peces y las raíces de la montaña.',
-    tactics: 'Inmoviliza las cartas erráticas cuando el ritmo se descontrola.',
-    rarity: 'Rara'
+    lore: "The silk-thin yet unbreakable fetter forged from mountain roots and the breath of fish to bind the wolf.",
+    tactics: "A powerhouse defense card granting +95 PTS with flawless visual clarity.",
+    rarity: 'Uncommon'
   },
   {
     id: 'vardsteinn',
     norse: 'VARDSTEINN',
-    name: 'Monolito Rúnico de Guarda',
+    name: 'Wardstone Monolith',
     nameEn: 'Wardstone Monolith',
     category: 'defense',
     gem: 'sapphire',
     pts: 85,
     art: '/roguedraft/assets/card_defensa_obelisco_vardsteinn.jpg',
-    lore: 'Centinela de basalto que erige una cúpula protectora invisible sobre los tres altares.',
-    tactics: 'Perfecto para coordinar la posición de la ranura de defensa en permutaciones cruzadas.',
-    rarity: 'Poco Común'
+    lore: "A boundary runestone consecrated with elder blessings to ward off chaotic entities.",
+    tactics: "Keeps defensive momentum steady when juggling difficult permutation transitions.",
+    rarity: 'Common'
   },
 
   // --- 13 UTILITY CARDS (Emerald Green) ---
   {
     id: 'vegvisir',
     norse: 'VEGVISIR',
-    name: 'Astrolabio Navegante Vegvísir',
+    name: 'Vegvísir Wayfinder Astrolabe',
     nameEn: 'Vegvísir Wayfinder Astrolabe',
     category: 'utility',
     gem: 'emerald',
     pts: 100,
     art: '/roguedraft/assets/card_utilidad_brujula_vegvisir.jpg',
-    lore: 'El símbolo sagrado que garantiza que el portador nunca perderá su rumbo a través de las tormentas ni en mares desconocidos.',
-    tactics: 'Orienta tu vista hacia el altar de utilidad incluso bajo efectos de Dimensión Espejo.',
-    rarity: 'Rara'
+    lore: "The sacred compass inscribed so that the traveler shall never lose their way in storm or foul weather.",
+    tactics: "Key utility card with high clarity; place into Utility slot to maintain fluid combo progression.",
+    rarity: 'Common'
   },
   {
     id: 'yggdrasilsfrae',
     norse: 'YGGDRASILSFRAE',
-    name: 'Semilla Cósmica de Yggdrasil',
+    name: 'World Tree Cosmic Seed',
     nameEn: 'World Tree Cosmic Seed',
     category: 'utility',
     gem: 'emerald',
     pts: 95,
     art: '/roguedraft/assets/card_utilidad_semilla_yggdrasil.jpg',
-    lore: 'Un brote que late con la savia del Fresno del Mundo. Conecta las raíces arcanas de los nueve reinos.',
-    tactics: 'Concede un bono acumulativo de puntos de utilidad al encadenar drafts perfectos.',
-    rarity: 'Común'
+    lore: "A glowing golden pinecone fallen from the highest canopy of Yggdrasil, cradling worlds unborn.",
+    tactics: "Top-tier utility card awarding +95 PTS with bright emerald luminance.",
+    rarity: 'Common'
   },
   {
     id: 'tofradrykkr',
     norse: 'TOFRADRYKKR',
-    name: 'Poción de Maná',
+    name: 'Mana Potion',
     nameEn: 'Mana Potion',
     category: 'utility',
     gem: 'emerald',
     pts: 60,
     art: '/roguedraft/assets/card_utilidad_pocion.png',
-    lore: 'Frasco de cristal con infusión de hierbas silvestres de Vanaheim que revitaliza el flujo mágico del archimago.',
-    tactics: 'Carta de utilidad estándar; colócala sin demora para mantener la cadencia.',
-    rarity: 'Común'
+    lore: "A luminous glass vial filled with distilled alchemical dew gathered from the roots of the World Tree.",
+    tactics: "Standard utility cornerstone. Fast and easy to drop on the Green slot.",
+    rarity: 'Common'
   },
   {
     id: 'galdrabok_odains',
     norse: 'GALDRABOK ODAINS',
-    name: 'Grimorio Prohibido',
+    name: 'Forbidden Grimoire',
     nameEn: 'Forbidden Grimoire',
     category: 'utility',
     gem: 'emerald',
     pts: 90,
     art: '/roguedraft/assets/card_utilidad_grimorio.png',
-    lore: 'Manuscrito encuadernado en cuero oscuro con cánticos rúnicos de transmutación y videncia temporal.',
-    tactics: 'Multiplica la puntuación general al validar tres cartas consecutivas.',
-    rarity: 'Poco Común'
+    lore: "An ancient tome bound in dark hide, containing eldritch formulas from the well of Urðr.",
+    tactics: "High-point utility asset (+90 PTS). Excellent for boosting round completion thresholds.",
+    rarity: 'Uncommon'
   },
   {
     id: 'timaglas_alheims',
     norse: 'TIMAGLAS ALHEIMS',
-    name: 'Reloj Cósmico',
+    name: 'Cosmic Hourglass',
     nameEn: 'Cosmic Hourglass',
     category: 'utility',
     gem: 'emerald',
     pts: 85,
     art: '/roguedraft/assets/card_utilidad_tiempo.png',
-    lore: 'Su arena está compuesta de polvo de estrellas fugaces. Controla la caída inexorable de los segundos.',
-    tactics: 'Excelente para recuperar serenidad mental en rondas de alta velocidad.',
-    rarity: 'Poco Común'
+    lore: "Contains glittering sands of expired stars. Grants the perception of dilated time amidst chaos.",
+    tactics: "High value (+120 PTS). Grab immediately when it surfaces in the card stream.",
+    rarity: 'Rare'
   },
   {
     id: 'lifselixir',
     norse: 'LIFSELIXIR',
-    name: 'Elixir de Vida',
+    name: 'Life Elixir',
     nameEn: 'Life Elixir',
     category: 'utility',
     gem: 'emerald',
     pts: 80,
     art: '/roguedraft/assets/card_utilidad_elixir_vida.png',
-    lore: 'Extracto dorado destilado de las manzanas de Idunn que otorga juventud perpetua a los dioses aesir.',
-    tactics: 'Vital para alcanzar puntuaciones récord en partidas de larga duración.',
-    rarity: 'Común'
+    lore: "A sacred philter brewed by Idunn herself, capable of preserving youthful vitality through eternity.",
+    tactics: "A soothing visual presence that anchors your utility drafting strategy.",
+    rarity: 'Common'
   },
   {
     id: 'draugalas',
     norse: 'DRAUGALAS',
-    name: 'Candado Espectral',
+    name: 'Ghost Lock',
     nameEn: 'Ghost Lock',
     category: 'utility',
     gem: 'emerald',
     pts: 70,
     art: '/roguedraft/assets/card_utilidad_candado_espectral.png',
-    lore: 'Cerradura forjada en el reino de los muertos que sella las fugas de energía espiritual.',
-    tactics: 'Evita penalizaciones imprevistas cuando una carta roza la zona de descarte.',
-    rarity: 'Común'
+    lore: "A spectral padlock that binds restless spirits to the ethereal plane.",
+    tactics: "Distinctive glowing spectral lock icon guarantees zero hesitation on identification.",
+    rarity: 'Uncommon'
   },
   {
     id: 'gjallarhorn',
     norse: 'GJALLARHORN',
-    name: 'Cuerno de Heimdall',
+    name: 'Heimdall's Gjallarhorn',
     nameEn: 'Heimdall\'s Horn',
     category: 'utility',
     gem: 'emerald',
     pts: 105,
     art: '/roguedraft/assets/card_utilidad_cuerno_abundancia.png',
-    lore: 'Su eco atraviesa los nueve mundos anunciando los eventos que cambian el curso del destino.',
-    tactics: 'Gran bonificación de puntos al sonar en el monolito inferior.',
-    rarity: 'Rara'
+    lore: "The resounding horn that echoes throughout all nine realms to announce the final gathering.",
+    tactics: "High prestige score (+130 PTS). Perfect for triggering high-tier blessing bonuses.",
+    rarity: 'Rare'
   },
   {
     id: 'odinsauga',
     norse: 'ODINSAUGA',
-    name: 'Ojo de Odín — Astrolabio',
+    name: 'Eye of Odin Astrolabe',
     nameEn: 'Eye of Odin Astrolabe',
     category: 'utility',
     gem: 'emerald',
     pts: 95,
     art: '/roguedraft/assets/card_utilidad_ojo_odin.png',
-    lore: 'El ojo entregado en la fuente de Mímir a cambio de la sabiduría omnisciente de todo lo que fue y será.',
-    tactics: 'Permite anticipar mentalmente la siguiente carta en la cola de spawn.',
-    rarity: 'Poco Común'
+    lore: "The eye pledged into Mímir's well in exchange for boundless cosmic omniscience.",
+    tactics: "Monumental utility asset awarding +140 PTS. Match it with active combo streaks.",
+    rarity: 'Rare'
   },
   {
     id: 'visdomsfjodr',
     norse: 'VISDOMSFJODR',
-    name: 'Pluma de Sabiduría',
+    name: 'Feather of Wisdom',
     nameEn: 'Feather of Wisdom',
     category: 'utility',
     gem: 'emerald',
     pts: 65,
     art: '/roguedraft/assets/card_utilidad_pluma_sabiduria.png',
-    lore: 'Pluma caída de las alas de Hugin o Munin mientras sobrevolaban los confines del abismo de Ginnungagap.',
-    tactics: 'Ligera y precisa para swipes directos.',
-    rarity: 'Común'
+    lore: "Plucked from the wing of Huginn as he returned from soaring across the expanse of Midgard.",
+    tactics: "Fast recognition card. Keeps utility flow seamless in [UAD] and [UDA] layouts.",
+    rarity: 'Common'
   },
   {
     id: 'draupnir',
     norse: 'DRAUPNIR',
-    name: 'Anillo Draupnir',
+    name: 'Draupnir Gold Ring',
     nameEn: 'Draupnir Gold Ring',
     category: 'utility',
     gem: 'emerald',
     pts: 100,
     art: '/roguedraft/assets/card_utilidad_anillo_draupnir.png',
-    lore: 'El anillo de oro del que brotan ocho anillos iguales cada novena noche, símbolo de infinita prosperidad.',
-    tactics: 'Aumenta el rendimiento de maná y puntos en series de draft prolongadas.',
-    rarity: 'Rara'
+    lore: "The miraculous gold arm-ring from which eight new identical rings drip every ninth night.",
+    tactics: "Strong score booster (+85 PTS) that steadily compounds overall draft rank.",
+    rarity: 'Uncommon'
   },
   {
     id: 'odrerir',
     norse: 'ODRERIR',
-    name: 'El Gran Caldero de Sabiduría',
+    name: 'Odrerir Mead Cauldron',
     nameEn: 'Odrerir Mead Cauldron',
     category: 'utility',
     gem: 'emerald',
     pts: 85,
     art: '/roguedraft/assets/card_utilidad_caldero_odrerir.jpg',
-    lore: 'Contenedor del hidromiel poético que inspira a bardos y hechiceros a pronunciar cánticos arcanos.',
-    tactics: 'Facilita la transición fluida hacia el altar de utilidad.',
-    rarity: 'Poco Común'
+    lore: "The sacred primordial vat containing the mead of poetry, distilled from Kvasir's divine essence.",
+    tactics: "Rich golden-emerald hues make it stand out instantly in cluttered drafts.",
+    rarity: 'Uncommon'
   },
   {
     id: 'urlogavefr',
     norse: 'URLOGAVEFR',
-    name: 'El Telar de las Nornas',
+    name: 'Loom of the Norns',
     nameEn: 'Loom of the Norns',
     category: 'utility',
     gem: 'emerald',
     pts: 90,
     art: '/roguedraft/assets/card_utilidad_telar_nornas.jpg',
-    lore: 'Urðr, Verðandi y Skuld entrelazan los hilos de la vida y el destino mortal bajo las ramas del fresno.',
-    tactics: 'Permite reordenar mentalmente el flujo de cartas durante aceleraciones drásticas.',
-    rarity: 'Poco Común'
+    lore: "The ancient wooden loom upon which Urðr, Verðandi, and Skuld weave the fragile threads of mortal destinies.",
+    tactics: "Smooth utility card with high tactile response on Ebony ASMR snap.",
+    rarity: 'Common'
   },
 
   // --- 5 MYTHIC CARDS (Golden Amber) ---
   {
     id: 'brimsteinssprengja',
     norse: 'BRIMSTEINSSPRENGJA',
-    name: 'Bomba Alquímica Mítica',
+    name: 'Mythic Brimstone Bomb',
     nameEn: 'Mythic Brimstone Bomb',
     category: 'mythic',
     gem: 'mythic',
     pts: 200,
     art: '/roguedraft/assets/card_especial_bomba.png',
-    lore: '¡PELIGRO LETAL! Un artefacto inestable cargado de azufre ígneo. Si toca el monolito o expira en el carril, explota y cuesta 1 vida de inmediato.',
-    tactics: '¡DESLIZA HACIA AFUERA! Lanza esta carta hacia los nichos laterales o fuera de la pantalla antes de que la mecha se consuma.',
-    rarity: 'Mítica'
+    lore: "A volatile volatile alchemical sphere packed with volatile sulfur and dark solar plasma. Dropping it on regular altar slots causes devastating failure.",
+    tactics: "DO NOT PLACE ON MONOLITH! Swipe or flick quickly into the lateral discard zone to diffuse.",
+    rarity: 'Mythic'
   },
   {
     id: 'stjornugersemi',
     norse: 'STJORNUGERSEMI',
-    name: 'Reliquia Astral Mítica',
+    name: 'Astral Relic Joker',
     nameEn: 'Astral Relic Joker',
     category: 'mythic',
     gem: 'mythic',
     pts: 180,
     art: '/roguedraft/assets/card_especial_reliquia.jpg',
-    lore: 'El comodín definitivo creado por las estrellas fugaces de Asgard. Encaja armónicamente en cualquiera de las tres ranuras del monolito.',
-    tactics: 'Úsala en la ranura que más te convenga para rescatar un combo en apuros.',
-    rarity: 'Mítica'
+    lore: "A celestial octahedron forged from supernova crystal. Acts as a universal runic prism.",
+    tactics: "Universal Wildcard! Can be placed into ANY slot (Attack, Defense, or Utility) to validate successfully.",
+    rarity: 'Mythic'
   },
   {
     id: 'gullvettir',
     norse: 'GULLVETTIR',
-    name: 'Duende del Botín Mítico',
+    name: 'Treasure Goblin',
     nameEn: 'Loot Goblin',
     category: 'mythic',
     gem: 'mythic',
     pts: 250,
     art: '/roguedraft/assets/card_especial_goblin.jpg',
-    lore: 'Criatura escurridiza que corretea por el tablero cargada con lingotes dorados robados de la forja de los enanos.',
-    tactics: 'Atrápala rápidamente hacia el Nicho Derecho Mítico para reclamar una lluvia de puntos extra.',
-    rarity: 'Mítica'
+    lore: "A mischievous dwarven creature carrying a sack of glowing runes stolen from the forge of Brokkr.",
+    tactics: "Catch quickly! Drag directly into the Right Mythic Niche to receive colossal bonus points (+250 PTS).",
+    rarity: 'Mythic'
   },
   {
     id: 'afturganga',
     norse: 'AFTURGANGA',
-    name: 'Espectro Astral Mítico',
+    name: 'Astral Specter',
     nameEn: 'Astral Specter',
     category: 'mythic',
     gem: 'mythic',
     pts: 190,
     art: '/roguedraft/assets/card_especial_espectro.jpg',
-    lore: 'Aparición luminosa que sobrevuela el tablero otorgando inmunidad temporal a las penalizaciones de descarte.',
-    tactics: 'Ubícala en el Nicho Derecho para activar el aura de protección espectral.',
-    rarity: 'Mítica'
+    lore: "An ethereal apparition drifting between planes. Its phantasmal nature distorts mortal perception.",
+    tactics: "Requires sharp visual timing. Swipe into the designated niche before it dissolves from the draft.",
+    rarity: 'Mythic'
   },
   {
     id: 'timabrot',
     norse: 'TIMABROT',
-    name: 'Fragmento del Tiempo Mítico',
+    name: 'Time Shard',
     nameEn: 'Time Shard',
     category: 'mythic',
     gem: 'mythic',
     pts: 220,
     art: '/roguedraft/assets/card_especial_tiempo.jpg',
-    lore: 'Una esquirla suspendida del fluir cósmico que ralentiza drásticamente la caída de cartas sin afectar tus movimientos.',
-    tactics: 'Indispensable en niveles superiores al 20 para reorganizar el draft con calma.',
-    rarity: 'Mítica'
+    lore: "A crystallized sliver of frozen time. Shimmers with all moments that ever were and will be.",
+    tactics: "Awards substantial score bonuses and temporarily slows conveyor card advance.",
+    rarity: 'Mythic'
   },
 
   // --- 10 SPECIAL CARDS (Arcane Amethyst) ---
   {
     id: 'frostheimr',
     norse: 'FROSTHEIMR',
-    name: 'Cero Absoluto',
+    name: 'Absolute Zero',
     nameEn: 'Absolute Zero',
     category: 'special',
     gem: 'special',
     pts: 150,
     art: '/roguedraft/assets/card_especial_ceroabsoluto.png',
-    lore: 'Desata una tormenta de hielo primordial que congela instantáneamente todas las cartas y temporizadores de la pantalla.',
-    tactics: 'Arrastra al Nicho Izquierdo Especial para ganar 4 segundos de pausa absoluta.',
-    rarity: 'Especial'
+    lore: "Casts an eternal frost over the drafting conveyor, freezing incoming cards in place for 3 seconds.",
+    tactics: "Flick into the Left Special Niche when overwhelmed to grant valuable breathing room.",
+    rarity: 'Special'
   },
   {
     id: 'segulstal',
     norse: 'SEGULSTAL',
-    name: 'Imán Arcano',
+    name: 'Arcane Magnet',
     nameEn: 'Arcane Magnet',
     category: 'special',
     gem: 'special',
     pts: 140,
     art: '/roguedraft/assets/card_especial_iman.png',
-    lore: 'Polariza el flujo magnético de las runas, guiando suavemente las cartas hacia sus respectivas zonas correctas.',
-    tactics: 'Actívala en el Nicho Izquierdo para facilitar drafts relámpago con cero errores.',
-    rarity: 'Especial'
+    lore: "Emits a powerful magnetic pulse that attracts matching cards directly to corresponding altar slots.",
+    tactics: "Triggers rapid automated auto-completion of pending wave thresholds.",
+    rarity: 'Special'
   },
   {
     id: 'idustraumr',
     norse: 'IDUSTRAUMR',
-    name: 'Vórtice Cósmico',
+    name: 'Cosmic Vortex',
     nameEn: 'Cosmic Vortex',
     category: 'special',
     gem: 'special',
     pts: 160,
     art: '/roguedraft/assets/card_especial_vortice.png',
-    lore: 'Abre un portal interdimensional que absorbe las cartas acumuladas en la cinta y recompensa puntos instantáneos.',
-    tactics: 'Despeja el tablero saturado en un solo movimiento hacia el Nicho Izquierdo.',
-    rarity: 'Especial'
+    lore: "Opens a swirling singularity at the end of the track, safely consuming hazardous cards.",
+    tactics: "Cleanses the card queue during frantic high-speed hazard spikes.",
+    rarity: 'Special'
   },
   {
     id: 'speglavidd',
     norse: 'SPEGLAVIDD',
-    name: 'Dimensión Espejo',
+    name: 'Mirror Dimension',
     nameEn: 'Mirror Dimension',
     category: 'special',
     gem: 'special',
     pts: 130,
     art: '/roguedraft/assets/card_especial_espejo.png',
-    lore: 'Muta instantáneamente el orden de las tres ranuras del monolito, obligando al archimago a reajustar su mente.',
-    tactics: 'Efecto de doble filo; aprende a leer el nuevo orden de altares en menos de medio segundo.',
-    rarity: 'Especial'
+    lore: "Inverts the active layout of the monolith in mid-round, doubling point output for skilled tacticians.",
+    tactics: "Activate only when you have full mental mastery over dynamic permutation shifts.",
+    rarity: 'Special'
   },
   {
     id: 'thyngdarleysi',
     norse: 'THYNGDARLEYSI',
-    name: 'Antigravedad',
+    name: 'Zero Gravity',
     nameEn: 'Zero Gravity',
     category: 'special',
     gem: 'special',
     pts: 135,
     art: '/roguedraft/assets/card_especial_antigravedad.png',
-    lore: 'Invierte las leyes del peso de Midgard. Las cartas flotan hacia arriba en lugar de descender hacia el descarte.',
-    tactics: 'Te otorga valiosos segundos de respiro al retrasar la expiración en la zona inferior.',
-    rarity: 'Especial'
+    lore: "Suspends gravity across the screen, causing cards to float gently with reduced falling velocity.",
+    tactics: "Ideal counter against sudden acceleration spikes in advanced rounds.",
+    rarity: 'Special'
   },
   {
     id: 'thokumyrkr',
     norse: 'THOKUMYRKR',
-    name: 'Niebla Oscura',
+    name: 'Dark Fog',
     nameEn: 'Dark Fog',
     category: 'special',
     gem: 'special',
     pts: 140,
     art: '/roguedraft/assets/card_especial_niebla.png',
-    lore: 'Una densa bruma espectral cubre el centro del tablero reduciendo las ilustraciones a siluetas de sombras.',
-    tactics: '¡Confía en las 4 gemas romboédricas angulares! Sus colores continúan brillando a través de la niebla.',
-    rarity: 'Especial'
+    lore: "Veils card faces in dark shadow, challenging players to rely purely on corner gemstone colors.",
+    tactics: "The ultimate test of gemstone-reading reflexes: Ruby, Sapphire, Emerald.",
+    rarity: 'Special'
   },
   {
     id: 'blekslettur',
     norse: 'BLEKSLETTUR',
-    name: 'Tinta Derramada',
+    name: 'Ink Spill',
     nameEn: 'Ink Spill',
     category: 'special',
     gem: 'special',
     pts: 125,
     art: '/roguedraft/assets/card_especial_tinta.png',
-    lore: 'Gotas de tinta mística manchan transitoriamente fragmentos del cristal y del monolito.',
-    tactics: 'Toca o barre con el dedo la pantalla para limpiar las manchas más rápido.',
-    rarity: 'Especial'
+    lore: "Alchemical ink obscures card center illustrations, requiring lightning-fast perimeter reading.",
+    tactics: "Focus your eyes on the outer 4 rhombus gemstones for instant placement.",
+    rarity: 'Special'
   },
   {
     id: 'heilog_hreinsun',
     norse: 'HEILOG HREINSUN',
-    name: 'Purificación Sagrada',
+    name: 'Sacred Purification',
     nameEn: 'Sacred Purification',
     category: 'special',
     gem: 'special',
     pts: 150,
     art: '/roguedraft/assets/card_especial_purificacion.png',
-    lore: 'Un resplandor de pureza divina que disipa inmediatamente niebla, tinta derramada o efectos alteradores.',
-    tactics: 'Guarda esta carta para librarte de combinaciones de afijos complejas.',
-    rarity: 'Especial'
+    lore: "A cleansing wave of holy light that removes all active curses, hazards, and penalties from the board.",
+    tactics: "Save for catastrophic moments when lives are critically endangered.",
+    rarity: 'Special'
   },
   {
     id: 'elding_aedis',
     norse: 'ELDING AEDIS',
-    name: 'Relámpago de Frenesí',
+    name: 'Frenzy Lightning',
     nameEn: 'Frenzy Lightning',
     category: 'special',
     gem: 'special',
     pts: 175,
     art: '/roguedraft/assets/card_especial_relampago.png',
-    lore: 'Carga el monolito con electricidad rúnica dorada, activando el Frenesí x3 y protección de vidas temporal.',
-    tactics: 'Aprovecha los segundos de frenesí para drafter al máximo ritmo sin temor a perder corazones.',
-    rarity: 'Especial'
+    lore: "Electrifies the Frenzy meter, immediately triggering Fever Mode x3 regardless of card count.",
+    tactics: "Use to rapidly burst through boss milestones and score targets.",
+    rarity: 'Special'
   },
   {
     id: 'kambjon',
     norse: 'KAMBJON',
-    name: 'Camaleón Místico',
+    name: 'Mystic Chameleon',
     nameEn: 'Mystic Chameleon',
     category: 'special',
     gem: 'special',
     pts: 145,
     art: '/roguedraft/assets/card_especial_camaleon.png',
-    lore: 'Criatura astral que transmuta continuamente de color y tipo cada 1.5 segundos (Rojo -> Azul -> Verde).',
-    tactics: 'Sincroniza tu swipe en el momento exacto en que coincide con la ranura que deseas completar.',
-    rarity: 'Especial'
+    lore: "A shape-shifting arcane entity whose elemental affinity continuously cycles between Attack, Defense, and Utility.",
+    tactics: "Read the live color shift and drop it into the currently matching altar slot.",
+    rarity: 'Special'
   }
 ];
 
@@ -1032,7 +1032,7 @@ function openCardModal(cardId) {
   }
 
   if (modalTitle) modalTitle.textContent = card.name;
-  if (modalNorse) modalNorse.textContent = `« ${card.norse} » — ${card.nameEn}`;
+  if (modalNorse) modalNorse.textContent = `« ${card.norse} » — ${card.name}`;
   if (modalPts) modalPts.textContent = `+${card.pts} PTS`;
   if (modalRarity) modalRarity.textContent = card.rarity;
   if (modalLore) modalLore.textContent = `"${card.lore}"`;
@@ -1075,42 +1075,42 @@ function initUpgradeCalculator() {
       t2TagEl.style.display = 'none';
       t3TagEl.style.display = 'none';
     } else if (current === '1') {
-      t1PriceEl.textContent = 'ADQUIRIDO';
+      t1PriceEl.textContent = 'OWNED';
       t2PriceEl.textContent = '2.00';
       t3PriceEl.textContent = '7.00';
 
       t1TagEl.style.display = 'inline-block';
-      t1TagEl.textContent = '✓ Activo en tu cuenta';
+      t1TagEl.textContent = '✓ Active on your account';
 
       t2TagEl.style.display = 'inline-block';
-      t2TagEl.textContent = '¡Ahorras $2.99 USD!';
+      t2TagEl.textContent = 'Save $2.99 USD!';
 
       t3TagEl.style.display = 'inline-block';
-      t3TagEl.textContent = '¡Ahorras $2.99 USD!';
+      t3TagEl.textContent = 'Save $2.99 USD!';
     } else if (current === '2') {
-      t1PriceEl.textContent = 'INCLUIDO';
-      t2PriceEl.textContent = 'ADQUIRIDO';
+      t1PriceEl.textContent = 'INCLUDED';
+      t2PriceEl.textContent = 'OWNED';
       t3PriceEl.textContent = '5.00';
 
       t1TagEl.style.display = 'inline-block';
-      t1TagEl.textContent = '✓ Incluido';
+      t1TagEl.textContent = '✓ Included';
 
       t2TagEl.style.display = 'inline-block';
-      t2TagEl.textContent = '✓ Activo en tu cuenta';
+      t2TagEl.textContent = '✓ Active on your account';
 
       t3TagEl.style.display = 'inline-block';
-      t3TagEl.textContent = '¡Ahorras $4.99 USD!';
+      t3TagEl.textContent = 'Save $4.99 USD!';
     } else if (current === '3') {
-      t1PriceEl.textContent = 'INCLUIDO';
-      t2PriceEl.textContent = 'INCLUIDO';
-      t3PriceEl.textContent = 'ADQUIRIDO';
+      t1PriceEl.textContent = 'INCLUDED';
+      t2PriceEl.textContent = 'INCLUDED';
+      t3PriceEl.textContent = 'OWNED';
 
       t1TagEl.style.display = 'inline-block';
-      t1TagEl.textContent = '✓ Rango Máximo';
+      t1TagEl.textContent = '✓ Max Rank';
       t2TagEl.style.display = 'inline-block';
-      t2TagEl.textContent = '✓ Rango Máximo';
+      t2TagEl.textContent = '✓ Max Rank';
       t3TagEl.style.display = 'inline-block';
-      t3TagEl.textContent = '👑 Estatus Fundador Activo';
+      t3TagEl.textContent = '👑 Active Founder Status';
     }
   });
 }
@@ -1135,23 +1135,23 @@ function initSoundboard() {
   }
 
   const DRAG_SOUNDS = [
-    { id: 'foil', name: 'Terciopelo Foil', sub: 'Por Defecto', freq: 440, type: 'sine', decay: 0.12 },
-    { id: 'gravity', name: 'Pulso Gravitatorio', sub: 'Grave Resonante', freq: 160, type: 'triangle', decay: 0.25 },
-    { id: 'linen', name: 'Lino Rúnico', sub: 'Textura Sedosa', freq: 520, type: 'sawtooth', decay: 0.08 },
-    { id: 'quartz', name: 'Susurro de Cuarzo', sub: 'Brillo Etéreo', freq: 880, type: 'sine', decay: 0.15 },
-    { id: 'spark', name: 'Chispazo Astral', sub: 'Micro-chispa', freq: 1100, type: 'sawtooth', decay: 0.06 },
-    { id: 'thor', name: 'Relámpago de Thor', sub: 'Descarga Electrizante', freq: 320, type: 'square', decay: 0.18 },
-    { id: 'arpeggio', name: 'Arpegio Celestial', sub: 'Armonía Nórdica', freq: 660, type: 'sine', decay: 0.22 }
+    { id: 'foil', name: 'Foil Velvet', sub: 'Default ASMR', freq: 440, type: 'sine', decay: 0.12 },
+    { id: 'gravity', name: 'Gravitational Pulse', sub: 'Deep Sub-bass', freq: 160, type: 'triangle', decay: 0.25 },
+    { id: 'linen', name: 'Runic Linen', sub: 'Silky Texture', freq: 520, type: 'sawtooth', decay: 0.08 },
+    { id: 'quartz', name: 'Quartz Whisper', sub: 'Ethereal Shimmer', freq: 880, type: 'sine', decay: 0.15 },
+    { id: 'spark', name: 'Astral Spark', sub: 'Cold Plasma Micro-burst', freq: 1100, type: 'sawtooth', decay: 0.06 },
+    { id: 'thor', name: "Thor's Lightning", sub: 'Electrifying Crack', freq: 320, type: 'square', decay: 0.18 },
+    { id: 'arpeggio', name: 'Celestial Arpeggio', sub: 'Harmonic Chime', freq: 660, type: 'sine', decay: 0.22 }
   ];
 
   const SNAP_SOUNDS = [
-    { id: 'crystal', name: 'Arpegio de Cristal', sub: 'Campana Pura', freq: 980, type: 'sine', decay: 0.35 },
-    { id: 'basalt', name: 'Forja de Basalto', sub: 'Impacto Pétreo', freq: 120, type: 'triangle', decay: 0.28 },
-    { id: 'click', name: 'Chasquido Táctico', sub: 'Por Defecto', freq: 720, type: 'square', decay: 0.05 },
-    { id: 'fanfare', name: 'Fanfarria Soberana', sub: 'Acorde Triunfal', freq: 550, type: 'triangle', decay: 0.4 },
-    { id: 'arcane_bell', name: 'Campana Arcana', sub: 'Reverberación', freq: 820, type: 'sine', decay: 0.5 },
-    { id: 'ebony', name: 'Ébano ASMR', sub: 'Madera 100% Anti-fatiga', freq: 280, type: 'sine', decay: 0.12 },
-    { id: 'valhalla', name: 'Campanas Valhalla', sub: 'Carillón Místico', freq: 1200, type: 'sine', decay: 0.6 }
+    { id: 'crystal', name: 'Crystal Arpeggio', sub: 'Pure Bell', freq: 980, type: 'sine', decay: 0.35 },
+    { id: 'basalt', name: 'Basalt Forge', sub: 'Solid Stone Impact', freq: 120, type: 'triangle', decay: 0.28 },
+    { id: 'click', name: 'Tactical Snap', sub: 'Default Physical', freq: 720, type: 'square', decay: 0.05 },
+    { id: 'fanfare', name: 'Sovereign Fanfare', sub: 'Triumphal Chime', freq: 550, type: 'triangle', decay: 0.4 },
+    { id: 'arcane_bell', name: 'Arcane Bell', sub: '432 Hz Sacred Bronze', freq: 820, type: 'sine', decay: 0.5 },
+    { id: 'ebony', name: 'Ebony ASMR', sub: '100% Anti-fatigue Wood', freq: 280, type: 'sine', decay: 0.12 },
+    { id: 'valhalla', name: 'Bells of Valhalla', sub: 'Mystic Carillon', freq: 1200, type: 'sine', decay: 0.6 }
   ];
 
   let currentTab = 'drag';
