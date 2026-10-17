@@ -1520,19 +1520,32 @@ h1, h2, h3, h4, .serif-font {
   cursor: pointer;
 }
 
-/* 4-Tier Grid */
+/* 4-Tier Grid & Pixel-Perfect Horizontal Alignment */
 .tiers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 26px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
   align-items: stretch;
+}
+
+@media (max-width: 1100px) {
+  .tiers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 620px) {
+  .tiers-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .tier-card {
   background: var(--bg-glass-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 34px 26px;
+  padding: 34px 22px 28px 22px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -1556,47 +1569,80 @@ h1, h2, h3, h4, .serif-font {
   box-shadow: 0 25px 65px rgba(0, 0, 0, 0.9), 0 0 45px rgba(255, 215, 0, 0.35);
 }
 
+/* Perfectly Centered Founder Ribbon */
 .tier-ribbon {
   position: absolute;
-  top: -12px;
+  top: -14px;
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(135deg, #ffd700, #ffb300);
   color: #0b0e14;
   font-family: var(--font-serif);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 900;
-  letter-spacing: 0.16em;
-  padding: 5px 16px;
+  letter-spacing: 0.14em;
+  padding: 6px 20px;
   border-radius: 100px;
   text-transform: uppercase;
-  box-shadow: 0 4px 14px rgba(255, 215, 0, 0.4);
-}
-
-.tier-header {
-  margin-bottom: 22px;
+  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.5);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  line-height: 1;
+  z-index: 10;
 }
 
-.tier-name {
-  font-size: 1.35rem;
-  color: #fff;
-  margin-bottom: 6px;
+/* 1. Aligned Header Row */
+.tier-header {
+  height: 84px;
+  min-height: 84px;
+  margin-bottom: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .tier-badge {
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: var(--text-muted);
   text-transform: uppercase;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.tier-name {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: #fff;
+  margin-top: 6px;
+  margin-bottom: 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* 2. Aligned Pricing Row */
 .tier-pricing {
+  height: 114px;
+  min-height: 114px;
   margin-bottom: 24px;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .price-main {
@@ -1604,6 +1650,7 @@ h1, h2, h3, h4, .serif-font {
   font-size: 2.5rem;
   font-weight: 900;
   color: #ffffff;
+  line-height: 1;
 }
 
 .price-cur {
@@ -1614,60 +1661,81 @@ h1, h2, h3, h4, .serif-font {
 }
 
 .price-type {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.prorated-tag-wrap {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
 }
 
 .prorated-tag {
   display: inline-block;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   font-weight: 700;
   color: #2ed573;
   background: rgba(46, 213, 115, 0.14);
-  padding: 3px 10px;
+  padding: 2px 10px;
   border-radius: 100px;
-  margin-top: 6px;
   border: 1px solid rgba(46, 213, 115, 0.3);
+  white-space: nowrap;
 }
 
+/* 3. Aligned Cardback Preview Row */
 .tier-cardback-preview {
-  width: 100%;
-  max-width: 140px;
-  aspect-ratio: 3 / 4;
-  margin: 0 auto 24px auto;
+  width: 140px;
+  height: 187px;
+  margin: 0 auto 28px auto;
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--border-medium);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tier-cardback-preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
+/* 4. Aligned Features List Row */
 .tier-features {
   list-style: none;
-  margin-bottom: 28px;
+  margin-bottom: 26px;
   flex-grow: 1;
 }
 
 .tier-features li {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   color: var(--text-secondary);
   margin-bottom: 12px;
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  line-height: 1.45;
+  line-height: 1.5;
 }
 
 .tier-features li .check-icon {
   color: #2ed573;
   font-weight: 800;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 1px;
+  width: 16px;
+  text-align: center;
+}
+
+.tier-features li .tier-feature-desc {
+  flex: 1;
 }
 
 .tier-features li.excluded {
@@ -1682,6 +1750,7 @@ h1, h2, h3, h4, .serif-font {
 .tier-footer {
   margin-top: auto;
 }
+
 
 /* ==========================================================================
    EBONY ASMR & AUDIO EXPERIENCE
