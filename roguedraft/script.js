@@ -148,7 +148,7 @@ function initMonolithPermutations() {
 }
 
 /* ==========================================================================
-   3. THE COMPREHENSIVE GRIMOIRE CARD DATABASE
+   3. THE COMPREHENSIVE GRIMOIRE CARD DATABASE (ALL 54 HIGH-RES CARDS)
    ========================================================================== */
 const GRIMOIRE_CARDS = [
   // --- 13 ATTACK CARDS (Red Ruby) ---
@@ -160,7 +160,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 100,
-    art: 'assets/card_surtr.jpg',
+    art: '/roguedraft/assets/card_ataque_mandoble_surtr.jpg',
     lore: 'El mandoble legendario forjado en las grietas ardientes de Muspelheim. Al caer sobre el altar, desata una lluvia de ascuas que pulveriza la resistencia del destino.',
     tactics: 'Coloca en la ranura de Ataque en momentos de ritmo alto para activar bonificaciones de combo x2.',
     rarity: 'Común'
@@ -173,7 +173,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 95,
-    art: 'assets/card_hel.jpg',
+    art: '/roguedraft/assets/card_ataque_guadana_hel.jpg',
     lore: 'Segadora de almas de la reina del inframundo nórdico. Su filo de obsidiana drena la energía vital de las sombras para alimentar tu puntuación.',
     tactics: 'Especialmente veloz en el draft; su silueta esbelta facilita su identificación rápida en el carril central.',
     rarity: 'Común'
@@ -186,7 +186,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 60,
-    art: '',
+    art: '/roguedraft/assets/card_ataque_espada.png',
     lore: 'Espada templada en agua de manantial glacial con runas Algiz y Tiwaz incrustadas a lo largo de su hoja.',
     tactics: 'La piedra angular de todo mazo de ataque básico. Fácil de validar en cualquier permutación.',
     rarity: 'Común'
@@ -199,7 +199,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 70,
-    art: '',
+    art: '/roguedraft/assets/card_ataque_hacha.png',
     lore: 'Pesada hacha de asedio empuñada por los invasores berserkers. El peso de su filo corta la indecisión.',
     tactics: 'Otorga una lectura táctica sólida en niveles con velocidad moderada.',
     rarity: 'Común'
@@ -212,7 +212,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 85,
-    art: '',
+    art: '/roguedraft/assets/card_ataque_rayo.png',
     lore: 'Un destello arrancado del cielo de Asgard. Golpea con la velocidad fulminante del rayo.',
     tactics: 'Ideal para ejecutar swipes rápidos hacia la ranura de ataque sin dudar.',
     rarity: 'Poco Común'
@@ -225,7 +225,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 75,
-    art: '',
+    art: '/roguedraft/assets/card_ataque_poder_ancestral.png',
     lore: 'La fuerza primordial de los gigantes de roca que modelaron los primeros fiordos de Midgard.',
     tactics: 'Estabiliza el medidor de daño en rondas avanzadas de draft.',
     rarity: 'Común'
@@ -238,7 +238,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 80,
-    art: '',
+    art: '/roguedraft/assets/card_ataque_cuchilla_maldita.png',
     lore: 'Daga envenenada con hiel de dragón. Aquellos que la empuñan sienten el pulso oscuro del Ragnarök.',
     tactics: 'Su rápida respuesta al arrastre recompensa a los jugadores de reflejos afilados.',
     rarity: 'Común'
@@ -251,7 +251,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 110,
-    art: '',
+    art: '/roguedraft/assets/card_ataque_lanza_odin.png',
     lore: 'La lanza que jamás yerra el blanco, tallada en la madera sagrada de Yggdrasil por los enanos hijos de Ivaldi.',
     tactics: 'Tiene un imán de validación natural muy tolerante en la zona de ataque.',
     rarity: 'Rara'
@@ -264,7 +264,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 120,
-    art: '',
+    art: '/roguedraft/assets/card_ataque_martillo_thor.png',
     lore: 'El arma más temida por los Jötunn. Su impacto resuena a través de los nueve reinos con un trueno destructor.',
     tactics: 'Produce un feedback háptico ASMR extra denso al caer sobre el monolito.',
     rarity: 'Rara'
@@ -277,7 +277,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 65,
-    art: '',
+    art: '/roguedraft/assets/card_ataque_arco_elfico.png',
     lore: 'Arco flexible trenzado con pelo de corcel lunar y madera de tejo bendecida por los elfos de la luz.',
     tactics: 'Gran precisión para drafts de ritmo acelerado.',
     rarity: 'Común'
@@ -290,7 +290,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 90,
-    art: '',
+    art: '/roguedraft/assets/card_ataque_garras_fenrir.png',
     lore: 'Filosas como esquirlas de hielo negro, capaces de desgarrar las cadenas cósmicas que apresan al gran lobo.',
     tactics: 'Aumenta el multiplicador de puntos si se coloca en menos de 0.8 segundos.',
     rarity: 'Poco Común'
@@ -303,7 +303,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 85,
-    art: '',
+    art: '/roguedraft/assets/card_ataque_maza_fafnir.jpg',
     lore: 'Forjada con los colmillos y el hueso petrificado de Fafnir. Desprende un vapor tóxico y dorado.',
     tactics: 'Excelente peso visual para evitar confusiones con cartas de defensa.',
     rarity: 'Poco Común'
@@ -316,7 +316,7 @@ const GRIMOIRE_CARDS = [
     category: 'attack',
     gem: 'ruby',
     pts: 75,
-    art: '',
+    art: '/roguedraft/assets/card_ataque_mangual_berserker.jpg',
     lore: 'Tres bolas de hierro con púas unidas por cadenas de sangre. Despierta la furia ciega de los guerreros del oso.',
     tactics: 'Recompensa series de colocaciones continuas sin pausas intermedias.',
     rarity: 'Común'
@@ -331,7 +331,7 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 100,
-    art: 'assets/card_freya.jpg',
+    art: '/roguedraft/assets/card_defensa_espejo_freya.jpg',
     lore: 'Superficie de plata celestial que refleja las lágrimas de ámbar de la diosa del amor y la guerra, disipando la agresión.',
     tactics: 'Coloca en la ranura central o lateral de defensa para salvaguardar tu racha de vidas.',
     rarity: 'Rara'
@@ -344,8 +344,8 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 95,
-    art: 'assets/card_corona.jpg',
-    lore: 'Diarrea de escarcha eterna tallada de los glaciares originarios del cosmos nórdico. Congela los errores con serenidad.',
+    art: '/roguedraft/assets/card_defensa_corona_glacial.jpg',
+    lore: 'Diadema de escarcha eterna tallada de los glaciares originarios del cosmos nórdico. Congela los errores con serenidad.',
     tactics: 'Su tono azul cobalto profundo la hace inconfundible incluso durante la Niebla Oscura.',
     rarity: 'Común'
   },
@@ -357,7 +357,7 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 60,
-    art: '',
+    art: '/roguedraft/assets/card_defensa_escudo.png',
     lore: 'Roble macizo revestido de piel de buey y un gran umbo de hierro pulido para frenar cualquier embate.',
     tactics: 'La base de tu defensa en las primeras rondas del Ascenso Rúnico.',
     rarity: 'Común'
@@ -370,7 +370,7 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 70,
-    art: '',
+    art: '/roguedraft/assets/card_defensa_hielo.png',
     lore: 'Bloque monumental de hielo indestructible que detiene flechas ardientes y alientos de dragón.',
     tactics: 'Excelente estabilidad y visibilidad en altares permutados.',
     rarity: 'Común'
@@ -383,7 +383,7 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 85,
-    art: '',
+    art: '/roguedraft/assets/card_defensa_yelmo.png',
     lore: 'Adornado con alas de cisne plateadas, bendecido para guiar a los espíritus heroicos hacia el descanso eterno.',
     tactics: 'Otorga una lectura táctica nítida cuando el reloj de arena apremia.',
     rarity: 'Poco Común'
@@ -396,7 +396,7 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 105,
-    art: '',
+    art: '/roguedraft/assets/card_defensa_aegis_divino.png',
     lore: 'Escudo incandescente de luz solar bendecido por Baldur. Ciega a los demonios que pretenden alterar tu draft.',
     tactics: 'Puntaje de defensa superior para escalar la tabla de clasificación mundial.',
     rarity: 'Rara'
@@ -409,7 +409,7 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 55,
-    art: '',
+    art: '/roguedraft/assets/card_defensa_armadura_fracturada.png',
     lore: 'Cota de malla curtida por mil batallas; aunque agrietada, aún contiene el coraje indestructible de su portador.',
     tactics: 'Aparece frecuentemente; no la dejes expirar en la cinta de descarte.',
     rarity: 'Común'
@@ -422,7 +422,7 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 90,
-    art: '',
+    art: '/roguedraft/assets/card_defensa_escudo_dragon.png',
     lore: 'Escamas carmesí y azules ensambladas con remaches de bronce de Nidavellir, resistentes al calor del tártaro.',
     tactics: 'Combina estéticamente con el monolito rúnico en permutaciones DUA y DAU.',
     rarity: 'Poco Común'
@@ -435,7 +435,7 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 80,
-    art: '',
+    art: '/roguedraft/assets/card_defensa_manto_aurora.png',
     lore: 'Tejido etéreo con los destellos verdes y violetas de la aurora boreal que cruza el cielo ártico.',
     tactics: 'Mitiga el estrés visual en pantallas OLED gracias a su tono fluido.',
     rarity: 'Común'
@@ -448,7 +448,7 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 75,
-    art: '',
+    art: '/roguedraft/assets/card_defensa_bastion_runico.png',
     lore: 'Menhir vertical grabado con encantamientos de protección que anclan el alma al suelo sagrado.',
     tactics: 'Su masa volumétrica ayuda a fijar el drag and drop sin titubeos.',
     rarity: 'Común'
@@ -461,7 +461,7 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 80,
-    art: '',
+    art: '/roguedraft/assets/card_defensa_guantelete_gigante.png',
     lore: 'Guantelete de placas de hierro colosal que permite detener el filo de espadas legendarias a mano limpia.',
     tactics: 'Seguridad máxima contra penalizaciones de tiempo.',
     rarity: 'Común'
@@ -474,7 +474,7 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 110,
-    art: '',
+    art: '/roguedraft/assets/card_defensa_grilletes_gleipnir.jpg',
     lore: 'Seda mágica suave como el viento pero más resistente que el acero, hecha con el suspiro de los peces y las raíces de la montaña.',
     tactics: 'Inmoviliza las cartas erráticas cuando el ritmo se descontrola.',
     rarity: 'Rara'
@@ -487,7 +487,7 @@ const GRIMOIRE_CARDS = [
     category: 'defense',
     gem: 'sapphire',
     pts: 85,
-    art: '',
+    art: '/roguedraft/assets/card_defensa_obelisco_vardsteinn.jpg',
     lore: 'Centinela de basalto que erige una cúpula protectora invisible sobre los tres altares.',
     tactics: 'Perfecto para coordinar la posición de la ranura de defensa en permutaciones cruzadas.',
     rarity: 'Poco Común'
@@ -502,7 +502,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 100,
-    art: 'assets/card_vegvisir.jpg',
+    art: '/roguedraft/assets/card_utilidad_brujula_vegvisir.jpg',
     lore: 'El símbolo sagrado que garantiza que el portador nunca perderá su rumbo a través de las tormentas ni en mares desconocidos.',
     tactics: 'Orienta tu vista hacia el altar de utilidad incluso bajo efectos de Dimensión Espejo.',
     rarity: 'Rara'
@@ -515,7 +515,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 95,
-    art: 'assets/card_yggdrasil.jpg',
+    art: '/roguedraft/assets/card_utilidad_semilla_yggdrasil.jpg',
     lore: 'Un brote que late con la savia del Fresno del Mundo. Conecta las raíces arcanas de los nueve reinos.',
     tactics: 'Concede un bono acumulativo de puntos de utilidad al encadenar drafts perfectos.',
     rarity: 'Común'
@@ -528,7 +528,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 60,
-    art: '',
+    art: '/roguedraft/assets/card_utilidad_pocion.png',
     lore: 'Frasco de cristal con infusión de hierbas silvestres de Vanaheim que revitaliza el flujo mágico del archimago.',
     tactics: 'Carta de utilidad estándar; colócala sin demora para mantener la cadencia.',
     rarity: 'Común'
@@ -541,7 +541,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 90,
-    art: '',
+    art: '/roguedraft/assets/card_utilidad_grimorio.png',
     lore: 'Manuscrito encuadernado en cuero oscuro con cánticos rúnicos de transmutación y videncia temporal.',
     tactics: 'Multiplica la puntuación general al validar tres cartas consecutivas.',
     rarity: 'Poco Común'
@@ -554,7 +554,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 85,
-    art: '',
+    art: '/roguedraft/assets/card_utilidad_tiempo.png',
     lore: 'Su arena está compuesta de polvo de estrellas fugaces. Controla la caída inexorable de los segundos.',
     tactics: 'Excelente para recuperar serenidad mental en rondas de alta velocidad.',
     rarity: 'Poco Común'
@@ -567,7 +567,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 80,
-    art: '',
+    art: '/roguedraft/assets/card_utilidad_elixir_vida.png',
     lore: 'Extracto dorado destilado de las manzanas de Idunn que otorga juventud perpetua a los dioses aesir.',
     tactics: 'Vital para alcanzar puntuaciones récord en partidas de larga duración.',
     rarity: 'Común'
@@ -580,7 +580,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 70,
-    art: '',
+    art: '/roguedraft/assets/card_utilidad_candado_espectral.png',
     lore: 'Cerradura forjada en el reino de los muertos que sella las fugas de energía espiritual.',
     tactics: 'Evita penalizaciones imprevistas cuando una carta roza la zona de descarte.',
     rarity: 'Común'
@@ -593,7 +593,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 105,
-    art: '',
+    art: '/roguedraft/assets/card_utilidad_cuerno_abundancia.png',
     lore: 'Su eco atraviesa los nueve mundos anunciando los eventos que cambian el curso del destino.',
     tactics: 'Gran bonificación de puntos al sonar en el monolito inferior.',
     rarity: 'Rara'
@@ -606,7 +606,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 95,
-    art: '',
+    art: '/roguedraft/assets/card_utilidad_ojo_odin.png',
     lore: 'El ojo entregado en la fuente de Mímir a cambio de la sabiduría omnisciente de todo lo que fue y será.',
     tactics: 'Permite anticipar mentalmente la siguiente carta en la cola de spawn.',
     rarity: 'Poco Común'
@@ -619,7 +619,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 65,
-    art: '',
+    art: '/roguedraft/assets/card_utilidad_pluma_sabiduria.png',
     lore: 'Pluma caída de las alas de Hugin o Munin mientras sobrevolaban los confines del abismo de Ginnungagap.',
     tactics: 'Ligera y precisa para swipes directos.',
     rarity: 'Común'
@@ -632,7 +632,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 100,
-    art: '',
+    art: '/roguedraft/assets/card_utilidad_anillo_draupnir.png',
     lore: 'El anillo de oro del que brotan ocho anillos iguales cada novena noche, símbolo de infinita prosperidad.',
     tactics: 'Aumenta el rendimiento de maná y puntos en series de draft prolongadas.',
     rarity: 'Rara'
@@ -645,7 +645,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 85,
-    art: '',
+    art: '/roguedraft/assets/card_utilidad_caldero_odrerir.jpg',
     lore: 'Contenedor del hidromiel poético que inspira a bardos y hechiceros a pronunciar cánticos arcanos.',
     tactics: 'Facilita la transición fluida hacia el altar de utilidad.',
     rarity: 'Poco Común'
@@ -658,7 +658,7 @@ const GRIMOIRE_CARDS = [
     category: 'utility',
     gem: 'emerald',
     pts: 90,
-    art: '',
+    art: '/roguedraft/assets/card_utilidad_telar_nornas.jpg',
     lore: 'Urðr, Verðandi y Skuld entrelazan los hilos de la vida y el destino mortal bajo las ramas del fresno.',
     tactics: 'Permite reordenar mentalmente el flujo de cartas durante aceleraciones drásticas.',
     rarity: 'Poco Común'
@@ -673,7 +673,7 @@ const GRIMOIRE_CARDS = [
     category: 'mythic',
     gem: 'mythic',
     pts: 200,
-    art: 'assets/card_bomba.png',
+    art: '/roguedraft/assets/card_especial_bomba.png',
     lore: '¡PELIGRO LETAL! Un artefacto inestable cargado de azufre ígneo. Si toca el monolito o expira en el carril, explota y cuesta 1 vida de inmediato.',
     tactics: '¡DESLIZA HACIA AFUERA! Lanza esta carta hacia los nichos laterales o fuera de la pantalla antes de que la mecha se consuma.',
     rarity: 'Mítica'
@@ -686,7 +686,7 @@ const GRIMOIRE_CARDS = [
     category: 'mythic',
     gem: 'mythic',
     pts: 180,
-    art: '',
+    art: '/roguedraft/assets/card_patrocinada_tier3_fundador.jpg',
     lore: 'El comodín definitivo creado por las estrellas fugaces de Asgard. Encaja armónicamente en cualquiera de las tres ranuras del monolito.',
     tactics: 'Úsala en la ranura que más te convenga para rescatar un combo en apuros.',
     rarity: 'Mítica'
@@ -699,7 +699,7 @@ const GRIMOIRE_CARDS = [
     category: 'mythic',
     gem: 'mythic',
     pts: 250,
-    art: '',
+    art: '/roguedraft/assets/card_recompensa_ataque.jpg',
     lore: 'Criatura escurridiza que corretea por el tablero cargada con lingotes dorados robados de la forja de los enanos.',
     tactics: 'Atrápala rápidamente hacia el Nicho Derecho Mítico para reclamar una lluvia de puntos extra.',
     rarity: 'Mítica'
@@ -712,7 +712,7 @@ const GRIMOIRE_CARDS = [
     category: 'mythic',
     gem: 'mythic',
     pts: 190,
-    art: '',
+    art: '/roguedraft/assets/card_recompensa_defensa.jpg',
     lore: 'Aparición luminosa que sobrevuela el tablero otorgando inmunidad temporal a las penalizaciones de descarte.',
     tactics: 'Ubícala en el Nicho Derecho para activar el aura de protección espectral.',
     rarity: 'Mítica'
@@ -725,7 +725,7 @@ const GRIMOIRE_CARDS = [
     category: 'mythic',
     gem: 'mythic',
     pts: 220,
-    art: '',
+    art: '/roguedraft/assets/Card_Menu_Special.jpg',
     lore: 'Una esquirla suspendida del fluir cósmico que ralentiza drásticamente la caída de cartas sin afectar tus movimientos.',
     tactics: 'Indispensable en niveles superiores al 20 para reorganizar el draft con calma.',
     rarity: 'Mítica'
@@ -740,7 +740,7 @@ const GRIMOIRE_CARDS = [
     category: 'special',
     gem: 'special',
     pts: 150,
-    art: 'assets/card_cero.png',
+    art: '/roguedraft/assets/card_especial_ceroabsoluto.png',
     lore: 'Desata una tormenta de hielo primordial que congela instantáneamente todas las cartas y temporizadores de la pantalla.',
     tactics: 'Arrastra al Nicho Izquierdo Especial para ganar 4 segundos de pausa absoluta.',
     rarity: 'Especial'
@@ -753,7 +753,7 @@ const GRIMOIRE_CARDS = [
     category: 'special',
     gem: 'special',
     pts: 140,
-    art: 'assets/card_iman.png',
+    art: '/roguedraft/assets/card_especial_iman.png',
     lore: 'Polariza el flujo magnético de las runas, guiando suavemente las cartas hacia sus respectivas zonas correctas.',
     tactics: 'Actívala en el Nicho Izquierdo para facilitar drafts relámpago con cero errores.',
     rarity: 'Especial'
@@ -766,7 +766,7 @@ const GRIMOIRE_CARDS = [
     category: 'special',
     gem: 'special',
     pts: 160,
-    art: 'assets/card_vortice.png',
+    art: '/roguedraft/assets/card_especial_vortice.png',
     lore: 'Abre un portal interdimensional que absorbe las cartas acumuladas en la cinta y recompensa puntos instantáneos.',
     tactics: 'Despeja el tablero saturado en un solo movimiento hacia el Nicho Izquierdo.',
     rarity: 'Especial'
@@ -779,7 +779,7 @@ const GRIMOIRE_CARDS = [
     category: 'special',
     gem: 'special',
     pts: 130,
-    art: '',
+    art: '/roguedraft/assets/card_especial_espejo.png',
     lore: 'Muta instantáneamente el orden de las tres ranuras del monolito, obligando al archimago a reajustar su mente.',
     tactics: 'Efecto de doble filo; aprende a leer el nuevo orden de altares en menos de medio segundo.',
     rarity: 'Especial'
@@ -792,7 +792,7 @@ const GRIMOIRE_CARDS = [
     category: 'special',
     gem: 'special',
     pts: 135,
-    art: '',
+    art: '/roguedraft/assets/card_especial_antigravedad.png',
     lore: 'Invierte las leyes del peso de Midgard. Las cartas flotan hacia arriba en lugar de descender hacia el descarte.',
     tactics: 'Te otorga valiosos segundos de respiro al retrasar la expiración en la zona inferior.',
     rarity: 'Especial'
@@ -805,7 +805,7 @@ const GRIMOIRE_CARDS = [
     category: 'special',
     gem: 'special',
     pts: 140,
-    art: '',
+    art: '/roguedraft/assets/card_especial_niebla.png',
     lore: 'Una densa bruma espectral cubre el centro del tablero reduciendo las ilustraciones a siluetas de sombras.',
     tactics: '¡Confía en las 4 gemas romboédricas angulares! Sus colores continúan brillando a través de la niebla.',
     rarity: 'Especial'
@@ -818,7 +818,7 @@ const GRIMOIRE_CARDS = [
     category: 'special',
     gem: 'special',
     pts: 125,
-    art: '',
+    art: '/roguedraft/assets/card_especial_tinta.png',
     lore: 'Gotas de tinta mística manchan transitoriamente fragmentos del cristal y del monolito.',
     tactics: 'Toca o barre con el dedo la pantalla para limpiar las manchas más rápido.',
     rarity: 'Especial'
@@ -831,7 +831,7 @@ const GRIMOIRE_CARDS = [
     category: 'special',
     gem: 'special',
     pts: 150,
-    art: '',
+    art: '/roguedraft/assets/card_especial_purificacion.png',
     lore: 'Un resplandor de pureza divina que disipa inmediatamente niebla, tinta derramada o efectos alteradores.',
     tactics: 'Guarda esta carta para librarte de combinaciones de afijos complejas.',
     rarity: 'Especial'
@@ -844,7 +844,7 @@ const GRIMOIRE_CARDS = [
     category: 'special',
     gem: 'special',
     pts: 175,
-    art: '',
+    art: '/roguedraft/assets/card_especial_relampago.png',
     lore: 'Carga el monolito con electricidad rúnica dorada, activando el Frenesí x3 y protección de vidas temporal.',
     tactics: 'Aprovecha los segundos de frenesí para drafter al máximo ritmo sin temor a perder corazones.',
     rarity: 'Especial'
@@ -857,7 +857,7 @@ const GRIMOIRE_CARDS = [
     category: 'special',
     gem: 'special',
     pts: 145,
-    art: '',
+    art: '/roguedraft/assets/card_especial_camaleon.png',
     lore: 'Criatura astral que transmuta continuamente de color y tipo cada 1.5 segundos (Rojo -> Azul -> Verde).',
     tactics: 'Sincroniza tu swipe en el momento exacto en que coincide con la ranura que deseas completar.',
     rarity: 'Especial'
@@ -875,7 +875,6 @@ function initGrimoire() {
   let currentCategory = 'all';
   let currentSearch = '';
 
-  // Update category counts in buttons
   updateCategoryCounts();
 
   function renderCards() {
@@ -903,10 +902,6 @@ function initGrimoire() {
     }
 
     grimoireGrid.innerHTML = filtered.map(card => {
-      const artHtml = card.art ?
-        `<img src="${card.art}" alt="${card.name}" loading="lazy">` :
-        `<div class="card-art-fallback">${getCategoryEmoji(card.category)}</div>`;
-
       return `
         <div class="arcane-card category-${card.category}" data-card-id="${card.id}">
           <div class="card-inner-frame">
@@ -921,7 +916,8 @@ function initGrimoire() {
 
             <!-- Artwork Box -->
             <div class="card-art-box">
-              ${artHtml}
+              <img src="${card.art}" alt="${card.name}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="card-art-fallback" style="display: none;">${getCategoryEmoji(card.category)}</div>
             </div>
 
             <!-- Standardized Bottom Plaque -->
@@ -974,7 +970,6 @@ function initGrimoire() {
     });
   }
 
-  // Initial render
   renderCards();
 }
 
@@ -1024,9 +1019,11 @@ function openCardModal(cardId) {
   const modalTactics = document.getElementById('modalCardTactics');
 
   if (modalVisual) {
-    modalVisual.innerHTML = card.art ?
-      `<img src="${card.art}" alt="${card.name}">` :
-      `<div class="card-art-fallback" style="height: 100%; font-size: 4rem;">${getCategoryEmoji(card.category)}</div>`;
+    modalVisual.innerHTML = `
+      <div class="modal-card-img-wrapper">
+        <img src="${card.art}" alt="${card.name}">
+      </div>
+    `;
   }
 
   if (modalTag) {
@@ -1054,13 +1051,6 @@ function closeCardModal() {
 /* ==========================================================================
    6. PRORATED UPGRADE CALCULATOR
    ========================================================================== */
-const TIER_PRICING = {
-  tier0: { name: 'Tier 0 (Gratuito)', price: 0.00 },
-  tier1: { name: 'Tier 1 (Iniciado)', price: 2.99 },
-  tier2: { name: 'Tier 2 (Campeón)', price: 4.99 },
-  tier3: { name: 'Tier 3 (Fundador)', price: 9.99 }
-};
-
 function initUpgradeCalculator() {
   const calcSelect = document.getElementById('upgradeCalcSelect');
   if (!calcSelect) return;
@@ -1077,7 +1067,6 @@ function initUpgradeCalculator() {
     const current = calcSelect.value;
 
     if (current === '0') {
-      // Free: Regular full prices
       t1PriceEl.textContent = '2.99';
       t2PriceEl.textContent = '4.99';
       t3PriceEl.textContent = '9.99';
@@ -1086,10 +1075,9 @@ function initUpgradeCalculator() {
       t2TagEl.style.display = 'none';
       t3TagEl.style.display = 'none';
     } else if (current === '1') {
-      // Owns Tier 1 ($2.99)
       t1PriceEl.textContent = 'ADQUIRIDO';
-      t2PriceEl.textContent = '2.00'; // 4.99 - 2.99 = 2.00
-      t3PriceEl.textContent = '7.00'; // 9.99 - 2.99 = 7.00
+      t2PriceEl.textContent = '2.00';
+      t3PriceEl.textContent = '7.00';
 
       t1TagEl.style.display = 'inline-block';
       t1TagEl.textContent = '✓ Activo en tu cuenta';
@@ -1100,10 +1088,9 @@ function initUpgradeCalculator() {
       t3TagEl.style.display = 'inline-block';
       t3TagEl.textContent = '¡Ahorras $2.99 USD!';
     } else if (current === '2') {
-      // Owns Tier 2 ($4.99)
       t1PriceEl.textContent = 'INCLUIDO';
       t2PriceEl.textContent = 'ADQUIRIDO';
-      t3PriceEl.textContent = '5.00'; // 9.99 - 4.99 = 5.00
+      t3PriceEl.textContent = '5.00';
 
       t1TagEl.style.display = 'inline-block';
       t1TagEl.textContent = '✓ Incluido';
@@ -1114,7 +1101,6 @@ function initUpgradeCalculator() {
       t3TagEl.style.display = 'inline-block';
       t3TagEl.textContent = '¡Ahorras $4.99 USD!';
     } else if (current === '3') {
-      // Owns Founder
       t1PriceEl.textContent = 'INCLUIDO';
       t2PriceEl.textContent = 'INCLUIDO';
       t3PriceEl.textContent = 'ADQUIRIDO';
@@ -1130,13 +1116,12 @@ function initUpgradeCalculator() {
 }
 
 /* ==========================================================================
-   7. INTERACTIVE ASMR AUDIO SOUNDBOARD (WEB AUDIO SYNTHESIS)
+   7. INTERACTIVE ASMR AUDIO SOUNDBOARD
    ========================================================================== */
 function initSoundboard() {
   const tabBtns = document.querySelectorAll('.sb-tab-btn');
   const padsGrid = document.getElementById('soundPadsGrid');
 
-  // Web Audio Context for zero-latency, realistic tactile ASMR synthesis
   let audioCtx = null;
   function getAudioContext() {
     if (!audioCtx) {
@@ -1181,7 +1166,6 @@ function initSoundboard() {
     osc.type = sound.type || 'sine';
     osc.frequency.setValueAtTime(sound.freq, ctx.currentTime);
 
-    // Subtle pitch dip for tactile wood/click feel
     if (sound.id === 'ebony' || sound.id === 'click' || sound.id === 'basalt') {
       osc.frequency.exponentialRampToValueAtTime(sound.freq * 0.4, ctx.currentTime + sound.decay);
     }
@@ -1243,7 +1227,6 @@ function initFaqAccordion() {
     if (questionBtn) {
       questionBtn.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
-        // Close all others
         faqItems.forEach(i => i.classList.remove('open'));
         if (!isOpen) {
           item.classList.add('open');
