@@ -256,8 +256,10 @@ h1, h2, h3, h4, .serif-font {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 20px;
   list-style: none;
+  margin-left: auto;
+  margin-right: 28px;
 }
 
 .nav-link {
@@ -293,6 +295,27 @@ h1, h2, h3, h4, .serif-font {
   display: flex;
   align-items: center;
   gap: 14px;
+  flex-shrink: 0;
+}
+
+.btn-header-beta {
+  white-space: nowrap !important;
+  text-align: center !important;
+  justify-content: center !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 10px 22px !important;
+  line-height: 1 !important;
+  min-width: 170px !important;
+}
+
+.btn-founder-action {
+  white-space: nowrap !important;
+  text-align: center !important;
+  justify-content: center !important;
+  display: flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
 }
 
 .mobile-toggle {
