@@ -1813,13 +1813,24 @@ h1, h2, h3, h4, .serif-font {
 }
 
 .soundboard-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  white-space: nowrap !important;
   font-family: var(--font-serif);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--gem-mythic);
   border: 1px solid var(--border-gold);
-  padding: 4px 12px;
+  background: rgba(255, 215, 0, 0.08);
+  padding: 8px 20px;
   border-radius: 100px;
+  line-height: 1;
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.18);
+  flex-shrink: 0;
 }
 
 .soundboard-tabs {
@@ -2405,4 +2416,81 @@ h1, h2, h3, h4, .serif-font {
   .tophud-preview-media {
     margin-top: 20px;
   }
+}
+
+
+/* ==========================================================================
+   BUTTON & BADGE TEXT CENTERING ENFORCEMENT
+   ========================================================================== */
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-outline-gold,
+.btn-header-beta,
+.btn-founder-action,
+.btn-tier-action,
+.filter-btn,
+.sb-tab-btn,
+.sound-pad,
+.modal-close-btn,
+.google-play-badge-btn,
+.soundboard-badge,
+.hero-badge-pill,
+.section-tag,
+.tier-ribbon,
+.perm-badge {
+  text-align: center !important;
+}
+
+.btn,
+.btn-header-beta,
+.btn-founder-action,
+.btn-tier-action,
+.filter-btn,
+.sb-tab-btn,
+.google-play-badge-btn,
+.soundboard-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.btn span,
+.btn-header-beta span,
+.btn-founder-action span,
+.btn-tier-action span,
+.filter-btn span,
+.sb-tab-btn span {
+  text-align: center !important;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.tier-footer {
+  margin-top: auto;
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.tier-footer .btn,
+.btn-tier-action {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.tier-footer .btn span,
+.btn-tier-action span {
+  width: 100% !important;
+  text-align: center !important;
+  display: block !important;
 }
