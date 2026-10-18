@@ -112,11 +112,38 @@ const PERMUTATIONS_DATA = {
   }
 };
 
+let currentMonolithSkin = 'gold'; // Default: Tier 3 Founder Gold
+let currentMonolithPerm = 'ADU';
+
+function updateMonolithImage() {
+  const monolithImg = document.getElementById('monolithImg');
+  if (!monolithImg) return;
+  const permLower = currentMonolithPerm.toLowerCase();
+  if (currentMonolithSkin === 'gold') {
+    monolithImg.src = `/roguedraft/assets/monolith_oro_${permLower}.png`;
+    monolithImg.alt = `Founder 24K Gold Runic Monolith Permutation [${currentMonolithPerm}]`;
+  } else {
+    monolithImg.src = `/roguedraft/assets/monolith_${permLower}.png`;
+    monolithImg.alt = `Basalt Runic Monolith Permutation [${currentMonolithPerm}]`;
+  }
+}
+
 function initMonolithPermutations() {
   const permItems = document.querySelectorAll('.permutation-item');
   const altarSlotsContainer = document.getElementById('altarSlotsContainer');
   const permDescTitle = document.getElementById('permDescTitle');
   const permDescText = document.getElementById('permDescText');
+  const skinBtns = document.querySelectorAll('.skin-btn');
+
+  // Skin switcher listeners (Gold Tier 3 vs Standard Basalt)
+  skinBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      skinBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentMonolithSkin = btn.getAttribute('data-skin') || 'gold';
+      updateMonolithImage();
+    });
+  });
 
   permItems.forEach(item => {
     item.addEventListener('click', () => {
@@ -124,10 +151,13 @@ function initMonolithPermutations() {
       item.classList.add('active');
 
       const code = item.getAttribute('data-perm');
+      currentMonolithPerm = code;
+      updateMonolithImage();
+
       const data = PERMUTATIONS_DATA[code];
       if (!data) return;
 
-      if (permDescTitle) permDescTitle.textContent = `${code} — ${data.name}`;
+      if (permDescTitle) permDescTitle.textContent = `[${code}] — ${data.name}`;
       if (permDescText) permDescText.textContent = data.desc;
 
       if (altarSlotsContainer) {
@@ -145,6 +175,9 @@ function initMonolithPermutations() {
       }
     });
   });
+
+  // Initial call
+  updateMonolithImage();
 }
 
 /* ==========================================================================

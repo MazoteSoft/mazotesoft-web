@@ -2494,3 +2494,221 @@ input[type="reset"],
   text-align: center !important;
   display: block !important;
 }
+
+/* ==========================================================================
+   MONOLITH SKIN SWITCHER (TIER 3 FOUNDER VS STANDARD)
+   ========================================================================== */
+.monolith-skin-switcher {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+  background: rgba(10, 14, 22, 0.85);
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+}
+
+.skin-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.skin-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.skin-btn.active {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.22) 0%, rgba(200, 150, 0, 0.12) 100%);
+  border-color: var(--border-gold);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.15);
+}
+
+.skin-btn[data-skin="standard"].active {
+  background: linear-gradient(135deg, rgba(70, 90, 120, 0.3) 0%, rgba(40, 50, 70, 0.2) 100%);
+  border-color: rgba(140, 170, 210, 0.5);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   LATERAL NICHES (TIER 3 FOUNDER) SECTION STYLES
+   ========================================================================== */
+.niches-section {
+  padding: 110px 0;
+  position: relative;
+  background: radial-gradient(ellipse at 50% 50%, rgba(25, 18, 42, 0.5) 0%, var(--bg-deep) 80%);
+}
+
+.niches-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.niche-card {
+  background: var(--bg-glass-card);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  transition: all var(--transition-normal);
+}
+
+.niche-card.niche-special {
+  border-color: rgba(165, 94, 234, 0.35);
+}
+
+.niche-card.niche-special:hover {
+  border-color: rgba(165, 94, 234, 0.8);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(165, 94, 234, 0.25);
+  transform: translateY(-5px);
+}
+
+.niche-card.niche-mythic {
+  border-color: rgba(255, 215, 0, 0.35);
+}
+
+.niche-card.niche-mythic:hover {
+  border-color: rgba(255, 215, 0, 0.8);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(255, 215, 0, 0.25);
+  transform: translateY(-5px);
+}
+
+.niche-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+.niche-special .niche-badge-tag {
+  background: rgba(165, 94, 234, 0.15);
+  color: #bf55ec;
+  border: 1px solid rgba(165, 94, 234, 0.4);
+}
+
+.niche-mythic .niche-badge-tag {
+  background: rgba(255, 215, 0, 0.15);
+  color: var(--text-gold);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+}
+
+.niche-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
+  background: radial-gradient(circle at 50% 50%, rgba(15, 20, 32, 0.95) 0%, rgba(5, 7, 12, 0.98) 100%);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 28px;
+  position: relative;
+  min-height: 420px;
+}
+
+.niche-img-container img {
+  max-height: 380px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.9));
+  transition: transform var(--transition-slow);
+}
+
+.niche-card:hover .niche-img-container img {
+  transform: scale(1.04);
+}
+
+.niche-title {
+  font-size: 1.45rem;
+  color: #fff;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.niche-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+
+.niche-mechanics-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.niche-mechanics-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.niche-mechanics-list li strong {
+  color: #fff;
+}
+
+.niche-bullet-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  margin-top: 1px;
+}
+
+.niche-special .niche-bullet-icon {
+  background: rgba(165, 94, 234, 0.2);
+  color: #bf55ec;
+  border: 1px solid rgba(165, 94, 234, 0.5);
+}
+
+.niche-mythic .niche-bullet-icon {
+  background: rgba(255, 215, 0, 0.2);
+  color: var(--text-gold);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+}
+
+@media (max-width: 900px) {
+  .niches-grid {
+    grid-template-columns: 1fr;
+  }
+}

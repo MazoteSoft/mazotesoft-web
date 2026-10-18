@@ -54,6 +54,7 @@
         <a href="#hero" class="nav-link active">Home</a>
         <a href="#monolith" class="nav-link">Monolith</a>
         <a href="#tophud" class="nav-link">TopHUD</a>
+        <a href="#niches" class="nav-link">Niches</a>
         <a href="#grimoire" class="nav-link">Grimoire</a>
         <a href="#modes" class="nav-link">Game Modes</a>
         <a href="#tiers" class="nav-link">Patron Tiers</a>
@@ -207,8 +208,18 @@
       <div class="monolith-wrapper">
         <!-- Visual Monolith Presentation -->
         <div class="monolith-visual-card">
+          <!-- Monolith Skin Switcher -->
+          <div class="monolith-skin-switcher">
+            <button type="button" class="skin-btn active" data-skin="gold" id="skinBtnGold">
+              <span class="skin-gem">👑</span> 24K Gold & Diamonds (Tier 3 Founder)
+            </button>
+            <button type="button" class="skin-btn" data-skin="standard" id="skinBtnStandard">
+              <span class="skin-gem">🛡️</span> Basalt & Iron (Standard Altar)
+            </button>
+          </div>
+
           <div class="monolith-media-box">
-            <img src="/roguedraft/assets/monolith_adu.jpg" alt="Runic Monolith Triad ADU">
+            <img id="monolithImg" src="/roguedraft/assets/monolith_oro_adu.png" alt="Founder 24K Gold Runic Monolith Permutation [ADU]">
           </div>
 
           <div class="monolith-altar-slots" id="altarSlotsContainer">
@@ -397,6 +408,87 @@
           <div class="tophud-preview-media">
             <img src="/roguedraft/assets/gameplay_cap5.jpg" alt="In-game screenshot of Rogue Draft featuring TopHUD 5 and Runic Monolith in action">
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- ==========================================================================
+       LATERAL NICHES (TIER 3 FOUNDER BLACK MARBLE) SECTION
+       ========================================================================== -->
+  <section class="niches-section" id="niches">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">TIER 3 FOUNDER • DYNAMIC BOARD EXPANSION</span>
+        <h2 class="section-title">Sliding Lateral Niches: <span class="accent-purple">Special</span> & <span class="accent-gold">Mythic</span> Sanctuaries</h2>
+        <p class="section-subtitle">
+          Legendary cards transcend the physical bounds of the monolith. Whenever an ancient relic or reality-bending sorcery is grabbed, 
+          these concealed wings slide dynamically from the screen borders—crafted in gold-veined black marble exclusively for Tier 3 Founders.
+        </p>
+      </div>
+
+      <div class="niches-grid">
+        <!-- 1. LEFT NICHE: SPECIAL CARDS -->
+        <div class="niche-card niche-special">
+          <div class="niche-badge-tag">
+            <span>🟣</span> Left Lateral Niche • Special Cards
+          </div>
+          <div class="niche-img-container">
+            <img src="/roguedraft/assets/niche_special_left.png" alt="Left Lateral Niche in Tier 3 Black Marble for Special Cards" loading="lazy">
+          </div>
+          <h3 class="niche-title">
+            <span>Amethyst Sorcery Sanctuary</span>
+          </h3>
+          <p class="niche-desc">
+            Emerges smoothly from the left edge of the screen whenever you grab one of the <strong>10 Special Cards</strong>. 
+            Acting as a dedicated arcane sanctuary, it executes reality-altering board effects without occupying standard altar slots.
+          </p>
+          <ul class="niche-mechanics-list">
+            <li>
+              <span class="niche-bullet-icon">✦</span>
+              <span><strong>Auto-Slide Trigger:</strong> Slides into the board in 180ms upon touching cards like <em>Absolute Zero</em>, <em>Arcane Magnet</em>, <em>Dark Fog</em>, or <em>Mirror Dimension</em>.</span>
+            </li>
+            <li>
+              <span class="niche-bullet-icon">✦</span>
+              <span><strong>Slot Preservation:</strong> Casts field-wide mutators and crowd control while keeping your three core Attack, Defense, and Utility slots unblocked.</span>
+            </li>
+            <li>
+              <span class="niche-bullet-icon">✦</span>
+              <span><strong>Founder Aesthetics (Tier 3):</strong> Monolithic black marble with radiant gold veining, a floating icosahedral amethyst crystal, and violet Futhark runic engravings.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 2. RIGHT NICHE: MYTHIC CARDS -->
+        <div class="niche-card niche-mythic">
+          <div class="niche-badge-tag">
+            <span>🟡</span> Right Lateral Niche • Mythic Cards
+          </div>
+          <div class="niche-img-container">
+            <img src="/roguedraft/assets/niche_mythic_right.png" alt="Right Lateral Niche in Tier 3 Black Marble for Mythic Cards" loading="lazy">
+          </div>
+          <h3 class="niche-title">
+            <span>Solar Relic Citadel</span>
+          </h3>
+          <p class="niche-desc">
+            Summoned from the right edge of the arena the instant you touch one of the <strong>5 Mythic Cards</strong>. 
+            Channels supreme celestial energy into your run, granting massive score bursts and charging your Frenzy Meter.
+          </p>
+          <ul class="niche-mechanics-list">
+            <li>
+              <span class="niche-bullet-icon">✦</span>
+              <span><strong>Auto-Slide Trigger:</strong> Slides into view when dragging <em>Astral Relic</em>, <em>Loot Goblin</em>, <em>Time Shard</em>, <em>Astral Specter</em>, or <em>Alchemical Bomb</em>.</span>
+            </li>
+            <li>
+              <span class="niche-bullet-icon">✦</span>
+              <span><strong>Frenzy Power Surge:</strong> Dropping a mythic card unleashes a runic shockwave that immediately awards <strong>+5 bonus charges</strong> to your Frenzy Meter.</span>
+            </li>
+            <li>
+              <span class="niche-bullet-icon">✦</span>
+              <span><strong>Founder Aesthetics (Tier 3):</strong> Hand-carved obsidian marble adorned with a golden solar halo medallion, incandescent amber runes, and braided Celtic knotwork columns.</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
