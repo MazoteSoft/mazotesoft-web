@@ -1381,9 +1381,9 @@ const BLESSINGS_DATA = [
     "icon": "🩸",
     "category": "survival",
     "catName": "Survival • Health",
-    "effect": "Every uninterrupted streak of <strong>18 consecutive cards restores +1 life heart</strong> (+200 PTS overcharge at full health), plus +5 PTS per card at 10+ combo. Counter starts at 0 upon selection (non-retroactive).",
+    "effect": "An uninterrupted streak of <strong>25 consecutive combo cards restores +1 life heart</strong> (+200 PTS overcharge at full health), plus +5 PTS per card at 10+ combo. Starts at 0 upon selection, triggering once per blessing.",
     "duration": "Active for 2 Levels",
-    "highlight": "Combo 18 = +1 Life • Starts at 0"
+    "highlight": "Combo 25 = +1 Life • Once per Blessing"
   },
   {
     "id": "chrono_adrenaline",
