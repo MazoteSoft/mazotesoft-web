@@ -866,8 +866,8 @@ const GRIMOIRE_CARDS = [
     gem: 'special',
     pts: 150,
     art: '/roguedraft/assets/card_especial_purificacion.png',
-    lore: "A sacred cleansing wave of holy light that disarms bombs and removes fog and ink without granting lives, bestowing a Divine Shield for 1 error. Guaranteed to spawn whenever hazards threaten the board in addition to its normal draft frequency.",
-    tactics: "Drop into the Lateral Left Special Niche to purge screen hazards, defuse all bombs, and activate Divine Shield protection (forgiving 1 error). Automatically spawns whenever a bomb, ink, or fog appears!",
+    lore: "A sacred cleansing wave of holy light that disarms bombs and removes fog and ink without granting lives, bestowing a Divine Shield for 1 error. Has a 33% chance to spawn whenever fog or ink is active, in addition to its normal draft frequency.",
+    tactics: "Drop into the Lateral Left Special Niche to purge screen hazards, defuse all bombs, and activate Divine Shield protection (forgiving 1 error). Has a 33% chance to spawn when ink is spilled or fog is active, alongside its regular rotation!",
     rarity: 'Special'
   },
   {
