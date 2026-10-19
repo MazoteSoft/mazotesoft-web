@@ -56,6 +56,7 @@
         <a href="#tophud" class="nav-link">TopHUD</a>
         <a href="#niches" class="nav-link">Niches</a>
         <a href="#grimoire" class="nav-link">Grimoire</a>
+        <a href="#blessings" class="nav-link">Blessings</a>
         <a href="#modes" class="nav-link">Game Modes</a>
         <a href="#tiers" class="nav-link">Patron Tiers</a>
         <a href="#soundboard" class="nav-link">ASMR Audio</a>
@@ -591,6 +592,80 @@
     </div>
   </div>
 
+
+  <!-- ==========================================================================
+       THE 30 NORSE BLESSINGS SECTION
+       ========================================================================== -->
+  <section class="blessings-section" id="blessings">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">TACTICAL DRAFT MUTATORS • 30 RUNIC GIFTS</span>
+        <h2 class="section-title">The 30 Norse <span class="accent-gold">Blessings</span></h2>
+        <p class="section-subtitle">
+          Sculpt your run's strategy between levels. Draft divine permanent modifiers that alter board physics, grant invulnerability shields, accelerate frenzy multipliers, and forge high-score synergies.
+        </p>
+      </div>
+
+      <!-- Universal Duration Rule Banner -->
+      <div class="universal-rule-banner">
+        <div class="rule-banner-icon">⚖️</div>
+        <div class="rule-banner-content">
+          <h4>Universal 2-Level Duration & Activation Guarantee</h4>
+          <p>
+            <strong>Standard Duration:</strong> Every chosen blessing remains active for <strong>2 full levels</strong> across your run.
+          </p>
+          <p class="rule-subtext">
+            <strong>First-Use Guarantee (Protection):</strong> If a blessing's condition does not manifest during those 2 levels (e.g. <em>Combo Shield</em> when no error occurred, or <em>Elastic Bounce</em> when no card touched the abyss), it <strong>never expires</strong>. It stays active indefinitely until triggered for the first time!
+          </p>
+        </div>
+      </div>
+
+      <!-- Blessings Filter and Search Controls -->
+      <div class="blessings-controls">
+        <div class="blessings-filter-bar">
+          <button class="blessing-filter-btn active" data-bcat="all">
+            <span>All Blessings</span>
+            <span class="bfilter-count">30</span>
+          </button>
+          <button class="blessing-filter-btn" data-bcat="survival">
+            <span>🧪 Survival</span>
+            <span class="bfilter-count">5</span>
+          </button>
+          <button class="blessing-filter-btn" data-bcat="defense">
+            <span>🛡️ Defense</span>
+            <span class="bfilter-count">5</span>
+          </button>
+          <button class="blessing-filter-btn" data-bcat="frenzy">
+            <span>⚡ Frenzy</span>
+            <span class="bfilter-count">5</span>
+          </button>
+          <button class="blessing-filter-btn" data-bcat="score">
+            <span>💎 Wealth</span>
+            <span class="bfilter-count">5</span>
+          </button>
+          <button class="blessing-filter-btn" data-bcat="board">
+            <span>🌐 Physics</span>
+            <span class="bfilter-count">5</span>
+          </button>
+          <button class="blessing-filter-btn" data-bcat="combat">
+            <span>⚔️ Combat</span>
+            <span class="bfilter-count">5</span>
+          </button>
+        </div>
+
+        <div class="blessings-search-container">
+          <svg class="search-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="blessings-search-input" id="blessingsSearch" placeholder="Search blessing by name, effect, or keyword...">
+        </div>
+      </div>
+
+      <!-- Live Blessings Grid (Rendered by JavaScript) -->
+      <div class="blessings-grid" id="blessingsGrid">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </div>
+  </section>
+
   <!-- ==========================================================================
        GAME MODES SECTION
        ========================================================================== -->
@@ -1047,6 +1122,7 @@
             <li><a href="#hero">Home</a></li>
             <li><a href="#monolith">The Monolith</a></li>
             <li><a href="#grimoire">The Grimoire</a></li>
+            <li><a href="#blessings">30 Blessings</a></li>
             <li><a href="#modes">Game Modes</a></li>
             <li><a href="#tiers">Patron Tiers</a></li>
           </ul>

@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMonolithPermutations();
   initGrimoire();
+  initBlessings();
   initCardModal();
   initUpgradeCalculator();
   initSoundboard();
@@ -188,7 +189,7 @@ const GRIMOIRE_CARDS = [
   {
     id: 'laevateinn',
     norse: 'LAEVATEINN',
-    name: 'Surtr's Greatsword',
+    name: "Surtr's Greatsword",
     nameEn: 'Surtr\'s Volcanic Blade',
     category: 'attack',
     gem: 'ruby',
@@ -279,7 +280,7 @@ const GRIMOIRE_CARDS = [
   {
     id: 'geirr_odins',
     norse: 'GEIRR ODINS',
-    name: 'Odin's Spear (Gungnir)',
+    name: "Odin's Spear (Gungnir)",
     nameEn: 'Odin\'s Spear Gungnir',
     category: 'attack',
     gem: 'ruby',
@@ -292,7 +293,7 @@ const GRIMOIRE_CARDS = [
   {
     id: 'hamarr_thors',
     norse: 'HAMARR THORS',
-    name: 'Thor's Hammer (Mjölnir)',
+    name: "Thor's Hammer (Mjölnir)",
     nameEn: 'Thor\'s Hammer Mjölnir',
     category: 'attack',
     gem: 'ruby',
@@ -318,7 +319,7 @@ const GRIMOIRE_CARDS = [
   {
     id: 'fenrisklaer',
     norse: 'FENRISKLAER',
-    name: 'Fenrir's Claws',
+    name: "Fenrir's Claws",
     nameEn: 'Fenrir\'s Claws',
     category: 'attack',
     gem: 'ruby',
@@ -359,7 +360,7 @@ const GRIMOIRE_CARDS = [
   {
     id: 'freyjuspegell',
     norse: 'FREYJUSPEGELL',
-    name: 'Freyja's Mirror',
+    name: "Freyja's Mirror",
     nameEn: 'Freyja\'s Relic Mirror',
     category: 'defense',
     gem: 'sapphire',
@@ -489,7 +490,7 @@ const GRIMOIRE_CARDS = [
   {
     id: 'jotunngloi',
     norse: 'JOTUNNGLOI',
-    name: 'Giant's Gauntlet',
+    name: "Giant's Gauntlet",
     nameEn: 'Giant\'s Gauntlet',
     category: 'defense',
     gem: 'sapphire',
@@ -621,7 +622,7 @@ const GRIMOIRE_CARDS = [
   {
     id: 'gjallarhorn',
     norse: 'GJALLARHORN',
-    name: 'Heimdall's Gjallarhorn',
+    name: "Heimdall's Gjallarhorn",
     nameEn: 'Heimdall\'s Horn',
     category: 'utility',
     gem: 'emerald',
@@ -1267,4 +1268,437 @@ function initFaqAccordion() {
       });
     }
   });
+}
+
+
+/* ==========================================================================
+   8. THE 30 NORSE BLESSINGS DATABASE & CONTROLLER
+   ========================================================================== */
+const BLESSINGS_DATA = [
+  {
+    "id": "divine_elixir",
+    "name": "Divine Elixir",
+    "norse": "ELIXIR DIVINO",
+    "icon": "🧪",
+    "category": "survival",
+    "catName": "Survival • Health",
+    "effect": "Immediately restores <strong>+1 lost life heart</strong>. If health is already at max (5 hearts), awards an instant <strong>+250 PTS</strong> overcharge bonus instead.",
+    "duration": "Immediate Heal / Overcharge",
+    "highlight": "+1 Life or +250 PTS"
+  },
+  {
+    "id": "elevated_pillars",
+    "name": "Elevated Pillars",
+    "norse": "PILARES ELEVADOS",
+    "icon": "🏛️",
+    "category": "board",
+    "catName": "Board & Geometry",
+    "effect": "Raises the monolith's 3 altars <strong>30% taller vertically</strong>, creating a wide upper drop zone that allows significantly earlier card validation.",
+    "duration": "Active for 2 Levels",
+    "highlight": "+30% Altar Height"
+  },
+  {
+    "id": "edge_magnetism",
+    "name": "Edge Magnetism",
+    "norse": "MAGNETISMO PERIFÉRICO",
+    "icon": "🌐",
+    "category": "board",
+    "catName": "Board & Magnetism",
+    "effect": "Generates a wide <strong>210px magnetic border</strong> around the monolith pillars that actively pulls matching cards toward their correct slot with <strong>+35 PTS</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "210px Magnetic Radius"
+  },
+  {
+    "id": "elastic_bounce",
+    "name": "Elastic Bounce",
+    "norse": "REBOTE ELÁSTICO",
+    "icon": "🤸",
+    "category": "board",
+    "catName": "Board & Physics",
+    "effect": "Cards touching the bottom abyss bounce once upward back into the playfield, granting a second chance and <strong>2x score</strong> upon placement.",
+    "duration": "2 Levels or 1st Bounce",
+    "highlight": "Abyss Rescue • 2x PTS"
+  },
+  {
+    "id": "combo_shield",
+    "name": "Combo Shield",
+    "norse": "ESCUDO DE COMBO",
+    "icon": "🛡️",
+    "category": "survival",
+    "catName": "Survival • Protection",
+    "effect": "The first missed or misplayed card in each level is completely forgiven: <strong>0 damage received, life preserved, and combo streak maintained</strong>.",
+    "duration": "1 Mistake Forgiven / Level",
+    "highlight": "Total Mistake Immunity"
+  },
+  {
+    "id": "runic_defuser",
+    "name": "Runic Defuser",
+    "norse": "DESACTIVADOR RÚNICO",
+    "icon": "🛠️",
+    "category": "defense",
+    "catName": "Hazard Defusal",
+    "effect": "Mythic Bombs spawn with an extended <strong>7.5s fuse timer</strong> (+2.5s). Defusing a bomb outside restores <strong>+1 life heart</strong> and grants <strong>+100 PTS</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "+2.5s Fuse • +1 Life Heal"
+  },
+  {
+    "id": "berserker_fury",
+    "name": "Berserker Fury",
+    "norse": "FURIA BERSERKER",
+    "icon": "🪓",
+    "category": "combat",
+    "catName": "Combat • Score",
+    "effect": "Attack cards grant <strong>+100% bonus score</strong> (double points), while falling conveyor card velocity increases by 15% for aggressive drafting.",
+    "duration": "Active for 2 Levels",
+    "highlight": "+100% Attack Points"
+  },
+  {
+    "id": "midas_greed",
+    "name": "Midas Greed",
+    "norse": "CODICIA DE MIDAS",
+    "icon": "🪙",
+    "category": "score",
+    "catName": "Mythic • Wealth",
+    "effect": "Treasure Goblins, Astral Relics, and all Mythic cards grant <strong>+75% bonus points</strong> when placed into their sacred lateral niches.",
+    "duration": "Active for 2 Levels",
+    "highlight": "+75% Mythic Card Value"
+  },
+  {
+    "id": "blazing_fever",
+    "name": "Blazing Fever",
+    "norse": "FIEBRE ARDIENTE",
+    "icon": "🌋",
+    "category": "frenzy",
+    "catName": "Frenzy & Speed",
+    "effect": "The central Fever meter charges <strong>30% faster</strong> (requires fewer cards), triggering invulnerability and frenzy score multipliers much sooner.",
+    "duration": "Active for 2 Levels",
+    "highlight": "+30% Fever Charge Rate"
+  },
+  {
+    "id": "vampiric_pact",
+    "name": "Vampiric Pact",
+    "norse": "PACTO VAMPÍRICO",
+    "icon": "🩸",
+    "category": "survival",
+    "catName": "Survival • Health",
+    "effect": "Every uninterrupted streak of <strong>18 consecutive cards restores +1 life heart</strong> (+200 PTS overcharge at full health), plus +5 PTS per card at 10+ combo.",
+    "duration": "Active for 2 Levels",
+    "highlight": "Combo 18 = +1 Life"
+  },
+  {
+    "id": "chrono_adrenaline",
+    "name": "Chrono Adrenaline",
+    "norse": "PULSO VITAL",
+    "icon": "⏳",
+    "category": "survival",
+    "catName": "Emergency • Reflexes",
+    "effect": "When critically wounded at only 1 life heart, card falling speed decelerates by <strong>25%</strong> and all earned points are boosted by <strong>+25%</strong>.",
+    "duration": "Active at 1 Life",
+    "highlight": "-25% Speed • +25% Score"
+  },
+  {
+    "id": "mirror_cloak",
+    "name": "Mirror Cloak",
+    "norse": "MANTO DEL ESPEJO",
+    "icon": "🧥",
+    "category": "defense",
+    "catName": "Defense • Evasion",
+    "effect": "Grants a <strong>50% chance on altars</strong> and <strong>35% chance on void falls</strong> to completely deflect and negate missed cards with <strong>0 damage</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "50% / 35% Deflection Chance"
+  },
+  {
+    "id": "eternal_frenzy",
+    "name": "Eternal Frenzy",
+    "norse": "FRENESÍ ETERNO",
+    "icon": "♾️",
+    "category": "frenzy",
+    "catName": "Frenzy • Score",
+    "effect": "Fever Mode duration extends by <strong>+3.0 extra seconds</strong> and awards <strong>x3 total score</strong> for all cards validated while ablaze.",
+    "duration": "Active for 2 Levels",
+    "highlight": "+3.0s Fever • x3 Multiplier"
+  },
+  {
+    "id": "arcane_vortex",
+    "name": "Arcane Vortex",
+    "norse": "VÓRTICE ARCANO",
+    "icon": "🌌",
+    "category": "frenzy",
+    "catName": "Frenzy • Automation",
+    "effect": "Triggering Frenzy unleashes a gravitational vortex that automatically pulls, sorts, and validates all cards currently visible on screen.",
+    "duration": "Active for 2 Levels",
+    "highlight": "Full-Screen Auto Sort"
+  },
+  {
+    "id": "air_draft",
+    "name": "Air Draft",
+    "norse": "CORRIENTE AÉREA",
+    "icon": "💨",
+    "category": "combat",
+    "catName": "Precision • Speed",
+    "effect": "Cards validated in the upper 45% of the screen grant <strong>+75 bonus points</strong>. Validating 3 upper drops in a row triggers <strong>1.5s Bullet Time Freeze</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "+75 PTS • 1.5s Bullet Time"
+  },
+  {
+    "id": "frost_aura",
+    "name": "Frost Aura",
+    "norse": "AURA DE ESCARCHA",
+    "icon": "❄️",
+    "category": "defense",
+    "catName": "Defense • Control",
+    "effect": "Every 5 cards validated in the Defense Altar triggers <em>Coraza de Niflheim</em>, freezing all falling cards in place for <strong>1.5 seconds</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "5 Defense Drops = 1.5s Freeze"
+  },
+  {
+    "id": "bifrost_prism",
+    "name": "Bifröst Prism",
+    "norse": "PRISMA DE BIFRÖST",
+    "icon": "🌈",
+    "category": "board",
+    "catName": "Divine Rescue",
+    "effect": "Projecting a divine beam of rainbow light, it rescues cards falling into the bottom abyss, preventing life loss and awarding <strong>+100 PTS bonus</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "Abyss Rescue • +100 PTS"
+  },
+  {
+    "id": "golden_touch",
+    "name": "Golden Touch",
+    "norse": "TOQUE DORADO",
+    "icon": "👑",
+    "category": "score",
+    "catName": "Transmutation",
+    "effect": "Every 5th card touched turns into solid Gold (+150 PTS). Additionally defuses 1 bomb per level into a harmless +200 PTS gold relic.",
+    "duration": "Active for 2 Levels",
+    "highlight": "Every 5th Card = Gold (+150 PTS)"
+  },
+  {
+    "id": "arcane_mastery",
+    "name": "Arcane Mastery",
+    "norse": "MAESTRÍA ARCANA",
+    "icon": "📜",
+    "category": "frenzy",
+    "catName": "Buff Augmentation",
+    "effect": "Positive powerup cards (<em>Absolute Zero</em>, <em>Arcane Magnet</em>, <em>Zero-G</em>) last <strong>+2.5s longer</strong> and grant <strong>+100 bonus PTS</strong> on cast.",
+    "duration": "Active for 2 Levels",
+    "highlight": "+2.5s Buffs • +100 PTS"
+  },
+  {
+    "id": "golden_transmutation",
+    "name": "Golden Transmutation",
+    "norse": "TRANSMUTACIÓN DORADA",
+    "icon": "✨",
+    "category": "score",
+    "catName": "Wealth • Score",
+    "effect": "Every 8 cards drafted, the next falling card gains a radiant golden double frame and yields <strong>+150 bonus score</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "Every 8th Card = +150 PTS"
+  },
+  {
+    "id": "daredevil",
+    "name": "Daredevil",
+    "norse": "AL LÍMITE",
+    "icon": "🎯",
+    "category": "combat",
+    "catName": "High Risk • High Reward",
+    "effect": "Cards validated in the bottom 40% danger zone award <strong>+125 bonus PTS</strong> and recharge +2 points into the Frenzy meter.",
+    "duration": "Active for 2 Levels",
+    "highlight": "+125 PTS in Danger Zone"
+  },
+  {
+    "id": "elemental_harmony",
+    "name": "Elemental Harmony",
+    "norse": "ARMONÍA ELEMENTAL",
+    "icon": "🔮",
+    "category": "combat",
+    "catName": "Tactical Sorting",
+    "effect": "Sorting a sequential cycle of <em>Attack ➔ Defense ➔ Utility</em> awards <strong>+100 bonus PTS</strong> and adds <strong>+5 immediate combo</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "Cycle = +100 PTS & +5 Combo"
+  },
+  {
+    "id": "hawkeye_precision",
+    "name": "Hawkeye Precision",
+    "norse": "OJO DE HALCÓN",
+    "icon": "🦅",
+    "category": "combat",
+    "catName": "Multiplier Ceiling",
+    "effect": "Raises the combo multiplier ceiling from the standard x3.0 up to a supreme <strong>x4.0 maximum</strong> once reaching a 20-card streak.",
+    "duration": "Active for 2 Levels",
+    "highlight": "x4.0 Max Combo Ceiling"
+  },
+  {
+    "id": "kinetic_sling",
+    "name": "Kinetic Sling",
+    "norse": "HONDA CINÉTICA",
+    "icon": "🚀",
+    "category": "board",
+    "catName": "Mobile Flick",
+    "effect": "Fast downward swipe flicks launch cards directly into monolith altars with high velocity, awarding <strong>+40 bonus points</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "Fast Flicks = +40 PTS"
+  },
+  {
+    "id": "runic_vortex",
+    "name": "Runic Vortex",
+    "norse": "VÓRTICE RÚNICO",
+    "icon": "🌪️",
+    "category": "board",
+    "catName": "Suction • Alignment",
+    "effect": "The monolith projects vertical suction beams that pull mid-screen cards into matching slots, granting <strong>+25 bonus PTS</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "Mid-Screen Suction • +25 PTS"
+  },
+  {
+    "id": "arcane_fusion",
+    "name": "Arcane Fusion",
+    "norse": "FUSIÓN ARCANA",
+    "icon": "🎴",
+    "category": "combat",
+    "catName": "Card Synthesis",
+    "effect": "Colliding two falling cards of the same elemental type fuses them into a radiant <strong>Mega-Card awarding 2.5x total points</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "Card Collision = 2.5x Mega-Card"
+  },
+  {
+    "id": "critical_strike",
+    "name": "Critical Strike",
+    "norse": "GOLPE CRÍTICO",
+    "icon": "⚔️",
+    "category": "combat",
+    "catName": "Critical Hits",
+    "effect": "30% chance for any drop to become a Critical Strike, multiplying value by <strong>2.5x</strong> and extending active Fever by <strong>+1.0s</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "30% Chance • 2.5x & +1s Fever"
+  },
+  {
+    "id": "prismatic_wildcard",
+    "name": "Prismatic Wildcard",
+    "norse": "COMODÍN PRISMÁTICO",
+    "icon": "💎",
+    "category": "defense",
+    "catName": "Wildcards",
+    "effect": "1 in every 8 spawned cards is a Rainbow Wildcard that safely fits into any altar slot (Attack, Defense, or Utility) with <strong>+120 PTS</strong>.",
+    "duration": "Active for 2 Levels",
+    "highlight": "1 in 8 Cards Fits Any Slot"
+  },
+  {
+    "id": "anti_grav_cushion",
+    "name": "Anti-Grav Cushion",
+    "norse": "COLCHÓN ANTIGRAVEDAD",
+    "icon": "🪂",
+    "category": "defense",
+    "catName": "Reaction Window",
+    "effect": "The bottom 35% of the screen projects an upward air cushion that decelerates falling cards by <strong>40%</strong>, providing extra reaction time.",
+    "duration": "Active for 2 Levels",
+    "highlight": "-40% Speed in Bottom 35%"
+  },
+  {
+    "id": "arcane_vault",
+    "name": "Arcane Vault",
+    "norse": "BÓVEDA ARCANA",
+    "icon": "🏦",
+    "category": "score",
+    "catName": "Compound Interest",
+    "effect": "Generates <strong>10% compound interest</strong> on all accumulated score upon completing each level. High-scoring runs explode in value.",
+    "duration": "Active for 2 Levels",
+    "highlight": "10% Compound Interest / Level"
+  }
+];
+
+function initBlessings() {
+  const blessingsGrid = document.getElementById('blessingsGrid');
+  const bFilterBtns = document.querySelectorAll('.blessing-filter-btn');
+  const bSearchInput = document.getElementById('blessingsSearch');
+
+  if (!blessingsGrid) return;
+
+  let currentBCat = 'all';
+  let currentBSearch = '';
+
+  function renderBlessings() {
+    const filtered = BLESSINGS_DATA.filter(b => {
+      const matchesCat = (currentBCat === 'all') || (b.category === currentBCat);
+      const matchesSearch = !currentBSearch ||
+        b.name.toLowerCase().includes(currentBSearch) ||
+        b.norse.toLowerCase().includes(currentBSearch) ||
+        b.catName.toLowerCase().includes(currentBSearch) ||
+        b.effect.toLowerCase().includes(currentBSearch);
+      return matchesCat && matchesSearch;
+    });
+
+    if (filtered.length === 0) {
+      blessingsGrid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-muted);">
+          <div style="font-size: 2.5rem; margin-bottom: 12px;">✨</div>
+          <h4 style="font-size: 1.2rem; color: #fff; margin-bottom: 6px;">No blessings found</h4>
+          <p>Try a different search term or category filter.</p>
+        </div>
+      `;
+      return;
+    }
+
+    blessingsGrid.innerHTML = filtered.map(b => {
+      return `
+        <div class="blessing-card bcat-${b.category}" data-blessing-id="${b.id}">
+          <div class="blessing-card-header">
+            <div class="blessing-icon-box">
+              <span class="b-icon">${b.icon}</span>
+            </div>
+            <div class="blessing-title-group">
+              <h4 class="blessing-name">${b.name}</h4>
+              <div class="blessing-norse-tag">${b.norse}</div>
+            </div>
+            <span class="blessing-cat-pill">${b.catName}</span>
+          </div>
+
+          <p class="blessing-desc">${b.effect}</p>
+
+          <div class="blessing-footer">
+            <div class="blessing-duration-badge">
+              <span>⏱️</span> ${b.duration}
+            </div>
+            <div class="blessing-perk-badge">
+              <span>✦</span> ${b.highlight}
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function updateBlessingCounts() {
+    bFilterBtns.forEach(btn => {
+      const cat = btn.getAttribute('data-bcat');
+      const countEl = btn.querySelector('.bfilter-count');
+      if (countEl) {
+        if (cat === 'all') {
+          countEl.textContent = BLESSINGS_DATA.length;
+        } else {
+          const cnt = BLESSINGS_DATA.filter(b => b.category === cat).length;
+          countEl.textContent = cnt;
+        }
+      }
+    });
+  }
+
+  bFilterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      bFilterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentBCat = btn.getAttribute('data-bcat');
+      renderBlessings();
+    });
+  });
+
+  if (bSearchInput) {
+    bSearchInput.addEventListener('input', (e) => {
+      currentBSearch = e.target.value.trim().toLowerCase();
+      renderBlessings();
+    });
+  }
+
+  updateBlessingCounts();
+  renderBlessings();
 }
