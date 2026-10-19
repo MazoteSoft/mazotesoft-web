@@ -709,7 +709,7 @@ const GRIMOIRE_CARDS = [
     pts: 200,
     art: '/roguedraft/assets/card_especial_bomba.png',
     lore: "A volatile alchemical sphere packed with sulfur and dark solar plasma. Dropping it on regular altar slots causes devastating failure.",
-    tactics: "DO NOT PLACE ON MONOLITH! Swipe off-screen to defuse, or let Sacred Purification neutralize it on contact. Falls 25% faster (1.25x speed).",
+    tactics: "DO NOT PLACE ON MONOLITH! Swipe off-screen to defuse, or let Sacred Purification neutralize it on contact. Falls 33% faster (1.33x speed).",
     rarity: 'Mythic'
   },
   {
@@ -722,7 +722,7 @@ const GRIMOIRE_CARDS = [
     pts: 180,
     art: '/roguedraft/assets/card_especial_reliquia.jpg',
     lore: "A celestial octahedron forged from supernova crystal. Acts as a universal runic prism.",
-    tactics: "Universal Wildcard! Falls 25% faster (1.25x speed). Can be drafted into the Right Mythic Niche to surge +5 charges into your Frenzy Gauge.",
+    tactics: "Universal Wildcard! Falls 33% faster (1.33x speed). Can be drafted into the Right Mythic Niche to surge +5 charges into your Frenzy Gauge.",
     rarity: 'Mythic'
   },
   {
@@ -735,7 +735,7 @@ const GRIMOIRE_CARDS = [
     pts: 250,
     art: '/roguedraft/assets/card_especial_goblin.jpg',
     lore: "A mischievous dwarven creature carrying a sack of glowing runes stolen from the forge of Brokkr.",
-    tactics: "Catch quickly! Falls 25% faster (1.25x speed). Drag directly into the Right Mythic Niche to receive colossal bonus points (+250 PTS) and +5 Frenzy charges.",
+    tactics: "Catch quickly! Falls 33% faster (1.33x speed). Drag directly into the Right Mythic Niche to receive colossal bonus points (+250 PTS) and +5 Frenzy charges.",
     rarity: 'Mythic'
   },
   {
@@ -748,7 +748,7 @@ const GRIMOIRE_CARDS = [
     pts: 190,
     art: '/roguedraft/assets/card_especial_espectro.jpg',
     lore: "An ethereal apparition drifting between planes. Its phantasmal nature distorts mortal perception.",
-    tactics: "Requires sharp visual timing! Falls 25% faster (1.25x speed). Swipe into the Right Mythic Niche to restore +1 lost heart (or grant Overcharge) and cleanse screen hazards.",
+    tactics: "Requires sharp visual timing! Falls 33% faster (1.33x speed). Swipe into the Right Mythic Niche to restore +1 lost heart (or grant Overcharge) and cleanse screen hazards.",
     rarity: 'Mythic'
   },
   {
@@ -761,7 +761,7 @@ const GRIMOIRE_CARDS = [
     pts: 220,
     art: '/roguedraft/assets/card_especial_tiempo.jpg',
     lore: "A crystallized sliver of frozen time. Shimmers with all moments that ever were and will be.",
-    tactics: "Falls 25% faster (1.25x speed). Drop into the Right Mythic Niche to trigger a 3-second global Time Slow and inject +3s into active bombs.",
+    tactics: "Falls 33% faster (1.33x speed). Drop into the Right Mythic Niche to trigger a 3-second global Time Slow and inject +3s into active bombs.",
     rarity: 'Mythic'
   },
 
