@@ -708,8 +708,8 @@ const GRIMOIRE_CARDS = [
     gem: 'mythic',
     pts: 200,
     art: '/roguedraft/assets/card_especial_bomba.png',
-    lore: "A volatile volatile alchemical sphere packed with volatile sulfur and dark solar plasma. Dropping it on regular altar slots causes devastating failure.",
-    tactics: "DO NOT PLACE ON MONOLITH! Swipe or flick quickly into the lateral discard zone to diffuse.",
+    lore: "A volatile alchemical sphere packed with sulfur and dark solar plasma. Dropping it on regular altar slots causes devastating failure.",
+    tactics: "DO NOT PLACE ON MONOLITH! Swipe off-screen to defuse, or let Sacred Purification neutralize it on contact. Falls 25% faster (1.25x speed).",
     rarity: 'Mythic'
   },
   {
@@ -722,7 +722,7 @@ const GRIMOIRE_CARDS = [
     pts: 180,
     art: '/roguedraft/assets/card_especial_reliquia.jpg',
     lore: "A celestial octahedron forged from supernova crystal. Acts as a universal runic prism.",
-    tactics: "Universal Wildcard! Can be placed into ANY slot (Attack, Defense, or Utility) to validate successfully.",
+    tactics: "Universal Wildcard! Falls 25% faster (1.25x speed). Can be drafted into the Right Mythic Niche to surge +5 charges into your Frenzy Gauge.",
     rarity: 'Mythic'
   },
   {
@@ -735,7 +735,7 @@ const GRIMOIRE_CARDS = [
     pts: 250,
     art: '/roguedraft/assets/card_especial_goblin.jpg',
     lore: "A mischievous dwarven creature carrying a sack of glowing runes stolen from the forge of Brokkr.",
-    tactics: "Catch quickly! Drag directly into the Right Mythic Niche to receive colossal bonus points (+250 PTS).",
+    tactics: "Catch quickly! Falls 25% faster (1.25x speed). Drag directly into the Right Mythic Niche to receive colossal bonus points (+250 PTS) and +5 Frenzy charges.",
     rarity: 'Mythic'
   },
   {
@@ -748,7 +748,7 @@ const GRIMOIRE_CARDS = [
     pts: 190,
     art: '/roguedraft/assets/card_especial_espectro.jpg',
     lore: "An ethereal apparition drifting between planes. Its phantasmal nature distorts mortal perception.",
-    tactics: "Requires sharp visual timing. Swipe into the designated niche before it dissolves from the draft.",
+    tactics: "Requires sharp visual timing! Falls 25% faster (1.25x speed). Swipe into the Right Mythic Niche to restore +1 lost heart (or grant Overcharge) and cleanse screen hazards.",
     rarity: 'Mythic'
   },
   {
@@ -761,7 +761,7 @@ const GRIMOIRE_CARDS = [
     pts: 220,
     art: '/roguedraft/assets/card_especial_tiempo.jpg',
     lore: "A crystallized sliver of frozen time. Shimmers with all moments that ever were and will be.",
-    tactics: "Awards substantial score bonuses and temporarily slows conveyor card advance.",
+    tactics: "Falls 25% faster (1.25x speed). Drop into the Right Mythic Niche to trigger a 3-second global Time Slow and inject +3s into active bombs.",
     rarity: 'Mythic'
   },
 
@@ -866,8 +866,8 @@ const GRIMOIRE_CARDS = [
     gem: 'special',
     pts: 150,
     art: '/roguedraft/assets/card_especial_purificacion.png',
-    lore: "A cleansing wave of holy light that removes all active curses, hazards, and penalties from the board.",
-    tactics: "Save for catastrophic moments when lives are critically endangered.",
+    lore: "A sacred cleansing wave of holy light that disarms bombs and removes fog and ink without granting lives, bestowing a Divine Shield for 1 error. Guaranteed to spawn whenever hazards threaten the board in addition to its normal draft frequency.",
+    tactics: "Drop into the Lateral Left Special Niche to purge screen hazards, defuse all bombs, and activate Divine Shield protection (forgiving 1 error). Automatically spawns whenever a bomb, ink, or fog appears!",
     rarity: 'Special'
   },
   {
@@ -1381,9 +1381,9 @@ const BLESSINGS_DATA = [
     "icon": "🩸",
     "category": "survival",
     "catName": "Survival • Health",
-    "effect": "Every uninterrupted streak of <strong>18 consecutive cards restores +1 life heart</strong> (+200 PTS overcharge at full health), plus +5 PTS per card at 10+ combo.",
+    "effect": "Every uninterrupted streak of <strong>18 consecutive cards restores +1 life heart</strong> (+200 PTS overcharge at full health), plus +5 PTS per card at 10+ combo. Counter starts at 0 upon selection (non-retroactive).",
     "duration": "Active for 2 Levels",
-    "highlight": "Combo 18 = +1 Life"
+    "highlight": "Combo 18 = +1 Life • Starts at 0"
   },
   {
     "id": "chrono_adrenaline",
@@ -1447,9 +1447,9 @@ const BLESSINGS_DATA = [
     "icon": "❄️",
     "category": "defense",
     "catName": "Defense • Control",
-    "effect": "Every 5 cards validated in the Defense Altar triggers <em>Coraza de Niflheim</em>, freezing all falling cards in place for <strong>1.5 seconds</strong>.",
+    "effect": "Every 5 cards validated in the Defense Altar triggers <em>Coraza de Niflheim</em>, freezing all falling cards in place for <strong>1.5 seconds</strong>. Counter starts at 0 upon selection.",
     "duration": "Active for 2 Levels",
-    "highlight": "5 Defense Drops = 1.5s Freeze"
+    "highlight": "5 Defense Drops = 1.5s Freeze • Starts at 0"
   },
   {
     "id": "bifrost_prism",
@@ -1469,9 +1469,9 @@ const BLESSINGS_DATA = [
     "icon": "👑",
     "category": "score",
     "catName": "Transmutation",
-    "effect": "Every 5th card touched turns into solid Gold (+150 PTS). Additionally defuses 1 bomb per level into a harmless +200 PTS gold relic.",
+    "effect": "Every 5th card touched turns into solid Gold (+150 PTS). Counter starts at 0 upon selection. Additionally defuses 1 bomb per level into a harmless +200 PTS gold relic.",
     "duration": "Active for 2 Levels",
-    "highlight": "Every 5th Card = Gold (+150 PTS)"
+    "highlight": "Every 5th Card = Gold • Starts at 0"
   },
   {
     "id": "arcane_mastery",
@@ -1491,9 +1491,9 @@ const BLESSINGS_DATA = [
     "icon": "✨",
     "category": "score",
     "catName": "Wealth • Score",
-    "effect": "Every 8 cards drafted, the next falling card gains a radiant golden double frame and yields <strong>+150 bonus score</strong>.",
+    "effect": "Every 8 cards drafted, the next falling card gains a radiant golden double frame and yields <strong>+150 bonus score</strong>. Counter starts at 0 upon selection.",
     "duration": "Active for 2 Levels",
-    "highlight": "Every 8th Card = +150 PTS"
+    "highlight": "Every 8th Card = +150 PTS • Starts at 0"
   },
   {
     "id": "daredevil",
@@ -1579,9 +1579,9 @@ const BLESSINGS_DATA = [
     "icon": "💎",
     "category": "defense",
     "catName": "Wildcards",
-    "effect": "1 in every 8 spawned cards is a Rainbow Wildcard that safely fits into any altar slot (Attack, Defense, or Utility) with <strong>+120 PTS</strong>.",
+    "effect": "1 in every 6 spawned cards is a Rainbow Wildcard that safely fits into any altar slot (Attack, Defense, or Utility) with <strong>+120 PTS</strong> and cleanses hazards. Counter starts at 0 upon selection.",
     "duration": "Active for 2 Levels",
-    "highlight": "1 in 8 Cards Fits Any Slot"
+    "highlight": "1 in 6 Cards Fits Any Slot • Starts at 0"
   },
   {
     "id": "anti_grav_cushion",
