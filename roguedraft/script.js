@@ -1282,9 +1282,9 @@ const BLESSINGS_DATA = [
     "icon": "🧪",
     "category": "survival",
     "catName": "Survival • Health",
-    "effect": "Immediately restores <strong>+1 lost life heart</strong>. If health is already at max (5 hearts), awards an instant <strong>+250 PTS</strong> overcharge bonus instead.",
-    "duration": "Immediate Heal / Overcharge",
-    "highlight": "+1 Life or +250 PTS"
+    "effect": "Classifying <strong>15 Utility cards (Green Pillar)</strong> restores <strong>+1 lost life heart</strong> (or awards <strong>+250 PTS</strong> overcharge at full health). Counter starts at 0 upon selection, triggering once per blessing.",
+    "duration": "Active for 2 Levels",
+    "highlight": "15 Utility Cards = +1 Life"
   },
   {
     "id": "elevated_pillars",
@@ -1337,9 +1337,9 @@ const BLESSINGS_DATA = [
     "icon": "🛠️",
     "category": "defense",
     "catName": "Hazard Defusal",
-    "effect": "Mythic Bombs spawn with an extended <strong>7.5s fuse timer</strong> (+2.5s). Defusing a bomb outside restores <strong>+1 life heart</strong> and grants <strong>+100 PTS</strong>.",
+    "effect": "Mythic Bombs spawn with an extended <strong>7.5s fuse timer</strong> (+2.5s) and hazards fall 30% slower. Successfully defusing <strong>3 bombs</strong> restores <strong>+1 life heart</strong> (or +250 PTS at full health) and awards +100 PTS per defusal. Triggered once per blessing.",
     "duration": "Active for 2 Levels",
-    "highlight": "+2.5s Fuse • +1 Life Heal"
+    "highlight": "+2.5s Fuse • 3 Bombs = +1 Life"
   },
   {
     "id": "berserker_fury",
