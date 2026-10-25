@@ -182,7 +182,7 @@ function initMonolithPermutations() {
 }
 
 /* ==========================================================================
-   3. THE COMPREHENSIVE GRIMOIRE CARD DATABASE (ALL 54 HIGH-RES CARDS)
+   3. THE COMPREHENSIVE GRIMOIRE CARD DATABASE (ALL 57 HIGH-RES CARDS)
    ========================================================================== */
 const GRIMOIRE_CARDS = [
   // --- 13 ATTACK CARDS (Red Ruby) ---
@@ -698,7 +698,7 @@ const GRIMOIRE_CARDS = [
     rarity: 'Common'
   },
 
-  // --- 5 MYTHIC CARDS (Golden Amber) ---
+  // --- 8 MYTHIC CARDS (Golden Amber) ---
   {
     id: 'brimsteinssprengja',
     norse: 'BRIMSTEINSSPRENGJA',
@@ -709,7 +709,7 @@ const GRIMOIRE_CARDS = [
     pts: 200,
     art: '/roguedraft/assets/card_especial_bomba.png',
     lore: "A volatile alchemical sphere packed with sulfur and dark solar plasma. Dropping it on regular altar slots causes devastating failure.",
-    tactics: "DO NOT PLACE ON MONOLITH! Swipe off-screen to defuse, or let Sacred Purification neutralize it on contact. Falls 33% faster (1.33x speed).",
+    tactics: "DO NOT PLACE ON MONOLITH! Swipe off-screen to defuse, or let Sacred Purification neutralize it on contact. Falls 50% faster (1.5x speed).",
     rarity: 'Mythic'
   },
   {
@@ -722,7 +722,7 @@ const GRIMOIRE_CARDS = [
     pts: 180,
     art: '/roguedraft/assets/card_especial_reliquia.jpg',
     lore: "A celestial octahedron forged from supernova crystal. Acts as a universal runic prism.",
-    tactics: "Universal Wildcard! Falls 33% faster (1.33x speed). Can be drafted into the Right Mythic Niche to surge +5 charges into your Frenzy Gauge.",
+    tactics: "Universal Wildcard! Falls 50% faster (1.5x speed). Can be drafted into the Right Mythic Niche to surge +5 charges into your Frenzy Gauge.",
     rarity: 'Mythic'
   },
   {
@@ -735,7 +735,7 @@ const GRIMOIRE_CARDS = [
     pts: 250,
     art: '/roguedraft/assets/card_especial_goblin.jpg',
     lore: "A mischievous dwarven creature carrying a sack of glowing runes stolen from the forge of Brokkr.",
-    tactics: "Catch quickly! Falls 33% faster (1.33x speed). Drag directly into the Right Mythic Niche to receive colossal bonus points (+250 PTS) and +5 Frenzy charges.",
+    tactics: "Catch quickly! Falls 50% faster (1.5x speed). Drag directly into the Right Mythic Niche to receive colossal bonus points (+250 PTS) and +5 Frenzy charges.",
     rarity: 'Mythic'
   },
   {
@@ -748,7 +748,7 @@ const GRIMOIRE_CARDS = [
     pts: 190,
     art: '/roguedraft/assets/card_especial_espectro.jpg',
     lore: "An ethereal apparition drifting between planes. Its phantasmal nature distorts mortal perception.",
-    tactics: "Requires sharp visual timing! Falls 33% faster (1.33x speed). Swipe into the Right Mythic Niche to restore +1 lost heart (or grant Overcharge) and cleanse screen hazards.",
+    tactics: "Requires sharp visual timing! Falls 50% faster (1.5x speed). Swipe into the Right Mythic Niche to restore +1 lost heart (or grant Overcharge) and cleanse screen hazards.",
     rarity: 'Mythic'
   },
   {
@@ -761,7 +761,46 @@ const GRIMOIRE_CARDS = [
     pts: 220,
     art: '/roguedraft/assets/card_especial_tiempo.jpg',
     lore: "A crystallized sliver of frozen time. Shimmers with all moments that ever were and will be.",
-    tactics: "Falls 33% faster (1.33x speed). Drop into the Right Mythic Niche to trigger a 3-second global Time Slow and inject +3s into active bombs.",
+    tactics: "Falls 50% faster (1.5x speed). Drop into the Right Mythic Niche to trigger a 3-second global Time Slow and inject +3s into active bombs.",
+    rarity: 'Mythic'
+  },
+  {
+    id: 'svelgjandi',
+    norse: 'SVELGJANDI',
+    name: 'Voracious Vortex',
+    nameEn: 'Voracious Vortex',
+    category: 'mythic',
+    gem: 'mythic',
+    pts: 250,
+    art: '/roguedraft/assets/card_mitica_vortice_voraz.jpg',
+    lore: "An ultra-dense cosmic gravitational anomaly spawned from a collapsed astral rift. Its insatiable event horizon warps runic spacetime.",
+    tactics: "Lethal Void Hazard! Ticking countdown. Flick or fling swiftly off-screen to banish before implosion (+250 PTS and +5 Fever charges). Detonation costs 1 Life and resets combo! Sacred Purification neutralizes it on contact.",
+    rarity: 'Mythic'
+  },
+  {
+    id: 'niflheimsfrost',
+    norse: 'NIFLHEIMSFROST',
+    name: 'Niflheim Frost',
+    nameEn: 'Niflheim Frost',
+    category: 'mythic',
+    gem: 'mythic',
+    pts: 200,
+    art: '/roguedraft/assets/card_mitica_hielo_niflheim.jpg',
+    lore: "Glacial crystal condensing the primordial zero-kelvin cold of the frozen realm. Emits razor-sharp permafrost rime.",
+    tactics: "Glacial Hazard! Ticking countdown. Fling off-screen to disarm (+200 PTS and +5 Fever charges). Detonation costs 1 Life, resets combo, and FREEZES the Monolith for 4s, bouncing incoming cards away! Neutralized by Sacred Purification.",
+    rarity: 'Mythic'
+  },
+  {
+    id: 'muspellslogi',
+    norse: 'MUSPELLSLOGI',
+    name: 'Muspelheim Fire',
+    nameEn: 'Muspelheim Fire',
+    category: 'mythic',
+    gem: 'mythic',
+    pts: 200,
+    art: '/roguedraft/assets/card_mitica_fuego_muspelheim.jpg',
+    lore: "A blazing fragment of Surtr's primordial magma realm. Pulsates with violent geothermal heat that destabilizes runic arrays.",
+    tactics: "Volcanic Hazard! Ticking countdown. Fling off-screen to disarm (+200 PTS and +5 Fever charges). Detonation costs 1 Life, resets combo, and OVERHEATS the Monolith for 4s into molten rock, rejecting all cards! Neutralized by Sacred Purification.",
     rarity: 'Mythic'
   },
 
@@ -1284,7 +1323,8 @@ const BLESSINGS_DATA = [
     "catName": "Survival • Health",
     "effect": "Classifying <strong>15 Utility cards (Green Pillar)</strong> restores <strong>+1 lost life heart</strong> (or awards <strong>+250 PTS</strong> overcharge at full health). Counter starts at 0 upon selection, triggering once per blessing.",
     "duration": "Active for 2 Levels",
-    "highlight": "15 Utility Cards = +1 Life"
+    "highlight": "15 Utility Cards = +1 Life",
+    "iconFile": "Icon_Potion.png"
   },
   {
     "id": "elevated_pillars",
@@ -1295,7 +1335,8 @@ const BLESSINGS_DATA = [
     "catName": "Board & Geometry",
     "effect": "Raises the monolith's 3 altars <strong>30% taller vertically</strong>, creating a wide upper drop zone that allows significantly earlier card validation.",
     "duration": "Active for 2 Levels",
-    "highlight": "+30% Altar Height"
+    "highlight": "+30% Altar Height",
+    "iconFile": "Icon_Pillars.png"
   },
   {
     "id": "edge_magnetism",
@@ -1306,7 +1347,8 @@ const BLESSINGS_DATA = [
     "catName": "Board & Magnetism",
     "effect": "Generates a wide <strong>210px magnetic border</strong> around the monolith pillars that actively pulls matching cards toward their correct slot with <strong>+35 PTS</strong>.",
     "duration": "Active for 2 Levels",
-    "highlight": "210px Magnetic Radius"
+    "highlight": "210px Magnetic Radius",
+    "iconFile": "Icon_Magnet.png"
   },
   {
     "id": "elastic_bounce",
@@ -1317,7 +1359,8 @@ const BLESSINGS_DATA = [
     "catName": "Board & Physics",
     "effect": "Cards touching the bottom abyss bounce once upward back into the playfield, granting a second chance and <strong>2x score</strong> upon placement.",
     "duration": "2 Levels or 1st Bounce",
-    "highlight": "Abyss Rescue • 2x PTS"
+    "highlight": "Abyss Rescue • 2x PTS",
+    "iconFile": "Icon_Bounce.png"
   },
   {
     "id": "combo_shield",
@@ -1328,18 +1371,20 @@ const BLESSINGS_DATA = [
     "catName": "Survival • Protection",
     "effect": "The first missed or misplayed card in each level is completely forgiven: <strong>0 damage received, life preserved, and combo streak maintained</strong>.",
     "duration": "1 Mistake Forgiven / Level",
-    "highlight": "Total Mistake Immunity"
+    "highlight": "Total Mistake Immunity",
+    "iconFile": "Icon_Shield.png"
   },
   {
     "id": "runic_defuser",
     "name": "Runic Defuser",
     "norse": "DESACTIVADOR RÚNICO",
-    "icon": "🛠️",
+    "icon": "💣",
     "category": "defense",
     "catName": "Hazard Defusal",
     "effect": "Mythic Bombs spawn with an extended <strong>7.5s fuse timer</strong> (+2.5s) and hazards fall 30% slower. Successfully defusing <strong>3 bombs</strong> restores <strong>+1 life heart</strong> (or +250 PTS at full health) and awards +100 PTS per defusal. Triggered once per blessing.",
     "duration": "Active for 2 Levels",
-    "highlight": "+2.5s Fuse • 3 Bombs = +1 Life"
+    "highlight": "+2.5s Fuse • 3 Bombs = +1 Life",
+    "iconFile": "Icon_Bomb.png"
   },
   {
     "id": "berserker_fury",
@@ -1350,7 +1395,8 @@ const BLESSINGS_DATA = [
     "catName": "Combat • Score",
     "effect": "Attack cards grant <strong>+100% bonus score</strong> (double points), while falling conveyor card velocity increases by 15% for aggressive drafting.",
     "duration": "Active for 2 Levels",
-    "highlight": "+100% Attack Points"
+    "highlight": "+100% Attack Points",
+    "iconFile": "Icon_Axe.png"
   },
   {
     "id": "midas_greed",
@@ -1361,7 +1407,8 @@ const BLESSINGS_DATA = [
     "catName": "Mythic • Wealth",
     "effect": "Treasure Goblins, Astral Relics, and all Mythic cards grant <strong>+75% bonus points</strong> when placed into their sacred lateral niches.",
     "duration": "Active for 2 Levels",
-    "highlight": "+75% Mythic Card Value"
+    "highlight": "+75% Mythic Card Value",
+    "iconFile": "Icon_Crown_Gold.png"
   },
   {
     "id": "blazing_fever",
@@ -1372,7 +1419,8 @@ const BLESSINGS_DATA = [
     "catName": "Frenzy & Speed",
     "effect": "The central Fever meter charges <strong>30% faster</strong> (requires fewer cards), triggering invulnerability and frenzy score multipliers much sooner.",
     "duration": "Active for 2 Levels",
-    "highlight": "+30% Fever Charge Rate"
+    "highlight": "+30% Fever Charge Rate",
+    "iconFile": "Icon_Fire.png"
   },
   {
     "id": "vampiric_pact",
@@ -1383,7 +1431,8 @@ const BLESSINGS_DATA = [
     "catName": "Survival • Health",
     "effect": "An uninterrupted streak of <strong>25 consecutive combo cards restores +1 life heart</strong> (+200 PTS overcharge at full health), plus +5 PTS per card at 10+ combo. Starts at 0 upon selection, triggering once per blessing.",
     "duration": "Active for 2 Levels",
-    "highlight": "Combo 25 = +1 Life • Once per Blessing"
+    "highlight": "Combo 25 = +1 Life • Once per Blessing",
+    "iconFile": "Icon_BloodDrop.png"
   },
   {
     "id": "chrono_adrenaline",
@@ -1392,9 +1441,10 @@ const BLESSINGS_DATA = [
     "icon": "⏳",
     "category": "survival",
     "catName": "Emergency • Reflexes",
-    "effect": "When critically wounded at only 1 life heart, card falling speed decelerates by <strong>25%</strong> and all earned points are boosted by <strong>+25%</strong>.",
-    "duration": "Active at 1 Life",
-    "highlight": "-25% Speed • +25% Score"
+    "effect": "Adrenaline reflexes trigger when damaged: at 2 lives cards fall <strong>15% slower (+15% score)</strong>; at 1 life cards fall <strong>30% slower (+35% score)</strong>.",
+    "duration": "Active at 1-2 Lives",
+    "highlight": "1 Life = 30% Slower & +35% PTS",
+    "iconFile": "Icon_Hourglass.png"
   },
   {
     "id": "mirror_cloak",
@@ -1405,7 +1455,8 @@ const BLESSINGS_DATA = [
     "catName": "Defense • Evasion",
     "effect": "Grants a <strong>50% chance on altars</strong> and <strong>35% chance on void falls</strong> to completely deflect and negate missed cards with <strong>0 damage</strong>.",
     "duration": "Active for 2 Levels",
-    "highlight": "50% / 35% Deflection Chance"
+    "highlight": "50% / 35% Deflection Chance",
+    "iconFile": "Icon_Mirror.png"
   },
   {
     "id": "eternal_frenzy",
@@ -1416,7 +1467,8 @@ const BLESSINGS_DATA = [
     "catName": "Frenzy • Score",
     "effect": "Fever Mode duration extends by <strong>+3.0 extra seconds</strong> and awards <strong>x3 total score</strong> for all cards validated while ablaze.",
     "duration": "Active for 2 Levels",
-    "highlight": "+3.0s Fever • x3 Multiplier"
+    "highlight": "+3.0s Fever • x3 Multiplier",
+    "iconFile": "Icon_Infinity.png"
   },
   {
     "id": "arcane_vortex",
@@ -1425,9 +1477,10 @@ const BLESSINGS_DATA = [
     "icon": "🌌",
     "category": "frenzy",
     "catName": "Frenzy • Automation",
-    "effect": "Triggering Frenzy unleashes a gravitational vortex that automatically pulls, sorts, and validates all cards currently visible on screen.",
+    "effect": "Triggering Frenzy activates a gravitational vortex that automatically pulls and sorts all cards for <strong>2x points</strong> and safely neutralizes active bombs.",
     "duration": "Active for 2 Levels",
-    "highlight": "Full-Screen Auto Sort"
+    "highlight": "Full-Screen Auto Sort & Defusal",
+    "iconFile": "Icon_Vortex.png"
   },
   {
     "id": "air_draft",
@@ -1438,7 +1491,8 @@ const BLESSINGS_DATA = [
     "catName": "Precision • Speed",
     "effect": "Cards validated in the upper 45% of the screen grant <strong>+75 bonus points</strong>. Validating 3 upper drops in a row triggers <strong>1.5s Bullet Time Freeze</strong>.",
     "duration": "Active for 2 Levels",
-    "highlight": "+75 PTS • 1.5s Bullet Time"
+    "highlight": "+75 PTS • 1.5s Bullet Time",
+    "iconFile": "Icon_Wind.png"
   },
   {
     "id": "frost_aura",
@@ -1449,7 +1503,8 @@ const BLESSINGS_DATA = [
     "catName": "Defense • Control",
     "effect": "Every 5 cards validated in the Defense Altar triggers <em>Coraza de Niflheim</em>, freezing all falling cards in place for <strong>1.5 seconds</strong>. Counter starts at 0 upon selection.",
     "duration": "Active for 2 Levels",
-    "highlight": "5 Defense Drops = 1.5s Freeze • Starts at 0"
+    "highlight": "5 Defense Drops = 1.5s Freeze • Starts at 0",
+    "iconFile": "Icon_Freeze.png"
   },
   {
     "id": "bifrost_prism",
@@ -1460,7 +1515,8 @@ const BLESSINGS_DATA = [
     "catName": "Divine Rescue",
     "effect": "Projecting a divine beam of rainbow light, it rescues cards falling into the bottom abyss, preventing life loss and awarding <strong>+100 PTS bonus</strong>.",
     "duration": "Active for 2 Levels",
-    "highlight": "Abyss Rescue • +100 PTS"
+    "highlight": "Abyss Rescue • +100 PTS",
+    "iconFile": "Icon_Prism.png"
   },
   {
     "id": "golden_touch",
@@ -1471,7 +1527,8 @@ const BLESSINGS_DATA = [
     "catName": "Transmutation",
     "effect": "Every 5th card touched turns into solid Gold (+150 PTS). Counter starts at 0 upon selection. Additionally defuses 1 bomb per level into a harmless +200 PTS gold relic.",
     "duration": "Active for 2 Levels",
-    "highlight": "Every 5th Card = Gold • Starts at 0"
+    "highlight": "Every 5th Card = Gold • Starts at 0",
+    "iconFile": "Icon_Crown_Gold.png"
   },
   {
     "id": "arcane_mastery",
@@ -1482,7 +1539,8 @@ const BLESSINGS_DATA = [
     "catName": "Buff Augmentation",
     "effect": "Positive powerup cards (<em>Absolute Zero</em>, <em>Arcane Magnet</em>, <em>Zero-G</em>) last <strong>+2.5s longer</strong> and grant <strong>+100 bonus PTS</strong> on cast.",
     "duration": "Active for 2 Levels",
-    "highlight": "+2.5s Buffs • +100 PTS"
+    "highlight": "+2.5s Buffs • +100 PTS",
+    "iconFile": "Icon_Scroll.png"
   },
   {
     "id": "golden_transmutation",
@@ -1493,18 +1551,20 @@ const BLESSINGS_DATA = [
     "catName": "Wealth • Score",
     "effect": "Every 8 cards drafted, the next falling card gains a radiant golden double frame and yields <strong>+150 bonus score</strong>. Counter starts at 0 upon selection.",
     "duration": "Active for 2 Levels",
-    "highlight": "Every 8th Card = +150 PTS • Starts at 0"
+    "highlight": "Every 8th Card = +150 PTS • Starts at 0",
+    "iconFile": "Icon_Sparkle.png"
   },
   {
     "id": "daredevil",
     "name": "Daredevil",
-    "norse": "AL LÍMITE",
+    "norse": "DIANA AL LÍMITE",
     "icon": "🎯",
     "category": "combat",
     "catName": "High Risk • High Reward",
     "effect": "Cards validated in the bottom 40% danger zone award <strong>+125 bonus PTS</strong> and recharge +2 points into the Frenzy meter.",
     "duration": "Active for 2 Levels",
-    "highlight": "+125 PTS in Danger Zone"
+    "highlight": "+125 PTS in Danger Zone",
+    "iconFile": "Icon_Target.png"
   },
   {
     "id": "elemental_harmony",
@@ -1515,29 +1575,32 @@ const BLESSINGS_DATA = [
     "catName": "Tactical Sorting",
     "effect": "Sorting a sequential cycle of <em>Attack ➔ Defense ➔ Utility</em> awards <strong>+100 bonus PTS</strong> and adds <strong>+5 immediate combo</strong>.",
     "duration": "Active for 2 Levels",
-    "highlight": "Cycle = +100 PTS & +5 Combo"
+    "highlight": "Cycle = +100 PTS & +5 Combo",
+    "iconFile": "Icon_CrystalBall.png"
   },
   {
     "id": "hawkeye_precision",
     "name": "Hawkeye Precision",
-    "norse": "OJO DE HALCÓN",
+    "norse": "PRECISIÓN DE HALCÓN",
     "icon": "🦅",
     "category": "combat",
     "catName": "Multiplier Ceiling",
     "effect": "Raises the combo multiplier ceiling from the standard x3.0 up to a supreme <strong>x4.0 maximum</strong> once reaching a 20-card streak.",
     "duration": "Active for 2 Levels",
-    "highlight": "x4.0 Max Combo Ceiling"
+    "highlight": "x4.0 Max Combo Ceiling",
+    "iconFile": "Icon_Hawkeye.png"
   },
   {
     "id": "kinetic_sling",
     "name": "Kinetic Sling",
     "norse": "HONDA CINÉTICA",
-    "icon": "🚀",
+    "icon": "🪃",
     "category": "board",
     "catName": "Mobile Flick",
     "effect": "Fast downward swipe flicks launch cards directly into monolith altars with high velocity, awarding <strong>+40 bonus points</strong>.",
     "duration": "Active for 2 Levels",
-    "highlight": "Fast Flicks = +40 PTS"
+    "highlight": "Fast Flicks = +40 PTS",
+    "iconFile": "Icon_Slingshot.png"
   },
   {
     "id": "runic_vortex",
@@ -1548,7 +1611,8 @@ const BLESSINGS_DATA = [
     "catName": "Suction • Alignment",
     "effect": "The monolith projects vertical suction beams that pull mid-screen cards into matching slots, granting <strong>+25 bonus PTS</strong>.",
     "duration": "Active for 2 Levels",
-    "highlight": "Mid-Screen Suction • +25 PTS"
+    "highlight": "Mid-Screen Suction • +25 PTS",
+    "iconFile": "Icon_Vortex.png"
   },
   {
     "id": "arcane_fusion",
@@ -1559,7 +1623,8 @@ const BLESSINGS_DATA = [
     "catName": "Card Synthesis",
     "effect": "Colliding two falling cards of the same elemental type fuses them into a radiant <strong>Mega-Card awarding 2.5x total points</strong>.",
     "duration": "Active for 2 Levels",
-    "highlight": "Card Collision = 2.5x Mega-Card"
+    "highlight": "Card Collision = 2.5x Mega-Card",
+    "iconFile": "Icon_Card.png"
   },
   {
     "id": "critical_strike",
@@ -1570,7 +1635,8 @@ const BLESSINGS_DATA = [
     "catName": "Critical Hits",
     "effect": "30% chance for any drop to become a Critical Strike, multiplying value by <strong>2.5x</strong> and extending active Fever by <strong>+1.0s</strong>.",
     "duration": "Active for 2 Levels",
-    "highlight": "30% Chance • 2.5x & +1s Fever"
+    "highlight": "30% Chance • 2.5x & +1s Fever",
+    "iconFile": "Icon_CriticalStrike.png"
   },
   {
     "id": "prismatic_wildcard",
@@ -1581,7 +1647,8 @@ const BLESSINGS_DATA = [
     "catName": "Wildcards",
     "effect": "1 in every 6 spawned cards is a Rainbow Wildcard that safely fits into any altar slot (Attack, Defense, or Utility) with <strong>+120 PTS</strong> and cleanses hazards. Counter starts at 0 upon selection.",
     "duration": "Active for 2 Levels",
-    "highlight": "1 in 6 Cards Fits Any Slot • Starts at 0"
+    "highlight": "1 in 6 Cards Fits Any Slot • Starts at 0",
+    "iconFile": "Icon_Sparkle.png"
   },
   {
     "id": "anti_grav_cushion",
@@ -1592,18 +1659,20 @@ const BLESSINGS_DATA = [
     "catName": "Reaction Window",
     "effect": "The bottom 35% of the screen projects an upward air cushion that decelerates falling cards by <strong>40%</strong>, providing extra reaction time.",
     "duration": "Active for 2 Levels",
-    "highlight": "-40% Speed in Bottom 35%"
+    "highlight": "-40% Speed in Bottom 35%",
+    "iconFile": "Icon_AntiGrav.png"
   },
   {
     "id": "arcane_vault",
     "name": "Arcane Vault",
-    "norse": "BÓVEDA ARCANA",
+    "norse": "BÓVEDA DE INTERÉS ARCANO",
     "icon": "🏦",
     "category": "score",
     "catName": "Compound Interest",
     "effect": "Generates <strong>10% compound interest</strong> on all accumulated score upon completing each level. High-scoring runs explode in value.",
     "duration": "Active for 2 Levels",
-    "highlight": "10% Compound Interest / Level"
+    "highlight": "10% Compound Interest / Level",
+    "iconFile": "Icon_Vault.png"
   }
 ];
 
@@ -1644,7 +1713,8 @@ function initBlessings() {
         <div class="blessing-card bcat-${b.category}" data-blessing-id="${b.id}">
           <div class="blessing-card-header">
             <div class="blessing-icon-box">
-              <span class="b-icon">${b.icon}</span>
+              <img src="/roguedraft/assets/icons/${b.iconFile}" alt="${b.name}" class="blessing-icon-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';">
+              <span class="b-icon" style="display:none;">${b.icon}</span>
             </div>
             <div class="blessing-title-group">
               <h4 class="blessing-name">${b.name}</h4>
