@@ -709,7 +709,7 @@ const GRIMOIRE_CARDS = [
     pts: 200,
     art: '/roguedraft/assets/card_especial_bomba.png',
     lore: "A volatile alchemical sphere packed with sulfur and dark solar plasma. Dropping it on regular altar slots causes devastating failure.",
-    tactics: "DO NOT PLACE ON MONOLITH! Swipe off-screen to defuse, or let Sacred Purification neutralize it on contact. Falls 50% faster (1.5x speed).",
+    tactics: "DO NOT PLACE ON MONOLITH OR NICHES! Fling off-screen (at least 25% beyond screen bounds) before the 4s countdown strikes zero to safely disarm with runic fireworks (+150 PTS, +5 Fever charges). Neutralized by Sacred Purification.",
     rarity: 'Mythic'
   },
   {
