@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centro de Moderación UGC | Rogue Draft — MazoteSoft</title>
+  <meta name="description" content="Panel de Moderación y Análisis Lingüístico con Inteligencia Artificial para Rogue Draft.">
+  <link rel="icon" type="image/png" href="../assets/app_icon_512.png">
+
+  <!-- Google Fonts: Cinzel & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #080a10;
+      --bg-surface: #0e121d;
+      --bg-surface-elevated: #151a29;
+      --bg-card: #121724;
+      --gold-primary: #FFD700;
+      --gold-hover: #FFEAA7;
+      --gold-border: rgba(255, 215, 0, 0.4);
+      --cyan-arcane: #64D2FF;
+      --green-safe: #2ED573;
+      --green-safe-bg: rgba(46, 213, 115, 0.15);
+      --yellow-warn: #FFA502;
+      --yellow-warn-bg: rgba(255, 165, 2, 0.15);
+      --red-danger: #FF4757;
+      --red-danger-bg: rgba(255, 71, 87, 0.15);
+      --purple-grave: #A55EEA;
+      --purple-grave-bg: rgba(165, 94, 234, 0.2);
+      --text-main: #F1F2F6;
+      --text-muted: #A4B0BE;
+      --border-color: #242c40;
+      --font-title: 'Cinzel', serif;
+      --font-body: 'Outfit', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 10% 30%, rgba(100, 210, 255, 0.05) 0%, transparent 40%);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      border: 2px solid var(--gold-border);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+    }
+
+    .brand-title h1 {
+      font-family: var(--font-title);
+      font-size: 1.6rem;
+      letter-spacing: 1.5px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .brand-title p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+      border: 1px solid transparent;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
+      color: #0b0e14;
+      border-color: #FFEAA7;
+      box-shadow: 0 4px 14px rgba(255, 215, 0, 0.25);
+    }
+
+    .btn-gold:hover {
+      background: #FFEAA7;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(255, 215, 0, 0.35);
+    }
+
+    .btn-cyan {
+      background: rgba(100, 210, 255, 0.12);
+      color: var(--cyan-arcane);
+      border-color: rgba(100, 210, 255, 0.4);
+    }
+
+    .btn-cyan:hover {
+      background: rgba(100, 210, 255, 0.22);
+      border-color: var(--cyan-arcane);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border-color: var(--border-color);
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-surface-elevated);
+      border-color: var(--text-muted);
+    }
+
+    .btn-danger {
+      background: var(--red-danger-bg);
+      color: var(--red-danger);
+      border-color: rgba(255, 71, 87, 0.4);
+    }
+
+    .btn-danger:hover {
+      background: rgba(255, 71, 87, 0.3);
+    }
+
+    /* Status Bar */
+    .status-bar {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 14px 20px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green-safe);
+      box-shadow: 0 0 10px var(--green-safe);
+    }
+
+    .status-dot.warn {
+      background: var(--yellow-warn);
+      box-shadow: 0 0 10px var(--yellow-warn);
+    }
+
+    /* Grid Layout */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 28px;
+    }
+
+    @media (max-width: 1024px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 24px;
+      position: relative;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .panel-title {
+      font-family: var(--font-title);
+      font-size: 1.15rem;
+      color: var(--gold-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Form inputs */
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    textarea, input[type="text"], input[type="password"] {
+      width: 100%;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 14px;
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    textarea:focus, input[type="text"]:focus, input[type="password"]:focus {
+      outline: none;
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+    }
+
+    .preset-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .chip {
+      background: var(--bg-surface-elevated);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s;
+    }
+
+    .chip:hover {
+      color: var(--gold-primary);
+      border-color: var(--gold-border);
+      background: rgba(255, 215, 0, 0.08);
+    }
+
+    /* Stats Ribbon */
+    .stats-ribbon {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .stat-val {
+      font-family: var(--font-title);
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .stat-lbl {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Result Cards */
+    .filter-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 6px;
+      background: var(--bg-dark);
+      padding: 4px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+
+    .filter-tab {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .filter-tab.active {
+      background: var(--bg-surface-elevated);
+      color: var(--gold-primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+
+    .results-container {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-height: 750px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .results-container::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .results-container::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 3px;
+    }
+
+    .result-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 18px;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .result-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--border-color);
+    }
+
+    .result-card.safe::before { background: var(--green-safe); }
+    .result-card.warn::before { background: var(--yellow-warn); }
+    .result-card.danger::before { background: var(--red-danger); }
+    .result-card.grave::before { background: var(--purple-grave); }
+
+    .result-card:hover {
+      border-color: rgba(255, 215, 0, 0.3);
+      transform: translateX(2px);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .term-wrapper {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .term-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+
+    .term-lang {
+      font-size: 0.8rem;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-color);
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: var(--cyan-arcane);
+      font-weight: 600;
+    }
+
+    .verdict-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .badge-safe { background: var(--green-safe-bg); color: var(--green-safe); border: 1px solid rgba(46, 213, 115, 0.4); }
+    .badge-warn { background: var(--yellow-warn-bg); color: var(--yellow-warn); border: 1px solid rgba(255, 165, 2, 0.4); }
+    .badge-danger { background: var(--red-danger-bg); color: var(--red-danger); border: 1px solid rgba(255, 71, 87, 0.4); }
+    .badge-grave { background: var(--purple-grave-bg); color: var(--purple-grave); border: 1px solid rgba(165, 94, 234, 0.5); }
+
+    .card-meta-row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 8px 16px;
+      font-size: 0.92rem;
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .card-meta-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .meta-label {
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+    }
+
+    .meta-val {
+      color: var(--text-main);
+    }
+
+    .meta-val.translation {
+      color: var(--gold-primary);
+      font-weight: 600;
+    }
+
+    .meaning-box {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.88rem;
+      color: #cfd6e0;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    .offense-reason {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: var(--red-danger);
+      font-weight: 600;
+    }
+
+    .card-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .btn-sm {
+      padding: 6px 12px;
+      font-size: 0.78rem;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+
+    /* Modal / Config */
+    .config-box {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .api-key-input {
+      display: flex;
+      gap: 8px;
+    }
+
+    /* Loading Spinner */
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 0.8s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="brand">
+        <img src="../assets/app_icon_512.png" alt="Rogue Draft" class="brand-icon" onerror="this.src='https://mazotesoft.com/roguedraft/assets/app_icon_512.png'">
+        <div class="brand-title">
+          <h1>Centro de Moderación UGC</h1>
+          <p>Rogue Draft // MazoteSoft Gaming Security & Linguistics</p>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <a href="../" class="btn btn-outline">← Volver al Juego</a>
+        <a href="https://mazotesoft.com/" class="btn btn-outline" target="_blank">MazoteSoft.com</a>
+        <button id="btnFetchFirestore" class="btn btn-cyan">
+          <span>☁️ Cargar desde Firestore</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- STATUS BAR -->
+    <div class="status-bar">
+      <div class="status-item">
+        <div class="status-dot" id="dotAi"></div>
+        <span>IA: <strong id="lblModel">Gemini 2.5 Flash (Gratuito)</strong></span>
+      </div>
+      <div class="status-item">
+        <div class="status-dot" id="dotFirestore"></div>
+        <span>Base de Datos: <strong>Firestore (roguedraft-game)</strong></span>
+      </div>
+      <div class="status-item">
+        <span>Filtro Local C#: <strong style="color: var(--green-safe);">100% Activo (Leetspeak + Homoglifos)</strong></span>
+      </div>
+      <div class="status-item" style="margin-left: auto;">
+        <span>Modo: <strong style="color: var(--gold-primary);">Moderación Multilingüe en Vivo</strong></span>
+      </div>
+    </div>
+
+    <!-- DASHBOARD MAIN -->
+    <div class="dashboard-grid">
+
+      <!-- LEFT COLUMN: CONTROLS & INPUT -->
+      <div class="sidebar-col">
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">🛡️ Analizador de Nombres</h2>
+            <span style="font-size: 0.8rem; color: var(--gold-primary);">En Vivo</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="txtInput">Ingresa nombres o palabras a analizar</label>
+            <textarea id="txtInput" rows="5" placeholder="Escribe o pega nombres separados por comas o saltos de línea (ej: v3rg4, Thor_99, arschloch, cyka, assassin)..."></textarea>
+            
+            <div class="preset-chips">
+              <span class="chip" onclick="setPreset('v3rg4, f.u.c.k, pUt4, 5h1t, n1gg4, c4br0n')">⚡ Probar Leetspeak</span>
+              <span class="chip" onclick="setPreset('scheisse, arschloch, merde, putain, stronzo, cyka')">🌍 Probar Multilingüe</span>
+              <span class="chip" onclick="setPreset('Thor_99, Odin_Allfather, Assassin, Valkyrie_Eir, Classic')">🛡️ Probar Legítimos</span>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <button id="btnAnalyzeAI" class="btn btn-gold" style="flex: 1;">
+              <span>⚡ Analizar con IA</span>
+            </button>
+            <button id="btnAnalyzeLocal" class="btn btn-outline" title="Análisis instantáneo con el motor ContentModerator">
+              <span>🔍 Filtro Rápido</span>
+            </button>
+          </div>
+
+          <!-- FIRESTORE QUICK FETCH SECTION -->
+          <div class="form-group" style="padding-top: 14px; border-top: 1px solid var(--border-color);">
+            <label class="form-label">Colecciones de Jugadores en Vivo</label>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+              <button class="btn btn-outline btn-sm" onclick="loadCollection('credits')">🏛️ Fundadores</button>
+              <button class="btn btn-outline btn-sm" onclick="loadCollection('leaderboards')">🏆 Leaderboards</button>
+            </div>
+          </div>
+
+          <!-- GEMINI CONFIGURATION ACCORDION -->
+          <div class="config-box">
+            <label class="form-label">Configuración Gemini API Key</label>
+            <div class="api-key-input">
+              <input type="password" id="txtApiKey" placeholder="AIzaSy...">
+              <button class="btn btn-outline btn-sm" onclick="toggleApiKeyVisibility()" id="btnToggleKey">👁️</button>
+              <button class="btn btn-cyan btn-sm" onclick="saveApiKey()">Guardar</button>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;">
+              Usa la clave gratuita de Google AI Studio (modelo gemini-2.5-flash). Persistente en este navegador.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: RESULTS & AUDIT -->
+      <div class="main-col">
+        
+        <!-- STATS RIBBON -->
+        <div class="stats-ribbon">
+          <div class="stat-card">
+            <div class="stat-val" id="statTotal" style="color: var(--cyan-arcane);">0</div>
+            <div class="stat-lbl">Analizados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="statSafe" style="color: var(--green-safe);">0</div>
+            <div class="stat-lbl">Seguros</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="statWarn" style="color: var(--yellow-warn);">0</div>
+            <div class="stat-lbl">Sospechosos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="statOffensive" style="color: var(--red-danger);">0</div>
+            <div class="stat-lbl">Ofensivos / Bloqueados</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="filter-bar">
+            <div class="filter-tabs">
+              <button class="filter-tab active" onclick="setFilter('all')">Todos (<span id="countAll">0</span>)</button>
+              <button class="filter-tab" onclick="setFilter('offensive')">Ofensivos (<span id="countOffensive">0</span>)</button>
+              <button class="filter-tab" onclick="setFilter('warn')">Sospechosos (<span id="countWarn">0</span>)</button>
+              <button class="filter-tab" onclick="setFilter('safe')">Seguros (<span id="countSafe">0</span>)</button>
+            </div>
+
+            <div style="display: flex; gap: 8px;">
+              <input type="text" id="txtSearchFilter" placeholder="Buscar en resultados..." style="width: 220px; padding: 6px 12px; font-size: 0.85rem;" oninput="renderResults()">
+              <button class="btn btn-outline btn-sm" onclick="exportResultsJSON()" title="Exportar JSON">💾 Exportar</button>
+              <button class="btn btn-outline btn-sm" onclick="clearResults()" title="Limpiar lista">🗑️</button>
+            </div>
+          </div>
+
+          <!-- RESULTS LIST -->
+          <div class="results-container" id="resultsContainer">
+            <div class="empty-state">
+              <div class="empty-icon">🛡️</div>
+              <h3>No hay palabras analizadas aún</h3>
+              <p>Ingresa nombres en el panel izquierdo o carga jugadores desde Firestore para comenzar la moderación con IA.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    // =========================================================================
+    // CONFIGURACIÓN DE APIS Y ESTADO
+    // =========================================================================
+    const DEFAULT_API_KEY = "AIzaSyCqzo6M5gDpeuOLiudOyAoYfpFJCEYLuM4";
+    const FIRESTORE_PROJECT_ID = "roguedraft-game";
+    const FIRESTORE_API_KEY = "AIzaSyCY3ky5pUGWBkzfTYWNhIwgfBzkL6maKjQ";
+    const GEMINI_MODELS = ["gemini-2.5-flash", "gemini-flash-latest", "gemini-1.5-flash"];
+
+    let currentApiKey = localStorage.getItem("roguedraft_gemini_key") || DEFAULT_API_KEY;
+    let analyzedRecords = [];
+    let currentFilter = 'all';
+
+    // Reglas locales offline de ContentModerator para pre-chequeo instantáneo
+    const LOCAL_WHITELIST = new Set([
+      "asgard", "valhalla", "ragnarok", "thor", "odin", "freya", "skadi", "loki", "tyr",
+      "baldur", "heimdall", "fenrir", "surtr", "jormungandr", "nidhogg", "yggdrasil", "valkyrie",
+      "hel", "helheim", "mimir", "rogue", "mage", "wizard", "monarch", "lord", "sovereign",
+      "assassin", "classic", "pass", "compass", "titan", "titanic", "title", "button", "cocktail"
+    ]);
+
+    const LOCAL_BLACKLIST = [
+      "fuck", "fuk", "fck", "fuxk", "fvck", "bitch", "cunt", "pussy", "asshole", "bastard",
+      "nigger", "nigga", "faggot", "whore", "slut", "dildo", "retard", "hitler", "nazi",
+      "pedophil", "rapist", "blowjob", "jizz", "bukkake", "puta", "puto", "mierda", "verga",
+      "pendej", "cabron", "chinga", "culero", "maricon", "malparid", "gonorre", "carechimba",
+      "mamaguevo", "mamon", "gilipollas", "capullo", "zorra", "pelotudo", "boludo", "conchetumadre",
+      "caralho", "merde", "putain", "scheisse", "arschloch", "stronzo", "cazzo", "vaffanculo",
+      "coño", "cono", "culo", "pito", "kys", "suicide", "porn", "sex"
+    ];
+
+    // Inicialización al cargar la página
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("txtApiKey").value = currentApiKey;
+      document.getElementById("btnAnalyzeAI").addEventListener("click", () => handleAnalyze(true));
+      document.getElementById("btnAnalyzeLocal").addEventListener("click", () => handleAnalyze(false));
+      document.getElementById("btnFetchFirestore").addEventListener("click", () => loadCollection("credits"));
+      
+      // Auto-cargar preset para primera vista amigable
+      setPreset("v3rg4, Thor_99, arschloch, cyka");
+    });
+
+    function setPreset(text) {
+      document.getElementById("txtInput").value = text;
+    }
+
+    function saveApiKey() {
+      const val = document.getElementById("txtApiKey").value.trim();
+      if (val) {
+        currentApiKey = val;
+        localStorage.setItem("roguedraft_gemini_key", val);
+        alert("API Key guardada correctamente.");
+      }
+    }
+
+    function toggleApiKeyVisibility() {
+      const el = document.getElementById("txtApiKey");
+      const btn = document.getElementById("btnToggleKey");
+      if (el.type === "password") {
+        el.type = "text";
+        btn.textContent = "🙈";
+      } else {
+        el.type = "password";
+        btn.textContent = "👁️";
+      }
+    }
+
+    // Normalizador local de leetspeak
+    function normalizeLeet(str) {
+      if (!str) return "";
+      let s = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+      // Homoglifos
+      const homos = { 'а': 'a', 'в': 'b', 'с': 'c', 'е': 'e', 'н': 'h', 'і': 'i', 'к': 'k', 'м': 'm', 'о': 'o', 'р': 'p', 'т': 't', 'х': 'x', 'у': 'y' };
+      s = s.replace(/[авсенікмортху]/g, m => homos[m] || m);
+      // Leet
+      const leet = { '0': 'o', '1': 'i', '!': 'i', '|': 'i', '3': 'e', '4': 'a', '@': 'a', '5': 's', '$': 's', '7': 't', '+': 't', '8': 'b', '9': 'g' };
+      s = s.replace(/[01!|34@5$7+89]/g, m => leet[m] || m);
+      return s;
+    }
+
+    function checkLocalOffline(word) {
+      const clean = word.trim();
+      const norm = normalizeLeet(clean);
+      const alpha = norm.replace(/[^a-z0-9]/g, '');
+      const collapsed = alpha.replace(/(.)\1+/g, '$1');
+
+      if (LOCAL_WHITELIST.has(clean.toLowerCase()) || LOCAL_WHITELIST.has(alpha) || LOCAL_WHITELIST.has(collapsed)) {
+        return { isOffensive: false, classification: "SEGURO", reason: "Permitido por Lista Blanca del juego." };
+      }
+
+      for (const bad of LOCAL_BLACKLIST) {
+        if (alpha.includes(bad) || collapsed.includes(bad)) {
+          return { isOffensive: true, classification: "OFENSIVO", reason: `Coincide con término prohibido ('${bad}')` };
+        }
+      }
+
+      return { isOffensive: false, classification: "SEGURO", reason: "Sin coincidencias en lista negra." };
+    }
+
+    // =========================================================================
+    // ANÁLISIS CON INTELIGENCIA ARTIFICIAL (GEMINI REST API)
+    // =========================================================================
+    async function queryGemini(term) {
+      const apiKey = currentApiKey || DEFAULT_API_KEY;
+      
+      const prompt = `Actúa como un moderador de contenidos profesional y analista lingüístico multilingüe para un videojuego móvil.
+Analiza con precisión quirúrgica el siguiente nombre o palabra: "${term}".
+Determina:
+1. "idioma_original": idioma en el que está escrito o el argot de procedencia (ej. "Español", "Inglés", "Alemán", "Ruso", "Nórdico Antiguo / Fantasía", etc.).
+2. "traduccion_espanol": traducción clara y natural al español (si ya está en español o es un nombre propio, indícalo o tradúcelo).
+3. "significado": explicación profunda de qué significa literal y coloquialmente, incluyendo jerga de internet, doble sentido, origen cultural o argot de la calle.
+4. "es_ofensivo": true si es una grosería, insulto, término sexual explícito, discriminatorio, odio o inapropiado; false si es seguro o inocente.
+5. "clasificacion": exactamente una de las siguientes opciones: "SEGURO", "SOSPECHOSO", "OFENSIVO", o "GRAVE".
+6. "detalles_ofensa": descripción breve de por qué es ofensivo (o por qué es seguro si no lo es).
+7. "recomendacion": "APROBADO" o "BLOQUEAR".
+
+Responde ÚNICAMENTE un objeto JSON válido con esta estructura exacta sin texto alrededor:
+{
+  "termino": "${term}",
+  "idioma_original": "...",
+  "traduccion_espanol": "...",
+  "significado": "...",
+  "es_ofensivo": true,
+  "clasificacion": "OFENSIVO",
+  "detalles_ofensa": "...",
+  "recomendacion": "BLOQUEAR"
+}`;
+
+      let lastError = null;
+      for (const model of GEMINI_MODELS) {
+        try {
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+          const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: {
+                responseMimeType: "application/json",
+                temperature: 0.1
+              }
+            })
+          });
+
+          if (!response.ok) {
+            const errJson = await response.json().catch(() => ({}));
+            throw new Error(`HTTP ${response.status}: ${errJson.error?.message || response.statusText}`);
+          }
+
+          const data = await response.json();
+          const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (rawText) {
+            return JSON.parse(rawText);
+          }
+        } catch (err) {
+          lastError = err;
+          console.warn(`Fallo con modelo ${model}:`, err.message);
+        }
+      }
+
+      // Fallback local si falla la API
+      console.error("Todos los modelos de Gemini fallaron:", lastError);
+      const local = checkLocalOffline(term);
+      return {
+        termino: term,
+        idioma_original: "Desconocido (Modo Offline)",
+        traduccion_espanol: term,
+        significado: "No se pudo conectar con la API de IA. Clasificación calculada por motor local.",
+        es_ofensivo: local.isOffensive,
+        clasificacion: local.classification,
+        detalles_ofensa: local.reason,
+        recomendacion: local.isOffensive ? "BLOQUEAR" : "APROBADO"
+      };
+    }
+
+    // =========================================================================
+    // GESTIÓN DEL FLUJO DE ANÁLISIS
+    // =========================================================================
+    async function handleAnalyze(useAI = true) {
+      const raw = document.getElementById("txtInput").value.trim();
+      if (!raw) {
+        alert("Por favor ingresa al menos una palabra o nombre a analizar.");
+        return;
+      }
+
+      const words = Array.from(new Set(
+        raw.split(/[\n,;]+/)
+           .map(w => w.trim())
+           .filter(w => w.length > 0)
+      ));
+
+      const btn = document.getElementById("btnAnalyzeAI");
+      const originalText = btn.innerHTML;
+      btn.innerHTML = `<span class="spinner"></span> Analizando (${words.length})...`;
+      btn.disabled = true;
+
+      try {
+        for (const word of words) {
+          // Si ya fue analizado recientemente, evitar duplicados
+          const existingIdx = analyzedRecords.findIndex(r => r.termino.toLowerCase() === word.toLowerCase());
+          
+          let result;
+          if (useAI) {
+            result = await queryGemini(word);
+          } else {
+            const local = checkLocalOffline(word);
+            result = {
+              termino: word,
+              idioma_original: "Reglas Locales",
+              traduccion_espanol: word,
+              significado: "Evaluado por el motor de expresiones regulares, homoglifos y leetspeak de ContentModerator.",
+              es_ofensivo: local.isOffensive,
+              clasificacion: local.classification,
+              detalles_ofensa: local.reason,
+              recomendacion: local.isOffensive ? "BLOQUEAR" : "APROBADO"
+            };
+          }
+
+          if (existingIdx !== -1) {
+            analyzedRecords[existingIdx] = result;
+          } else {
+            analyzedRecords.unshift(result);
+          }
+
+          renderResults();
+        }
+      } catch (err) {
+        alert("Error durante el análisis: " + err.message);
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
+    }
+
+    // =========================================================================
+    // CONEXIÓN CON FIRESTORE CLOUD
+    // =========================================================================
+    async function loadCollection(collName) {
+      const btn = document.getElementById("btnFetchFirestore");
+      const orig = btn.innerHTML;
+      btn.innerHTML = `<span class="spinner"></span> Conectando...`;
+      btn.disabled = true;
+
+      try {
+        let url;
+        if (collName === 'credits') {
+          url = `https://firestore.googleapis.com/v1/projects/${FIRESTORE_PROJECT_ID}/databases/(default)/documents/credits?key=${FIRESTORE_API_KEY}`;
+        } else {
+          url = `https://firestore.googleapis.com/v1/projects/${FIRESTORE_PROJECT_ID}/databases/(default)/documents/leaderboards?key=${FIRESTORE_API_KEY}`;
+        }
+
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("Error HTTP " + res.status);
+        const data = await res.json();
+        const docs = data.documents || [];
+
+        const names = [];
+        docs.forEach(d => {
+          const f = d.fields || {};
+          const n = f.name?.stringValue || f.playerName?.stringValue;
+          if (n && !names.includes(n)) {
+            names.push(n);
+          }
+        });
+
+        if (names.length === 0) {
+          alert(`No se encontraron registros activos en la colección '${collName}'.`);
+          return;
+        }
+
+        document.getElementById("txtInput").value = names.join(", ");
+        alert(`Se cargaron ${names.length} nombres de la colección '${collName}'. Pulsa 'Analizar con IA' para evaluarlos.`);
+      } catch (err) {
+        alert("Error cargando de Firestore: " + err.message);
+      } finally {
+        btn.innerHTML = orig;
+        btn.disabled = false;
+      }
+    }
+
+    // =========================================================================
+    // RENDERIZADO DE RESULTADOS & FILTROS
+    // =========================================================================
+    function setFilter(filter) {
+      currentFilter = filter;
+      document.querySelectorAll(".filter-tab").forEach(t => t.classList.remove("active"));
+      event.target.classList.add("active");
+      renderResults();
+    }
+
+    function renderResults() {
+      const container = document.getElementById("resultsContainer");
+      const search = (document.getElementById("txtSearchFilter").value || "").toLowerCase();
+
+      // Conteos
+      const total = analyzedRecords.length;
+      const safeCount = analyzedRecords.filter(r => !r.es_ofensivo && r.clasificacion === 'SEGURO').length;
+      const warnCount = analyzedRecords.filter(r => r.clasificacion === 'SOSPECHOSO').length;
+      const offCount = analyzedRecords.filter(r => r.es_ofensivo || r.clasificacion === 'OFENSIVO' || r.clasificacion === 'GRAVE').length;
+
+      document.getElementById("statTotal").textContent = total;
+      document.getElementById("statSafe").textContent = safeCount;
+      document.getElementById("statWarn").textContent = warnCount;
+      document.getElementById("statOffensive").textContent = offCount;
+
+      document.getElementById("countAll").textContent = total;
+      document.getElementById("countSafe").textContent = safeCount;
+      document.getElementById("countWarn").textContent = warnCount;
+      document.getElementById("countOffensive").textContent = offCount;
+
+      if (total === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">🛡️</div>
+            <h3>No hay palabras analizadas aún</h3>
+            <p>Ingresa nombres en el panel izquierdo o carga jugadores desde Firestore para comenzar la moderación con IA.</p>
+          </div>`;
+        return;
+      }
+
+      // Filtrado
+      const filtered = analyzedRecords.filter(r => {
+        if (currentFilter === 'offensive' && !r.es_ofensivo && r.clasificacion !== 'OFENSIVO' && r.clasificacion !== 'GRAVE') return false;
+        if (currentFilter === 'safe' && (r.es_ofensivo || r.clasificacion !== 'SEGURO')) return false;
+        if (currentFilter === 'warn' && r.clasificacion !== 'SOSPECHOSO') return false;
+
+        if (search) {
+          const matchTerm = r.termino.toLowerCase().includes(search);
+          const matchTr = (r.traduccion_espanol || "").toLowerCase().includes(search);
+          const matchMean = (r.significado || "").toLowerCase().includes(search);
+          if (!matchTerm && !matchTr && !matchMean) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">🔍</div>
+            <h3>No se encontraron coincidencias</h3>
+            <p>Intenta con otro término de búsqueda o cambia la pestaña del filtro.</p>
+          </div>`;
+        return;
+      }
+
+      let html = "";
+      filtered.forEach((r, idx) => {
+        let cardClass = "safe";
+        let badgeClass = "badge-safe";
+        let badgeIcon = "✓";
+
+        if (r.clasificacion === "GRAVE") {
+          cardClass = "grave";
+          badgeClass = "badge-grave";
+          badgeIcon = "⛔";
+        } else if (r.es_ofensivo || r.clasificacion === "OFENSIVO") {
+          cardClass = "danger";
+          badgeClass = "badge-danger";
+          badgeIcon = "✖";
+        } else if (r.clasificacion === "SOSPECHOSO") {
+          cardClass = "warn";
+          badgeClass = "badge-warn";
+          badgeIcon = "⚠";
+        }
+
+        html += `
+          <div class="result-card ${cardClass}">
+            <div class="card-top">
+              <div class="term-wrapper">
+                <span class="term-name">${escapeHtml(r.termino)}</span>
+                <span class="term-lang">🌐 ${escapeHtml(r.idioma_original || 'Detectado')}</span>
+              </div>
+              <span class="verdict-badge ${badgeClass}">
+                <span>${badgeIcon}</span>
+                <span>${escapeHtml(r.clasificacion || (r.es_ofensivo ? 'OFENSIVO' : 'SEGURO'))}</span>
+              </span>
+            </div>
+
+            <div class="card-meta-row">
+              <span class="meta-label">Traducción al Español:</span>
+              <span class="meta-val translation">${escapeHtml(r.traduccion_espanol || r.termino)}</span>
+
+              <span class="meta-label">Recomendación:</span>
+              <span class="meta-val" style="font-weight: 700; color: ${r.recomendacion === 'BLOQUEAR' ? 'var(--red-danger)' : 'var(--green-safe)'};">
+                ${r.recomendacion === 'BLOQUEAR' ? '🛑 BLOQUEAR / ASIGNAR ROGUE SEGURO' : '✅ APROBAR'}
+              </span>
+            </div>
+
+            <div class="meaning-box">
+              <strong>📖 Significado y Contexto Cultural:</strong><br>
+              ${escapeHtml(r.significado || 'Sin información disponible.')}
+              ${r.detalles_ofensa ? `<div class="offense-reason">⚠️ Motivo: ${escapeHtml(r.detalles_ofensa)}</div>` : ''}
+            </div>
+
+            <div class="card-actions">
+              <button class="btn btn-outline btn-sm" onclick="copyCardData(${idx})">📋 Copiar Info</button>
+              <button class="btn btn-danger btn-sm" onclick="deleteRecord('${escapeHtml(r.termino)}')">Eliminar</button>
+            </div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function escapeHtml(text) {
+      if (!text) return "";
+      return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function clearResults() {
+      if (confirm("¿Deseas vaciar la lista de resultados analizados?")) {
+        analyzedRecords = [];
+        renderResults();
+      }
+    }
+
+    function deleteRecord(term) {
+      analyzedRecords = analyzedRecords.filter(r => r.termino !== term);
+      renderResults();
+    }
+
+    function copyCardData(idx) {
+      const r = analyzedRecords[idx];
+      if (!r) return;
+      const text = `TÉRMINO: ${r.termino}\nIDIOMA: ${r.idioma_original}\nTRADUCCIÓN: ${r.traduccion_espanol}\nCLASIFICACIÓN: ${r.clasificacion}\nOFENSIVO: ${r.es_ofensivo}\nSIGNIFICADO: ${r.significado}`;
+      navigator.clipboard.writeText(text);
+      alert("Información copiada al portapapeles.");
+    }
+
+    function exportResultsJSON() {
+      if (analyzedRecords.length === 0) {
+        alert("No hay registros para exportar.");
+        return;
+      }
+      const blob = new Blob([JSON.stringify(analyzedRecords, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `roguedraft_moderation_report_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
