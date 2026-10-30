@@ -561,11 +561,174 @@
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
+
+    /* Master Gate Overlay */
+    .auth-gate-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, rgba(16, 18, 27, 0.98) 0%, rgba(8, 9, 13, 1) 100%);
+      z-index: 99999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .auth-gate-card {
+      background: var(--bg-surface);
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.9), 0 0 25px rgba(255, 215, 0, 0.1);
+      border-radius: 16px;
+      padding: 36px 32px;
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .auth-gate-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    }
+
+    .auth-gate-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      border: 2px solid rgba(255, 215, 0, 0.5);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+      margin: 0 auto 18px auto;
+      display: block;
+    }
+
+    .auth-gate-title {
+      font-family: var(--font-title);
+      font-size: 1.45rem;
+      color: #fff;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .auth-gate-subtitle {
+      font-size: 0.82rem;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .auth-input-group {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .auth-input-group input {
+      width: 100%;
+      padding: 13px 45px 13px 16px;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.2s;
+      box-sizing: border-box;
+    }
+
+    .auth-input-group input:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.25);
+    }
+
+    .auth-toggle-pass {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 4px;
+    }
+
+    .auth-remember {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .auth-remember input {
+      cursor: pointer;
+      accent-color: var(--gold-primary);
+    }
+
+    .auth-error-msg {
+      background: rgba(255, 71, 87, 0.15);
+      border: 1px solid rgba(255, 71, 87, 0.4);
+      color: #ff6b81;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+      display: none;
+      text-align: left;
+    }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <!-- MASTER GATE LOCK OVERLAY -->
+  <div id="authGate" class="auth-gate-overlay">
+    <div class="auth-gate-card">
+      <img src="../assets/app_icon_512.png" alt="Rogue Draft" class="auth-gate-logo" onerror="this.src='https://mazotesoft.com/roguedraft/assets/app_icon_512.png'">
+      <h2 class="auth-gate-title">Consola de Moderación UGC</h2>
+      <div class="auth-gate-subtitle">MazoteSoft Security // Acceso Restringido</div>
+
+      <div id="gateError" class="auth-error-msg"></div>
+
+      <form id="frmGate" onsubmit="handleGateSubmit(event)">
+        <div class="auth-input-group">
+          <input type="password" id="txtGatePass" placeholder="Ingresa tu Contraseña Maestra..." autofocus required>
+          <button type="button" class="auth-toggle-pass" onclick="toggleGatePassVisibility()" id="btnToggleGatePass">👁️</button>
+        </div>
+
+        <label class="auth-remember">
+          <input type="checkbox" id="chkRememberDevice" checked>
+          <span>Recordar sesión en este dispositivo</span>
+        </label>
+
+        <button type="submit" class="btn btn-gold" id="btnGateUnlock" style="width: 100%; justify-content: center; padding: 13px;">
+          <span>🔓 Desbloquear Consola</span>
+        </button>
+      </form>
+
+      <div style="margin-top: 22px; font-size: 0.76rem; color: var(--text-muted); line-height: 1.4;">
+        🛡️ Bóveda protegida mediante criptografía <strong>AES-256</strong>.<br>
+        Acceso exclusivo para el administrador de Rogue Draft.
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="mainApp" style="display: none;">
 
     <!-- HEADER -->
     <header>
@@ -581,6 +744,9 @@
         <a href="https://mazotesoft.com/" class="btn btn-outline" target="_blank">MazoteSoft.com</a>
         <button id="btnFetchFirestore" class="btn btn-cyan" onclick="loadAllFromFirestore()">
           <span>⚡ Sincronizar Firestore (Solo Nuevos)</span>
+        </button>
+        <button class="btn btn-danger" onclick="lockGate()" title="Cerrar Sesión Segura">
+          <span>🚪 Cerrar Sesión</span>
         </button>
       </div>
     </header>
@@ -663,17 +829,23 @@
             </div>
           </div>
 
-          <!-- GEMINI CONFIGURATION ACCORDION -->
-          <div class="config-box">
-            <label class="form-label">Configuración Gemini API Key</label>
-            <div class="api-key-input">
-              <input type="password" id="txtApiKey" placeholder="AIzaSy...">
-              <button class="btn btn-outline btn-sm" onclick="toggleApiKeyVisibility()" id="btnToggleKey">👁️</button>
-              <button class="btn btn-cyan btn-sm" onclick="saveApiKey()">Guardar</button>
+          <!-- ADMIN SECURITY PANEL -->
+          <div class="config-box" style="border-color: rgba(255, 215, 0, 0.25); background: rgba(18, 20, 29, 0.85); margin-top: 18px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <label class="form-label" style="margin-bottom: 0; color: var(--gold-primary);">🔐 Bóveda Cifrada</label>
+              <span style="font-size: 0.72rem; color: var(--green-safe); font-weight: 700; letter-spacing: 0.5px;">AES-256</span>
             </div>
-            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px;">
-              Usa la clave gratuita de Google AI Studio (modelo gemini-2.5-flash). Persistente en este navegador.
+            <p style="font-size: 0.76rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.3;">
+              Claves de API resguardadas en memoria volátil. Ninguna clave se muestra en pantalla.
             </p>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-outline btn-sm" onclick="promptChangePassword()" style="flex: 1; font-size: 0.78rem; justify-content: center;">
+                🔑 Cambiar Clave
+              </button>
+              <button class="btn btn-danger btn-sm" onclick="lockGate()" style="font-size: 0.78rem; justify-content: center;" title="Cerrar Bóveda">
+                🚪 Salir
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -736,14 +908,24 @@
 
   <script>
     // =========================================================================
-    // CONFIGURACIÓN DE APIS Y ESTADO
+    // SEGURIDAD CRIPTOGRÁFICA Y BÓVEDA AES-256
     // =========================================================================
-    const DEFAULT_API_KEY = "AIzaSyCqzo6M5gDpeuOLiudOyAoYfpFJCEYLuM4";
     const FIRESTORE_PROJECT_ID = "roguedraft-game";
-    const FIRESTORE_API_KEY = "AIzaSyCY3ky5pUGWBkzfTYWNhIwgfBzkL6maKjQ";
     const GEMINI_MODELS = ["gemini-2.5-flash", "gemini-flash-latest", "gemini-1.5-flash"];
 
-    let currentApiKey = localStorage.getItem("roguedraft_gemini_key") || DEFAULT_API_KEY;
+    // Bóveda Cifrada AES-256 (Clave inicial: "RogueAdmin2026!")
+    // Las claves de API nunca se exponen en texto plano en el código ni en la pantalla.
+    const DEFAULT_VAULT = {
+      salt: "UZOVyb9mGiCHSsYyfS37Mw==",
+      iv: "69NIf+sf8lOk4ICLk8OQ+Q==",
+      ciphertext: "nfyVh/YDOQwxcMLwu1pmG2bqFh+WnD0E01THaG47IQyjFUwz1+kmLEVPEf1dC18ss4rfZWqwWcznSN17ZVODb4cXvDBM7Kp+pWIuobGwTgQPYG++RqtkIjdLr2EZzOijFXtKyopj4/hFKobjpkLZpw==",
+      authHash: "tLb9wXxMYH/4vGqF9F8bWPq1o1pQRw3PeZFCKZ85NAk="
+    };
+
+    // Claves descifradas activas exclusivamente en memoria volátil de sesión
+    let decryptedGeminiKey = null;
+    let decryptedFirestoreKey = null;
+
     let analyzedRecords = [];
     let currentFilter = 'all';
 
@@ -752,6 +934,289 @@
     try {
       auditMemory = JSON.parse(localStorage.getItem("roguedraft_audit_memory") || "{}");
     } catch(e) { auditMemory = {}; }
+
+    // Helpers de conversión Base64 <-> Uint8Array
+    function b64ToUint8(str) {
+      const bin = atob(str);
+      const arr = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+      return arr;
+    }
+
+    function uint8ToB64(arr) {
+      let bin = "";
+      for (let i = 0; i < arr.length; i++) bin += String.fromCharCode(arr[i]);
+      return btoa(bin);
+    }
+
+    // =========================================================================
+    // DESBLOQUEO CRIPTOGRÁFICO DE LA BÓVEDA
+    // =========================================================================
+    async function deriveKeyFromPassword(password, saltBytes) {
+      const pwdBytes = new TextEncoder().encode(password);
+      const combined = new Uint8Array(pwdBytes.length + saltBytes.length);
+      combined.set(pwdBytes);
+      combined.set(saltBytes, pwdBytes.length);
+
+      const keyHash = await crypto.subtle.digest("SHA-256", combined);
+      return new Uint8Array(keyHash);
+    }
+
+    async function unlockVaultWithPassword(password, remember) {
+      let vault = DEFAULT_VAULT;
+      try {
+        const custom = localStorage.getItem("roguedraft_custom_vault");
+        if (custom) vault = JSON.parse(custom);
+      } catch(e) {}
+
+      const saltBytes = b64ToUint8(vault.salt);
+      const keyBytes = await deriveKeyFromPassword(password, saltBytes);
+
+      // Verificación de Auth Hash
+      const tokenBytes = new TextEncoder().encode("ROGUE_AUTH_V1");
+      const authCombined = new Uint8Array(keyBytes.length + tokenBytes.length);
+      authCombined.set(keyBytes);
+      authCombined.set(tokenBytes, keyBytes.length);
+      const computedAuthHash = await crypto.subtle.digest("SHA-256", authCombined);
+      const authB64 = uint8ToB64(new Uint8Array(computedAuthHash));
+
+      if (authB64 !== vault.authHash) {
+        throw new Error("Contraseña Maestra incorrecta. Acceso Denegado.");
+      }
+
+      // Descifrado AES-CBC
+      const aesKey = await crypto.subtle.importKey(
+        "raw",
+        keyBytes,
+        { name: "AES-CBC" },
+        false,
+        ["decrypt"]
+      );
+
+      const ivBytes = b64ToUint8(vault.iv);
+      const cipherBytes = b64ToUint8(vault.ciphertext);
+
+      const decrypted = await crypto.subtle.decrypt(
+        { name: "AES-CBC", iv: ivBytes },
+        aesKey,
+        cipherBytes
+      );
+
+      const plainText = new TextDecoder().decode(decrypted);
+      const keysObj = JSON.parse(plainText);
+
+      decryptedGeminiKey = keysObj.gemini;
+      decryptedFirestoreKey = keysObj.firestore;
+
+      // Persistir llave de sesión en sessionStorage (y localStorage si seleccionó recordar)
+      const sessionKeyB64 = uint8ToB64(keyBytes);
+      sessionStorage.setItem("roguedraft_session_key", sessionKeyB64);
+      if (remember) {
+        localStorage.setItem("roguedraft_session_key", sessionKeyB64);
+      } else {
+        localStorage.removeItem("roguedraft_session_key");
+      }
+
+      // Desbloquear vista
+      document.getElementById("authGate").style.display = "none";
+      document.getElementById("mainApp").style.display = "block";
+      updateAuditCounter();
+    }
+
+    async function checkAutoUnlock() {
+      const sessionKeyB64 = sessionStorage.getItem("roguedraft_session_key") || localStorage.getItem("roguedraft_session_key");
+      if (!sessionKeyB64) return false;
+
+      let vault = DEFAULT_VAULT;
+      try {
+        const custom = localStorage.getItem("roguedraft_custom_vault");
+        if (custom) vault = JSON.parse(custom);
+      } catch(e) {}
+
+      try {
+        const keyBytes = b64ToUint8(sessionKeyB64);
+        const aesKey = await crypto.subtle.importKey(
+          "raw",
+          keyBytes,
+          { name: "AES-CBC" },
+          false,
+          ["decrypt"]
+        );
+
+        const ivBytes = b64ToUint8(vault.iv);
+        const cipherBytes = b64ToUint8(vault.ciphertext);
+
+        const decrypted = await crypto.subtle.decrypt(
+          { name: "AES-CBC", iv: ivBytes },
+          aesKey,
+          cipherBytes
+        );
+
+        const plainText = new TextDecoder().decode(decrypted);
+        const keysObj = JSON.parse(plainText);
+        decryptedGeminiKey = keysObj.gemini;
+        decryptedFirestoreKey = keysObj.firestore;
+
+        document.getElementById("authGate").style.display = "none";
+        document.getElementById("mainApp").style.display = "block";
+        updateAuditCounter();
+        return true;
+      } catch (err) {
+        // Sesión inválida o expirada
+        sessionStorage.removeItem("roguedraft_session_key");
+        localStorage.removeItem("roguedraft_session_key");
+        return false;
+      }
+    }
+
+    async function handleGateSubmit(e) {
+      e.preventDefault();
+      const txt = document.getElementById("txtGatePass");
+      const errBox = document.getElementById("gateError");
+      const btn = document.getElementById("btnGateUnlock");
+      const remember = document.getElementById("chkRememberDevice").checked;
+
+      const password = txt.value.trim();
+      if (!password) return;
+
+      errBox.style.display = "none";
+      const origText = btn.innerHTML;
+      btn.innerHTML = `<span class="spinner"></span> Verificando...`;
+      btn.disabled = true;
+
+      try {
+        await unlockVaultWithPassword(password, remember);
+      } catch (err) {
+        errBox.textContent = "⛔ " + err.message;
+        errBox.style.display = "block";
+        txt.value = "";
+        txt.focus();
+      } finally {
+        btn.innerHTML = origText;
+        btn.disabled = false;
+      }
+    }
+
+    function toggleGatePassVisibility() {
+      const el = document.getElementById("txtGatePass");
+      const btn = document.getElementById("btnToggleGatePass");
+      if (el.type === "password") {
+        el.type = "text";
+        btn.textContent = "🙈";
+      } else {
+        el.type = "password";
+        btn.textContent = "👁️";
+      }
+    }
+
+    function lockGate() {
+      sessionStorage.removeItem("roguedraft_session_key");
+      localStorage.removeItem("roguedraft_session_key");
+      decryptedGeminiKey = null;
+      decryptedFirestoreKey = null;
+      document.getElementById("mainApp").style.display = "none";
+      document.getElementById("authGate").style.display = "flex";
+      document.getElementById("txtGatePass").value = "";
+      document.getElementById("gateError").style.display = "none";
+    }
+
+    // =========================================================================
+    // CAMBIO DE CONTRASEÑA MAESTRA
+    // =========================================================================
+    async function encryptVault(password, keysObj) {
+      const saltBytes = new Uint8Array(16);
+      crypto.getRandomValues(saltBytes);
+
+      const ivBytes = new Uint8Array(16);
+      crypto.getRandomValues(ivBytes);
+
+      const keyBytes = await deriveKeyFromPassword(password, saltBytes);
+
+      const tokenBytes = new TextEncoder().encode("ROGUE_AUTH_V1");
+      const authCombined = new Uint8Array(keyBytes.length + tokenBytes.length);
+      authCombined.set(keyBytes);
+      authCombined.set(tokenBytes, keyBytes.length);
+      const computedAuthHash = await crypto.subtle.digest("SHA-256", authCombined);
+
+      const aesKey = await crypto.subtle.importKey(
+        "raw",
+        keyBytes,
+        { name: "AES-CBC" },
+        false,
+        ["encrypt"]
+      );
+
+      const plainBytes = new TextEncoder().encode(JSON.stringify(keysObj));
+      const encrypted = await crypto.subtle.encrypt(
+        { name: "AES-CBC", iv: ivBytes },
+        aesKey,
+        plainBytes
+      );
+
+      return {
+        salt: uint8ToB64(saltBytes),
+        iv: uint8ToB64(ivBytes),
+        ciphertext: uint8ToB64(new Uint8Array(encrypted)),
+        authHash: uint8ToB64(new Uint8Array(computedAuthHash))
+      };
+    }
+
+    async function promptChangePassword() {
+      const currentPass = prompt("Ingresa tu contraseña maestra ACTUAL:");
+      if (!currentPass) return;
+
+      let vault = DEFAULT_VAULT;
+      try {
+        const custom = localStorage.getItem("roguedraft_custom_vault");
+        if (custom) vault = JSON.parse(custom);
+      } catch(e) {}
+
+      try {
+        const saltBytes = b64ToUint8(vault.salt);
+        const keyBytes = await deriveKeyFromPassword(currentPass, saltBytes);
+        const tokenBytes = new TextEncoder().encode("ROGUE_AUTH_V1");
+        const authCombined = new Uint8Array(keyBytes.length + tokenBytes.length);
+        authCombined.set(keyBytes);
+        authCombined.set(tokenBytes, keyBytes.length);
+        const computedAuthHash = await crypto.subtle.digest("SHA-256", authCombined);
+        if (uint8ToB64(new Uint8Array(computedAuthHash)) !== vault.authHash) {
+          throw new Error("Contraseña actual incorrecta.");
+        }
+      } catch(e) {
+        alert("⛔ " + e.message);
+        return;
+      }
+
+      const newPass = prompt("Ingresa tu NUEVA contraseña maestra (mínimo 6 caracteres):");
+      if (!newPass || newPass.trim().length < 6) {
+        alert("La nueva contraseña debe tener al menos 6 caracteres.");
+        return;
+      }
+
+      const confirmPass = prompt("Confirma tu NUEVA contraseña:");
+      if (newPass !== confirmPass) {
+        alert("Las contraseñas no coinciden.");
+        return;
+      }
+
+      const newVault = await encryptVault(newPass, {
+        gemini: decryptedGeminiKey,
+        firestore: decryptedFirestoreKey
+      });
+
+      localStorage.setItem("roguedraft_custom_vault", JSON.stringify(newVault));
+
+      const newSaltBytes = b64ToUint8(newVault.salt);
+      const newKeyBytes = await deriveKeyFromPassword(newPass, newSaltBytes);
+      const newSessionKeyB64 = uint8ToB64(newKeyBytes);
+
+      if (localStorage.getItem("roguedraft_session_key")) {
+        localStorage.setItem("roguedraft_session_key", newSessionKeyB64);
+      }
+      sessionStorage.setItem("roguedraft_session_key", newSessionKeyB64);
+
+      alert("✅ Contraseña Maestra actualizada con éxito. Guárdala en un lugar seguro.");
+    }
 
     // Reglas locales offline de ContentModerator para pre-chequeo instantáneo
     const LOCAL_WHITELIST = new Set([
@@ -772,12 +1237,14 @@
     ];
 
     // Inicialización al cargar la página
-    window.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("txtApiKey").value = currentApiKey;
+    window.addEventListener("DOMContentLoaded", async () => {
       document.getElementById("btnAnalyzeAI").addEventListener("click", () => handleAnalyze(true));
       document.getElementById("btnAnalyzeLocal").addEventListener("click", () => handleAnalyze(false));
       document.getElementById("btnFetchFirestore").addEventListener("click", () => loadAllFromFirestore());
       
+      // Intentar auto-desbloqueo si existe sesión activa previa
+      await checkAutoUnlock();
+
       // Cargar historial previo de tarjetas analizadas si existe en memoria
       try {
         const savedRecords = JSON.parse(localStorage.getItem("roguedraft_analyzed_cards") || "[]");
@@ -812,27 +1279,6 @@
 
     function setPreset(text) {
       document.getElementById("txtInput").value = text;
-    }
-
-    function saveApiKey() {
-      const val = document.getElementById("txtApiKey").value.trim();
-      if (val) {
-        currentApiKey = val;
-        localStorage.setItem("roguedraft_gemini_key", val);
-        alert("API Key guardada correctamente.");
-      }
-    }
-
-    function toggleApiKeyVisibility() {
-      const el = document.getElementById("txtApiKey");
-      const btn = document.getElementById("btnToggleKey");
-      if (el.type === "password") {
-        el.type = "text";
-        btn.textContent = "🙈";
-      } else {
-        el.type = "password";
-        btn.textContent = "👁️";
-      }
     }
 
     // Normalizador local de leetspeak
@@ -872,7 +1318,10 @@
     // =========================================================================
     async function queryGeminiBatch(terms) {
       if (!terms || terms.length === 0) return [];
-      const apiKey = currentApiKey || DEFAULT_API_KEY;
+      const apiKey = decryptedGeminiKey;
+      if (!apiKey) {
+        throw new Error("Bóveda bloqueada. Por favor ingresa tu Contraseña Maestra para descifrar las claves de API.");
+      }
 
       const prompt = `Actúa como un moderador de contenidos profesional y analista lingüístico multilingüe para un videojuego móvil de temática nórdica.
 Analiza con precisión quirúrgica la siguiente lista de nombres de jugadores: ${JSON.stringify(terms)}.
@@ -1072,8 +1521,13 @@ Responde ÚNICAMENTE un array JSON válido de objetos sin texto adicional alrede
       let pageToken = null;
       const baseUrl = `https://firestore.googleapis.com/v1/projects/${FIRESTORE_PROJECT_ID}/databases/(default)/documents/${collectionPath}`;
 
+      const apiKey = decryptedFirestoreKey;
+      if (!apiKey) {
+        throw new Error("Bóveda bloqueada. Por favor ingresa tu Contraseña Maestra para descifrar las credenciales de Firestore.");
+      }
+
       do {
-        let url = `${baseUrl}?pageSize=300&key=${FIRESTORE_API_KEY}`;
+        let url = `${baseUrl}?pageSize=300&key=${apiKey}`;
         if (pageToken) {
           url += `&pageToken=${encodeURIComponent(pageToken)}`;
         }
