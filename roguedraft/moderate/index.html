@@ -580,7 +580,7 @@
         <a href="../" class="btn btn-outline">← Volver al Juego</a>
         <a href="https://mazotesoft.com/" class="btn btn-outline" target="_blank">MazoteSoft.com</a>
         <button id="btnFetchFirestore" class="btn btn-cyan" onclick="loadAllFromFirestore()">
-          <span>☁️ Cargar TODOS los Nombres de Firestore</span>
+          <span>⚡ Sincronizar Firestore (Solo Nuevos)</span>
         </button>
       </div>
     </header>
@@ -596,10 +596,13 @@
         <span>Base de Datos: <strong>Firestore (roguedraft-game)</strong></span>
       </div>
       <div class="status-item">
-        <span>Filtro Local C#: <strong style="color: var(--green-safe);">100% Activo (Leetspeak + Homoglifos)</strong></span>
+        <span>Filtro Local C#: <strong style="color: var(--green-safe);">100% Activo</strong></span>
+      </div>
+      <div class="status-item">
+        <span>Memoria de Auditoría: <strong id="lblAuditedCount" style="color: var(--gold-primary);">0</strong> verificados</span>
       </div>
       <div class="status-item" style="margin-left: auto;">
-        <span>Modo: <strong style="color: var(--gold-primary);">Moderación Multilingüe en Vivo</strong></span>
+        <span>Modo: <strong style="color: var(--cyan-arcane);">Carga Incremental Inteligente</strong></span>
       </div>
     </div>
 
@@ -636,16 +639,27 @@
 
           <!-- FIRESTORE QUICK FETCH SECTION -->
           <div class="form-group" style="padding-top: 14px; border-top: 1px solid var(--border-color);">
-            <label class="form-label">Colecciones de Jugadores en Vivo (Firestore)</label>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <label class="form-label" style="margin-bottom: 0;">Sincronización Firestore</label>
+              <select id="selFetchScope" style="padding: 4px 8px; font-size: 0.8rem; background: var(--bg-surface-elevated); border: 1px solid var(--border-color); color: var(--gold-primary); border-radius: 6px; cursor: pointer;">
+                <option value="new_only" selected>✨ Solo Nuevos / Sin Auditar</option>
+                <option value="limit_100">⏱️ Últimos 100 Registros</option>
+                <option value="limit_500">⏱️ Últimos 500 Registros</option>
+                <option value="all">🌐 Todo el Histórico Completo</option>
+              </select>
+            </div>
             <div style="display: flex; flex-direction: column; gap: 8px;">
               <button class="btn btn-cyan btn-sm" onclick="loadAllFromFirestore()" style="width: 100%; justify-content: center;">
-                <span>🌐 Cargar TODO (Fundadores + Rankings)</span>
+                <span>⚡ Sincronizar y Filtrar Nuevos</span>
               </button>
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-                <button class="btn btn-outline btn-sm" onclick="loadSpecificCollection('credits')">🏛️ Solo Fundadores</button>
-                <button class="btn btn-outline btn-sm" onclick="loadSpecificCollection('leaderboards')">🏆 Solo Leaderboard</button>
+                <button class="btn btn-outline btn-sm" onclick="loadSpecificCollection('credits')">🏛️ Fundadores</button>
+                <button class="btn btn-outline btn-sm" onclick="loadSpecificCollection('leaderboards')">🏆 Leaderboard</button>
               </div>
               <button class="btn btn-outline btn-sm" onclick="loadDailyChallenges()" style="width: 100%; justify-content: center;">📅 Desafíos Diarios (Últimos 7 días)</button>
+              <button class="btn btn-outline btn-sm" onclick="clearAuditMemory()" style="width: 100%; justify-content: center; font-size: 0.75rem; color: var(--text-muted); border-style: dashed;" title="Borra el registro de nombres ya moderados para forzar revisión">
+                🧹 Reiniciar Memoria de Auditoría
+              </button>
             </div>
           </div>
 
@@ -733,6 +747,12 @@
     let analyzedRecords = [];
     let currentFilter = 'all';
 
+    // Memoria de Auditoría Persistente en localStorage (Guarda veredictos para no re-analizar)
+    let auditMemory = {};
+    try {
+      auditMemory = JSON.parse(localStorage.getItem("roguedraft_audit_memory") || "{}");
+    } catch(e) { auditMemory = {}; }
+
     // Reglas locales offline de ContentModerator para pre-chequeo instantáneo
     const LOCAL_WHITELIST = new Set([
       "asgard", "valhalla", "ragnarok", "thor", "odin", "freya", "skadi", "loki", "tyr",
@@ -758,9 +778,37 @@
       document.getElementById("btnAnalyzeLocal").addEventListener("click", () => handleAnalyze(false));
       document.getElementById("btnFetchFirestore").addEventListener("click", () => loadAllFromFirestore());
       
-      // Auto-cargar preset para primera vista amigable
-      setPreset("v3rg4, Thor_99, arschloch, cyka");
+      // Cargar historial previo de tarjetas analizadas si existe en memoria
+      try {
+        const savedRecords = JSON.parse(localStorage.getItem("roguedraft_analyzed_cards") || "[]");
+        if (Array.isArray(savedRecords) && savedRecords.length > 0) {
+          analyzedRecords = savedRecords;
+          renderResults();
+        } else {
+          setPreset("v3rg4, Thor_99, arschloch, cyka");
+        }
+      } catch(e) {
+        setPreset("v3rg4, Thor_99, arschloch, cyka");
+      }
+
+      updateAuditCounter();
     });
+
+    function updateAuditCounter() {
+      const count = Object.keys(auditMemory).length;
+      const el = document.getElementById("lblAuditedCount");
+      if (el) el.textContent = count;
+    }
+
+    function clearAuditMemory() {
+      const count = Object.keys(auditMemory).length;
+      if (confirm(`¿Deseas reiniciar la Memoria de Auditoría (${count} nombres verificados)?\n\nAl hacer esto, la próxima sincronización volverá a considerar todos los nombres de Firestore como nuevos pendientes de moderación.`)) {
+        auditMemory = {};
+        localStorage.removeItem("roguedraft_audit_memory");
+        updateAuditCounter();
+        alert("Memoria de auditoría reiniciada.");
+      }
+    }
 
     function setPreset(text) {
       document.getElementById("txtInput").value = text;
@@ -924,6 +972,25 @@ Responde ÚNICAMENTE un array JSON válido de objetos sin texto adicional alrede
       } else {
         analyzedRecords.unshift(result);
       }
+
+      // Guardar en la Memoria de Auditoría Permanente
+      const key = result.termino.trim().toLowerCase();
+      auditMemory[key] = {
+        term: result.termino,
+        clasificacion: result.clasificacion,
+        recomendacion: result.recomendacion,
+        origen: result.origen || "Manual",
+        fecha: new Date().toISOString()
+      };
+
+      try {
+        localStorage.setItem("roguedraft_audit_memory", JSON.stringify(auditMemory));
+        localStorage.setItem("roguedraft_analyzed_cards", JSON.stringify(analyzedRecords));
+      } catch(e) {
+        console.warn("Error guardando en localStorage:", e);
+      }
+
+      updateAuditCounter();
     }
 
     // =========================================================================
@@ -996,7 +1063,7 @@ Responde ÚNICAMENTE un array JSON válido de objetos sin texto adicional alrede
     }
 
     // =========================================================================
-    // CONEXIÓN CON FIRESTORE CLOUD (PAGINACIÓN EXHAUSTIVA)
+    // CONEXIÓN CON FIRESTORE CLOUD (PAGINACIÓN EXHAUSTIVA & CARGA INCREMENTAL)
     // =========================================================================
     window.nameSourcesMap = new Map();
 
@@ -1029,8 +1096,10 @@ Responde ÚNICAMENTE un array JSON válido de objetos sin texto adicional alrede
     async function loadAllFromFirestore() {
       const btn = document.getElementById("btnFetchFirestore");
       const orig = btn.innerHTML;
-      btn.innerHTML = `<span class="spinner"></span> Consultando TODO...`;
+      btn.innerHTML = `<span class="spinner"></span> Sincronizando...`;
       btn.disabled = true;
+
+      const scope = document.getElementById("selFetchScope")?.value || "new_only";
 
       try {
         window.nameSourcesMap = new Map();
@@ -1093,26 +1162,55 @@ Responde ÚNICAMENTE un array JSON válido de objetos sin texto adicional alrede
           }
         }
 
-        const uniqueNames = Array.from(window.nameSourcesMap.keys());
+        const allUniqueNames = Array.from(window.nameSourcesMap.keys());
 
-        if (uniqueNames.length === 0) {
+        if (allUniqueNames.length === 0) {
           alert("No se encontraron registros de jugadores en Firestore.");
           return;
         }
 
-        document.getElementById("txtInput").value = uniqueNames.join(", ");
+        // Clasificación inteligente entre nombres ya auditados y nuevos
+        const auditedList = [];
+        const newPendingList = [];
 
-        const msg = `⚡ Carga Exhaustiva desde Firestore Completada:
-------------------------------------------------
-🏛️ Fundadores (credits): ${countCredits}
-🏆 Leaderboard Histórico (leaderboards): ${countLeaderboards}
-📅 Desafíos Diarios (Últimos 7 días): ${countDaily}
-------------------------------------------------
-✨ Total Nombres Únicos Detectados: ${uniqueNames.length}
+        allUniqueNames.forEach(n => {
+          if (auditMemory[n.toLowerCase()]) {
+            auditedList.push(n);
+          } else {
+            newPendingList.push(n);
+          }
+        });
 
-Los nombres han sido depositados en el área de texto. ¿Deseas iniciar el análisis con IA ahora mismo?`;
+        let namesToLoad = [];
+        let infoMessage = "";
 
-        if (confirm(msg)) {
+        if (scope === "new_only") {
+          if (newPendingList.length === 0) {
+            const reaudit = confirm(`🎉 ¡Base de Datos al Día!\n----------------------------------------\nTotal de jugadores en Firestore: ${allUniqueNames.length}\nYa auditados y verificados: ${auditedList.length}\nNuevos pendientes: 0\n\nTodos los nombres actuales ya fueron moderados previamente.\n\n¿Deseas forzar la recarga de los ${allUniqueNames.length} nombres existentes para re-evaluarlos?`);
+            if (reaudit) {
+              namesToLoad = allUniqueNames;
+            } else {
+              return;
+            }
+          } else {
+            namesToLoad = newPendingList;
+            infoMessage = `⚡ Sincronización Incremental Completada:\n----------------------------------------\n📊 Total en Firestore: ${allUniqueNames.length} nombres\n🛡️ Ya Moderados Previamente: ${auditedList.length} (omitidos)\n🆕 Nombres NUEVOS por Auditar: ${newPendingList.length}\n----------------------------------------\nSe han cargado únicamente los ${newPendingList.length} nombres nuevos en el área de texto.\n\n¿Deseas iniciar el análisis con IA ahora mismo?`;
+          }
+        } else if (scope === "limit_100") {
+          namesToLoad = allUniqueNames.slice(0, 100);
+          infoMessage = `Se cargaron los 100 registros más recientes (${allUniqueNames.length} en total en BD).\n\n¿Deseas analizarlos con IA ahora?`;
+        } else if (scope === "limit_500") {
+          namesToLoad = allUniqueNames.slice(0, 500);
+          infoMessage = `Se cargaron los 500 registros más recientes (${allUniqueNames.length} en total en BD).\n\n¿Deseas analizarlos con IA ahora?`;
+        } else {
+          // 'all'
+          namesToLoad = allUniqueNames;
+          infoMessage = `⚡ Modo Histórico Completo:\nSe cargaron los ${allUniqueNames.length} nombres de Firestore (incluyendo los ${auditedList.length} ya moderados).\n\n¿Deseas analizarlos con IA ahora?`;
+        }
+
+        document.getElementById("txtInput").value = namesToLoad.join(", ");
+
+        if (infoMessage && confirm(infoMessage)) {
           handleAnalyze(true);
         }
       } catch (err) {
@@ -1128,9 +1226,11 @@ Los nombres han sido depositados en el área de texto. ¿Deseas iniciar el anál
       const origText = btn ? btn.innerHTML : "";
       if (btn) btn.innerHTML = `<span class="spinner"></span>`;
 
+      const scope = document.getElementById("selFetchScope")?.value || "new_only";
+
       try {
         const docs = await fetchAllDocuments(collName);
-        const names = [];
+        let names = [];
         docs.forEach(d => {
           const f = d.fields || {};
           const n = (f.name?.stringValue || f.playerName?.stringValue)?.trim();
@@ -1148,8 +1248,17 @@ Los nombres han sido depositados en el área de texto. ¿Deseas iniciar el anál
           return;
         }
 
+        if (scope === "new_only") {
+          const newNames = names.filter(n => !auditMemory[n.toLowerCase()]);
+          if (newNames.length === 0) {
+            alert(`🎉 ¡Al día! Todos los ${names.length} nombres de '${collName}' ya fueron auditados previamente.`);
+            return;
+          }
+          names = newNames;
+        }
+
         document.getElementById("txtInput").value = names.join(", ");
-        if (confirm(`Se cargaron ${names.length} nombres de '${collName}' (con paginación exhaustiva).\n\n¿Deseas analizarlos con IA ahora?`)) {
+        if (confirm(`Se cargaron ${names.length} nombres de '${collName}'.\n\n¿Deseas analizarlos con IA ahora?`)) {
           handleAnalyze(true);
         }
       } catch (err) {
@@ -1164,8 +1273,10 @@ Los nombres han sido depositados en el área de texto. ¿Deseas iniciar el anál
       const origText = btn ? btn.innerHTML : "";
       if (btn) btn.innerHTML = `<span class="spinner"></span> Buscando 7 días...`;
 
+      const scope = document.getElementById("selFetchScope")?.value || "new_only";
+
       try {
-        const names = [];
+        let names = [];
         const today = new Date();
         for (let i = 0; i < 7; i++) {
           const d = new Date(today);
@@ -1189,6 +1300,15 @@ Los nombres han sido depositados en el área de texto. ¿Deseas iniciar el anál
         if (names.length === 0) {
           alert("No se encontraron partidas diarias registradas en los últimos 7 días.");
           return;
+        }
+
+        if (scope === "new_only") {
+          const newNames = names.filter(n => !auditMemory[n.toLowerCase()]);
+          if (newNames.length === 0) {
+            alert(`🎉 ¡Al día! Todas las partidas diarias de los últimos 7 días ya fueron auditadas previamente.`);
+            return;
+          }
+          names = newNames;
         }
 
         document.getElementById("txtInput").value = names.join(", ");
@@ -1341,14 +1461,22 @@ Los nombres han sido depositados en el área de texto. ¿Deseas iniciar el anál
     }
 
     function clearResults() {
-      if (confirm("¿Deseas vaciar la lista de resultados analizados?")) {
+      if (confirm("¿Deseas vaciar la vista de resultados analizados? (Los nombres seguirán recordados en la memoria de auditoría para no volver a gastar IA)")) {
         analyzedRecords = [];
+        localStorage.removeItem("roguedraft_analyzed_cards");
         renderResults();
       }
     }
 
     function deleteRecord(term) {
       analyzedRecords = analyzedRecords.filter(r => r.termino !== term);
+      const key = term.trim().toLowerCase();
+      delete auditMemory[key];
+      try {
+        localStorage.setItem("roguedraft_audit_memory", JSON.stringify(auditMemory));
+        localStorage.setItem("roguedraft_analyzed_cards", JSON.stringify(analyzedRecords));
+      } catch(e) {}
+      updateAuditCounter();
       renderResults();
     }
 
