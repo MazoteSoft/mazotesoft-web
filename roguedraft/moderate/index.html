@@ -692,6 +692,60 @@
       display: none;
       text-align: left;
     }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 100000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+      box-sizing: border-box;
+    }
+
+    .modal-card {
+      background: var(--bg-surface);
+      border: 1px solid rgba(255, 215, 0, 0.35);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 215, 0, 0.1);
+      border-radius: 14px;
+      padding: 28px;
+      width: 100%;
+      max-width: 440px;
+      position: relative;
+      animation: fadeIn 0.25s ease-out;
+      box-sizing: border-box;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .modal-close-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 4px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      color: #fff;
+    }
   </style>
 </head>
 <body>
@@ -725,6 +779,59 @@
         🛡️ Bóveda protegida mediante criptografía <strong>AES-256</strong>.<br>
         Acceso exclusivo para el administrador de Rogue Draft.
       </div>
+    </div>
+  </div>
+
+  <!-- MODAL CAMBIAR CONTRASEÑA -->
+  <div id="modalChangePass" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="font-family: var(--font-title); color: var(--gold-primary); margin: 0; font-size: 1.25rem;">
+          🔑 Cambiar Contraseña Maestra
+        </h3>
+        <button class="modal-close-btn" onclick="closeChangePasswordModal()">✕</button>
+      </div>
+
+      <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 20px;">
+        Define tu nueva clave privada. Las claves de API se re-encriptarán localmente con tu nueva contraseña.
+      </p>
+
+      <div id="changePassError" class="auth-error-msg" style="display: none;"></div>
+
+      <form id="frmChangePass" onsubmit="handleChangePasswordSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Contraseña Actual</label>
+          <div class="auth-input-group">
+            <input type="password" id="txtCurrentPass" placeholder="Tu contraseña actual..." required>
+            <button type="button" class="auth-toggle-pass" onclick="toggleFieldVisibility('txtCurrentPass', this)">👁️</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Nueva Contraseña (mínimo 6 caracteres)</label>
+          <div class="auth-input-group">
+            <input type="password" id="txtNewPass" placeholder="Nueva contraseña..." required minlength="6">
+            <button type="button" class="auth-toggle-pass" onclick="toggleFieldVisibility('txtNewPass', this)">👁️</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Confirmar Nueva Contraseña (repite la misma)</label>
+          <div class="auth-input-group">
+            <input type="password" id="txtConfirmPass" placeholder="Confirma tu nueva contraseña..." required minlength="6">
+            <button type="button" class="auth-toggle-pass" onclick="toggleFieldVisibility('txtConfirmPass', this)">👁️</button>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 24px;">
+          <button type="button" class="btn btn-outline" style="flex: 1; justify-content: center;" onclick="closeChangePasswordModal()">
+            Cancelar
+          </button>
+          <button type="submit" class="btn btn-gold" id="btnSaveNewPass" style="flex: 1; justify-content: center;">
+            <span>💾 Guardar Nueva Clave</span>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -839,7 +946,7 @@
               Claves de API resguardadas en memoria volátil. Ninguna clave se muestra en pantalla.
             </p>
             <div style="display: flex; gap: 8px;">
-              <button class="btn btn-outline btn-sm" onclick="promptChangePassword()" style="flex: 1; font-size: 0.78rem; justify-content: center;">
+              <button class="btn btn-outline btn-sm" onclick="openChangePasswordModal()" style="flex: 1; font-size: 0.78rem; justify-content: center;">
                 🔑 Cambiar Clave
               </button>
               <button class="btn btn-danger btn-sm" onclick="lockGate()" style="font-size: 0.78rem; justify-content: center;" title="Cerrar Bóveda">
@@ -1161,17 +1268,66 @@
       };
     }
 
-    async function promptChangePassword() {
-      const currentPass = prompt("Ingresa tu contraseña maestra ACTUAL:");
-      if (!currentPass) return;
+    function openChangePasswordModal() {
+      document.getElementById("txtCurrentPass").value = "";
+      document.getElementById("txtNewPass").value = "";
+      document.getElementById("txtConfirmPass").value = "";
+      document.getElementById("changePassError").style.display = "none";
+      document.getElementById("modalChangePass").style.display = "flex";
+      setTimeout(() => document.getElementById("txtCurrentPass").focus(), 100);
+    }
 
-      let vault = DEFAULT_VAULT;
-      try {
-        const custom = localStorage.getItem("roguedraft_custom_vault");
-        if (custom) vault = JSON.parse(custom);
-      } catch(e) {}
+    function closeChangePasswordModal() {
+      document.getElementById("modalChangePass").style.display = "none";
+    }
+
+    function toggleFieldVisibility(fieldId, btn) {
+      const el = document.getElementById(fieldId);
+      if (!el) return;
+      if (el.type === "password") {
+        el.type = "text";
+        btn.textContent = "🙈";
+      } else {
+        el.type = "password";
+        btn.textContent = "👁️";
+      }
+    }
+
+    async function handleChangePasswordSubmit(e) {
+      e.preventDefault();
+      const currentPass = document.getElementById("txtCurrentPass").value.trim();
+      const newPass = document.getElementById("txtNewPass").value.trim();
+      const confirmPass = document.getElementById("txtConfirmPass").value.trim();
+      const errBox = document.getElementById("changePassError");
+      const btn = document.getElementById("btnSaveNewPass");
+
+      errBox.style.display = "none";
+
+      if (newPass.length < 6) {
+        errBox.textContent = "⚠️ La nueva contraseña debe tener al menos 6 caracteres.";
+        errBox.style.display = "block";
+        return;
+      }
+
+      // Verificación estricta de confirmación: debe escribirse dos veces exactamente igual
+      if (newPass !== confirmPass) {
+        errBox.textContent = "⚠️ La confirmación no coincide con la nueva contraseña. Por favor verifícalas.";
+        errBox.style.display = "block";
+        document.getElementById("txtConfirmPass").focus();
+        return;
+      }
+
+      const origText = btn.innerHTML;
+      btn.innerHTML = `<span class="spinner"></span> Cifrando Bóveda...`;
+      btn.disabled = true;
 
       try {
+        let vault = DEFAULT_VAULT;
+        try {
+          const custom = localStorage.getItem("roguedraft_custom_vault");
+          if (custom) vault = JSON.parse(custom);
+        } catch(ex) {}
+
         const saltBytes = b64ToUint8(vault.salt);
         const keyBytes = await deriveKeyFromPassword(currentPass, saltBytes);
         const tokenBytes = new TextEncoder().encode("ROGUE_AUTH_V1");
@@ -1179,43 +1335,36 @@
         authCombined.set(keyBytes);
         authCombined.set(tokenBytes, keyBytes.length);
         const computedAuthHash = await crypto.subtle.digest("SHA-256", authCombined);
+
         if (uint8ToB64(new Uint8Array(computedAuthHash)) !== vault.authHash) {
-          throw new Error("Contraseña actual incorrecta.");
+          throw new Error("La contraseña actual es incorrecta.");
         }
-      } catch(e) {
-        alert("⛔ " + e.message);
-        return;
+
+        const newVault = await encryptVault(newPass, {
+          gemini: decryptedGeminiKey,
+          firestore: decryptedFirestoreKey
+        });
+
+        localStorage.setItem("roguedraft_custom_vault", JSON.stringify(newVault));
+
+        const newSaltBytes = b64ToUint8(newVault.salt);
+        const newKeyBytes = await deriveKeyFromPassword(newPass, newSaltBytes);
+        const newSessionKeyB64 = uint8ToB64(newKeyBytes);
+
+        if (localStorage.getItem("roguedraft_session_key")) {
+          localStorage.setItem("roguedraft_session_key", newSessionKeyB64);
+        }
+        sessionStorage.setItem("roguedraft_session_key", newSessionKeyB64);
+
+        closeChangePasswordModal();
+        alert("✅ ¡Contraseña Maestra actualizada con éxito!\n\nLa bóveda AES-256 ha sido re-encriptada con tu nueva clave.");
+      } catch (err) {
+        errBox.textContent = "⛔ " + err.message;
+        errBox.style.display = "block";
+      } finally {
+        btn.innerHTML = origText;
+        btn.disabled = false;
       }
-
-      const newPass = prompt("Ingresa tu NUEVA contraseña maestra (mínimo 6 caracteres):");
-      if (!newPass || newPass.trim().length < 6) {
-        alert("La nueva contraseña debe tener al menos 6 caracteres.");
-        return;
-      }
-
-      const confirmPass = prompt("Confirma tu NUEVA contraseña:");
-      if (newPass !== confirmPass) {
-        alert("Las contraseñas no coinciden.");
-        return;
-      }
-
-      const newVault = await encryptVault(newPass, {
-        gemini: decryptedGeminiKey,
-        firestore: decryptedFirestoreKey
-      });
-
-      localStorage.setItem("roguedraft_custom_vault", JSON.stringify(newVault));
-
-      const newSaltBytes = b64ToUint8(newVault.salt);
-      const newKeyBytes = await deriveKeyFromPassword(newPass, newSaltBytes);
-      const newSessionKeyB64 = uint8ToB64(newKeyBytes);
-
-      if (localStorage.getItem("roguedraft_session_key")) {
-        localStorage.setItem("roguedraft_session_key", newSessionKeyB64);
-      }
-      sessionStorage.setItem("roguedraft_session_key", newSessionKeyB64);
-
-      alert("✅ Contraseña Maestra actualizada con éxito. Guárdala en un lugar seguro.");
     }
 
     // Reglas locales offline de ContentModerator para pre-chequeo instantáneo
