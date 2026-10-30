@@ -802,7 +802,7 @@
         <div class="form-group">
           <label class="form-label">Contraseña Actual</label>
           <div class="auth-input-group">
-            <input type="password" id="txtCurrentPass" placeholder="Tu contraseña actual..." required>
+            <input type="password" id="txtCurrentPass" placeholder="Tu contraseña actual..." autocomplete="current-password" required>
             <button type="button" class="auth-toggle-pass" onclick="toggleFieldVisibility('txtCurrentPass', this)">👁️</button>
           </div>
         </div>
@@ -810,7 +810,7 @@
         <div class="form-group">
           <label class="form-label">Nueva Contraseña (mínimo 6 caracteres)</label>
           <div class="auth-input-group">
-            <input type="password" id="txtNewPass" placeholder="Nueva contraseña..." required minlength="6">
+            <input type="password" id="txtNewPass" placeholder="Nueva contraseña..." autocomplete="new-password" required minlength="6">
             <button type="button" class="auth-toggle-pass" onclick="toggleFieldVisibility('txtNewPass', this)">👁️</button>
           </div>
         </div>
@@ -818,7 +818,7 @@
         <div class="form-group">
           <label class="form-label">Confirmar Nueva Contraseña (repite la misma)</label>
           <div class="auth-input-group">
-            <input type="password" id="txtConfirmPass" placeholder="Confirma tu nueva contraseña..." required minlength="6">
+            <input type="password" id="txtConfirmPass" placeholder="Confirma tu nueva contraseña..." autocomplete="new-password" required minlength="6">
             <button type="button" class="auth-toggle-pass" onclick="toggleFieldVisibility('txtConfirmPass', this)">👁️</button>
           </div>
         </div>
