@@ -579,8 +579,8 @@
       <div class="nav-actions">
         <a href="../" class="btn btn-outline">← Volver al Juego</a>
         <a href="https://mazotesoft.com/" class="btn btn-outline" target="_blank">MazoteSoft.com</a>
-        <button id="btnFetchFirestore" class="btn btn-cyan">
-          <span>☁️ Cargar desde Firestore</span>
+        <button id="btnFetchFirestore" class="btn btn-cyan" onclick="loadAllFromFirestore()">
+          <span>☁️ Cargar TODOS los Nombres de Firestore</span>
         </button>
       </div>
     </header>
@@ -636,10 +636,16 @@
 
           <!-- FIRESTORE QUICK FETCH SECTION -->
           <div class="form-group" style="padding-top: 14px; border-top: 1px solid var(--border-color);">
-            <label class="form-label">Colecciones de Jugadores en Vivo</label>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-              <button class="btn btn-outline btn-sm" onclick="loadCollection('credits')">🏛️ Fundadores</button>
-              <button class="btn btn-outline btn-sm" onclick="loadCollection('leaderboards')">🏆 Leaderboards</button>
+            <label class="form-label">Colecciones de Jugadores en Vivo (Firestore)</label>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <button class="btn btn-cyan btn-sm" onclick="loadAllFromFirestore()" style="width: 100%; justify-content: center;">
+                <span>🌐 Cargar TODO (Fundadores + Rankings)</span>
+              </button>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                <button class="btn btn-outline btn-sm" onclick="loadSpecificCollection('credits')">🏛️ Solo Fundadores</button>
+                <button class="btn btn-outline btn-sm" onclick="loadSpecificCollection('leaderboards')">🏆 Solo Leaderboard</button>
+              </div>
+              <button class="btn btn-outline btn-sm" onclick="loadDailyChallenges()" style="width: 100%; justify-content: center;">📅 Desafíos Diarios (Últimos 7 días)</button>
             </div>
           </div>
 
@@ -750,7 +756,7 @@
       document.getElementById("txtApiKey").value = currentApiKey;
       document.getElementById("btnAnalyzeAI").addEventListener("click", () => handleAnalyze(true));
       document.getElementById("btnAnalyzeLocal").addEventListener("click", () => handleAnalyze(false));
-      document.getElementById("btnFetchFirestore").addEventListener("click", () => loadCollection("credits"));
+      document.getElementById("btnFetchFirestore").addEventListener("click", () => loadAllFromFirestore());
       
       // Auto-cargar preset para primera vista amigable
       setPreset("v3rg4, Thor_99, arschloch, cyka");
@@ -816,31 +822,35 @@
     // =========================================================================
     // ANÁLISIS CON INTELIGENCIA ARTIFICIAL (GEMINI REST API)
     // =========================================================================
-    async function queryGemini(term) {
+    async function queryGeminiBatch(terms) {
+      if (!terms || terms.length === 0) return [];
       const apiKey = currentApiKey || DEFAULT_API_KEY;
-      
-      const prompt = `Actúa como un moderador de contenidos profesional y analista lingüístico multilingüe para un videojuego móvil.
-Analiza con precisión quirúrgica el siguiente nombre o palabra: "${term}".
-Determina:
-1. "idioma_original": idioma en el que está escrito o el argot de procedencia (ej. "Español", "Inglés", "Alemán", "Ruso", "Nórdico Antiguo / Fantasía", etc.).
-2. "traduccion_espanol": traducción clara y natural al español (si ya está en español o es un nombre propio, indícalo o tradúcelo).
-3. "significado": explicación profunda de qué significa literal y coloquialmente, incluyendo jerga de internet, doble sentido, origen cultural o argot de la calle.
-4. "es_ofensivo": true si es una grosería, insulto, término sexual explícito, discriminatorio, odio o inapropiado; false si es seguro o inocente.
-5. "clasificacion": exactamente una de las siguientes opciones: "SEGURO", "SOSPECHOSO", "OFENSIVO", o "GRAVE".
-6. "detalles_ofensa": descripción breve de por qué es ofensivo (o por qué es seguro si no lo es).
-7. "recomendacion": "APROBADO" o "BLOQUEAR".
 
-Responde ÚNICAMENTE un objeto JSON válido con esta estructura exacta sin texto alrededor:
-{
-  "termino": "${term}",
-  "idioma_original": "...",
-  "traduccion_espanol": "...",
-  "significado": "...",
-  "es_ofensivo": true,
-  "clasificacion": "OFENSIVO",
-  "detalles_ofensa": "...",
-  "recomendacion": "BLOQUEAR"
-}`;
+      const prompt = `Actúa como un moderador de contenidos profesional y analista lingüístico multilingüe para un videojuego móvil de temática nórdica.
+Analiza con precisión quirúrgica la siguiente lista de nombres de jugadores: ${JSON.stringify(terms)}.
+Para CADA término del arreglo, genera un objeto con las siguientes propiedades exactas:
+- "termino": el nombre original recibido.
+- "idioma_original": idioma o argot de procedencia (ej. "Español", "Inglés", "Alemán", "Ruso", "Nórdico Antiguo / Fantasía", etc.).
+- "traduccion_espanol": traducción clara al español (si ya está en español o es nombre propio de fantasía, indícalo o tradúcelo).
+- "significado": explicación clara y concisa de qué significa literal y coloquialmente (jerga de internet, argot de calle, doble sentido, o si es un personaje mitológico nórdico).
+- "es_ofensivo": true si es insulto, grosería, término sexual, odio, discriminación o inapropiado; false si es seguro o inocente.
+- "clasificacion": exactamente una de las siguientes opciones: "SEGURO", "SOSPECHOSO", "OFENSIVO", o "GRAVE".
+- "detalles_ofensa": motivo de la clasificación (o por qué es seguro si no lo es).
+- "recomendacion": "APROBADO" o "BLOQUEAR".
+
+Responde ÚNICAMENTE un array JSON válido de objetos sin texto adicional alrededor:
+[
+  {
+    "termino": "...",
+    "idioma_original": "...",
+    "traduccion_espanol": "...",
+    "significado": "...",
+    "es_ofensivo": false,
+    "clasificacion": "SEGURO",
+    "detalles_ofensa": "...",
+    "recomendacion": "APROBADO"
+  }
+]`;
 
       let lastError = null;
       for (const model of GEMINI_MODELS) {
@@ -866,7 +876,9 @@ Responde ÚNICAMENTE un objeto JSON válido con esta estructura exacta sin texto
           const data = await response.json();
           const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
           if (rawText) {
-            return JSON.parse(rawText);
+            const parsed = JSON.parse(rawText);
+            if (Array.isArray(parsed)) return parsed;
+            if (typeof parsed === 'object') return [parsed];
           }
         } catch (err) {
           lastError = err;
@@ -875,18 +887,43 @@ Responde ÚNICAMENTE un objeto JSON válido con esta estructura exacta sin texto
       }
 
       // Fallback local si falla la API
-      console.error("Todos los modelos de Gemini fallaron:", lastError);
-      const local = checkLocalOffline(term);
-      return {
+      console.error("Gemini batch falló con todos los modelos:", lastError);
+      return terms.map(term => {
+        const local = checkLocalOffline(term);
+        return {
+          termino: term,
+          idioma_original: "Desconocido (Modo Offline)",
+          traduccion_espanol: term,
+          significado: "No se pudo conectar con la API de IA. Clasificación calculada por motor local.",
+          es_ofensivo: local.isOffensive,
+          clasificacion: local.classification,
+          detalles_ofensa: local.reason,
+          recomendacion: local.isOffensive ? "BLOQUEAR" : "APROBADO"
+        };
+      });
+    }
+
+    async function queryGemini(term) {
+      const list = await queryGeminiBatch([term]);
+      return list[0] || {
         termino: term,
-        idioma_original: "Desconocido (Modo Offline)",
+        idioma_original: "Desconocido",
         traduccion_espanol: term,
-        significado: "No se pudo conectar con la API de IA. Clasificación calculada por motor local.",
-        es_ofensivo: local.isOffensive,
-        clasificacion: local.classification,
-        detalles_ofensa: local.reason,
-        recomendacion: local.isOffensive ? "BLOQUEAR" : "APROBADO"
+        significado: "Sin respuesta",
+        es_ofensivo: false,
+        clasificacion: "SEGURO",
+        detalles_ofensa: "Error de parsing",
+        recomendacion: "APROBADO"
       };
+    }
+
+    function upsertResult(result) {
+      const existingIdx = analyzedRecords.findIndex(r => r.termino.toLowerCase() === result.termino.toLowerCase());
+      if (existingIdx !== -1) {
+        analyzedRecords[existingIdx] = result;
+      } else {
+        analyzedRecords.unshift(result);
+      }
     }
 
     // =========================================================================
@@ -907,21 +944,17 @@ Responde ÚNICAMENTE un objeto JSON válido con esta estructura exacta sin texto
 
       const btn = document.getElementById("btnAnalyzeAI");
       const originalText = btn.innerHTML;
-      btn.innerHTML = `<span class="spinner"></span> Analizando (${words.length})...`;
       btn.disabled = true;
 
       try {
-        for (const word of words) {
-          // Si ya fue analizado recientemente, evitar duplicados
-          const existingIdx = analyzedRecords.findIndex(r => r.termino.toLowerCase() === word.toLowerCase());
-          
-          let result;
-          if (useAI) {
-            result = await queryGemini(word);
-          } else {
+        if (!useAI) {
+          btn.innerHTML = `<span class="spinner"></span> Analizando (${words.length})...`;
+          for (const word of words) {
             const local = checkLocalOffline(word);
-            result = {
+            const sourceStr = window.nameSourcesMap?.get(word)?.join(", ") || "Entrada Manual";
+            const result = {
               termino: word,
+              origen: sourceStr,
               idioma_original: "Reglas Locales",
               traduccion_espanol: word,
               significado: "Evaluado por el motor de expresiones regulares, homoglifos y leetspeak de ContentModerator.",
@@ -930,15 +963,29 @@ Responde ÚNICAMENTE un objeto JSON válido con esta estructura exacta sin texto
               detalles_ofensa: local.reason,
               recomendacion: local.isOffensive ? "BLOQUEAR" : "APROBADO"
             };
+            upsertResult(result);
           }
-
-          if (existingIdx !== -1) {
-            analyzedRecords[existingIdx] = result;
-          } else {
-            analyzedRecords.unshift(result);
-          }
-
           renderResults();
+        } else {
+          // Análisis con IA en lotes de 6 términos para alta velocidad y evitar 429
+          const chunkSize = 6;
+          for (let i = 0; i < words.length; i += chunkSize) {
+            const chunk = words.slice(i, i + chunkSize);
+            btn.innerHTML = `<span class="spinner"></span> Analizando ${i + 1}-${Math.min(i + chunkSize, words.length)} de ${words.length}...`;
+            
+            const results = await queryGeminiBatch(chunk);
+            for (const res of results) {
+              const sourceStr = window.nameSourcesMap?.get(res.termino)?.join(", ") || "Entrada Manual";
+              res.origen = sourceStr;
+              upsertResult(res);
+            }
+            renderResults();
+
+            // Pequeña pausa entre lotes si hay más términos
+            if (i + chunkSize < words.length) {
+              await new Promise(r => setTimeout(r, 600));
+            }
+          }
         }
       } catch (err) {
         alert("Error durante el análisis: " + err.message);
@@ -949,33 +996,150 @@ Responde ÚNICAMENTE un objeto JSON válido con esta estructura exacta sin texto
     }
 
     // =========================================================================
-    // CONEXIÓN CON FIRESTORE CLOUD
+    // CONEXIÓN CON FIRESTORE CLOUD (PAGINACIÓN EXHAUSTIVA)
     // =========================================================================
-    async function loadCollection(collName) {
+    window.nameSourcesMap = new Map();
+
+    async function fetchAllDocuments(collectionPath) {
+      const allDocs = [];
+      let pageToken = null;
+      const baseUrl = `https://firestore.googleapis.com/v1/projects/${FIRESTORE_PROJECT_ID}/databases/(default)/documents/${collectionPath}`;
+
+      do {
+        let url = `${baseUrl}?pageSize=300&key=${FIRESTORE_API_KEY}`;
+        if (pageToken) {
+          url += `&pageToken=${encodeURIComponent(pageToken)}`;
+        }
+        
+        const res = await fetch(url);
+        if (!res.ok) {
+          if (res.status === 404) return [];
+          throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+        }
+        const data = await res.json();
+        if (data.documents && Array.isArray(data.documents)) {
+          allDocs.push(...data.documents);
+        }
+        pageToken = data.nextPageToken || null;
+      } while (pageToken);
+
+      return allDocs;
+    }
+
+    async function loadAllFromFirestore() {
       const btn = document.getElementById("btnFetchFirestore");
       const orig = btn.innerHTML;
-      btn.innerHTML = `<span class="spinner"></span> Conectando...`;
+      btn.innerHTML = `<span class="spinner"></span> Consultando TODO...`;
       btn.disabled = true;
 
       try {
-        let url;
-        if (collName === 'credits') {
-          url = `https://firestore.googleapis.com/v1/projects/${FIRESTORE_PROJECT_ID}/databases/(default)/documents/credits?key=${FIRESTORE_API_KEY}`;
-        } else {
-          url = `https://firestore.googleapis.com/v1/projects/${FIRESTORE_PROJECT_ID}/databases/(default)/documents/leaderboards?key=${FIRESTORE_API_KEY}`;
+        window.nameSourcesMap = new Map();
+        let countCredits = 0;
+        let countLeaderboards = 0;
+        let countDaily = 0;
+
+        // 1. Fundadores (credits)
+        try {
+          const founderDocs = await fetchAllDocuments("credits");
+          founderDocs.forEach(d => {
+            const name = d.fields?.name?.stringValue?.trim();
+            if (name) {
+              countCredits++;
+              const prev = window.nameSourcesMap.get(name) || [];
+              if (!prev.includes("🏛️ Fundadores")) prev.push("🏛️ Fundadores");
+              window.nameSourcesMap.set(name, prev);
+            }
+          });
+        } catch (e) {
+          console.warn("Error leyendo credits:", e);
         }
 
-        const res = await fetch(url);
-        if (!res.ok) throw new Error("Error HTTP " + res.status);
-        const data = await res.json();
-        const docs = data.documents || [];
+        // 2. Rankings All-Time (leaderboards)
+        try {
+          const lbDocs = await fetchAllDocuments("leaderboards");
+          lbDocs.forEach(d => {
+            const name = (d.fields?.playerName?.stringValue || d.fields?.name?.stringValue)?.trim();
+            if (name) {
+              countLeaderboards++;
+              const prev = window.nameSourcesMap.get(name) || [];
+              if (!prev.includes("🏆 Leaderboard Global")) prev.push("🏆 Leaderboard Global");
+              window.nameSourcesMap.set(name, prev);
+            }
+          });
+        } catch (e) {
+          console.warn("Error leyendo leaderboards:", e);
+        }
 
+        // 3. Desafíos Diarios (Últimos 7 días)
+        const today = new Date();
+        for (let i = 0; i < 7; i++) {
+          const d = new Date(today);
+          d.setUTCDate(d.getUTCDate() - i);
+          const dateKey = d.toISOString().split("T")[0];
+          try {
+            const dailyDocs = await fetchAllDocuments(`leaderboards_daily/${dateKey}/scores`);
+            dailyDocs.forEach(doc => {
+              const name = (doc.fields?.playerName?.stringValue || doc.fields?.name?.stringValue)?.trim();
+              if (name) {
+                countDaily++;
+                const prev = window.nameSourcesMap.get(name) || [];
+                const tag = `📅 Diario (${dateKey})`;
+                if (!prev.includes(tag)) prev.push(tag);
+                window.nameSourcesMap.set(name, prev);
+              }
+            });
+          } catch (e) {
+            // Silencioso para fechas sin partidas
+          }
+        }
+
+        const uniqueNames = Array.from(window.nameSourcesMap.keys());
+
+        if (uniqueNames.length === 0) {
+          alert("No se encontraron registros de jugadores en Firestore.");
+          return;
+        }
+
+        document.getElementById("txtInput").value = uniqueNames.join(", ");
+
+        const msg = `⚡ Carga Exhaustiva desde Firestore Completada:
+------------------------------------------------
+🏛️ Fundadores (credits): ${countCredits}
+🏆 Leaderboard Histórico (leaderboards): ${countLeaderboards}
+📅 Desafíos Diarios (Últimos 7 días): ${countDaily}
+------------------------------------------------
+✨ Total Nombres Únicos Detectados: ${uniqueNames.length}
+
+Los nombres han sido depositados en el área de texto. ¿Deseas iniciar el análisis con IA ahora mismo?`;
+
+        if (confirm(msg)) {
+          handleAnalyze(true);
+        }
+      } catch (err) {
+        alert("Error cargando de Firestore: " + err.message);
+      } finally {
+        btn.innerHTML = orig;
+        btn.disabled = false;
+      }
+    }
+
+    async function loadSpecificCollection(collName) {
+      const btn = event?.target;
+      const origText = btn ? btn.innerHTML : "";
+      if (btn) btn.innerHTML = `<span class="spinner"></span>`;
+
+      try {
+        const docs = await fetchAllDocuments(collName);
         const names = [];
         docs.forEach(d => {
           const f = d.fields || {};
-          const n = f.name?.stringValue || f.playerName?.stringValue;
+          const n = (f.name?.stringValue || f.playerName?.stringValue)?.trim();
           if (n && !names.includes(n)) {
             names.push(n);
+            const prev = window.nameSourcesMap.get(n) || [];
+            const tag = collName === 'credits' ? "🏛️ Fundadores" : "🏆 Leaderboard";
+            if (!prev.includes(tag)) prev.push(tag);
+            window.nameSourcesMap.set(n, prev);
           }
         });
 
@@ -985,12 +1149,56 @@ Responde ÚNICAMENTE un objeto JSON válido con esta estructura exacta sin texto
         }
 
         document.getElementById("txtInput").value = names.join(", ");
-        alert(`Se cargaron ${names.length} nombres de la colección '${collName}'. Pulsa 'Analizar con IA' para evaluarlos.`);
+        if (confirm(`Se cargaron ${names.length} nombres de '${collName}' (con paginación exhaustiva).\n\n¿Deseas analizarlos con IA ahora?`)) {
+          handleAnalyze(true);
+        }
       } catch (err) {
-        alert("Error cargando de Firestore: " + err.message);
+        alert("Error cargando colección: " + err.message);
       } finally {
-        btn.innerHTML = orig;
-        btn.disabled = false;
+        if (btn) btn.innerHTML = origText;
+      }
+    }
+
+    async function loadDailyChallenges() {
+      const btn = event?.target;
+      const origText = btn ? btn.innerHTML : "";
+      if (btn) btn.innerHTML = `<span class="spinner"></span> Buscando 7 días...`;
+
+      try {
+        const names = [];
+        const today = new Date();
+        for (let i = 0; i < 7; i++) {
+          const d = new Date(today);
+          d.setUTCDate(d.getUTCDate() - i);
+          const dateKey = d.toISOString().split("T")[0];
+          try {
+            const dailyDocs = await fetchAllDocuments(`leaderboards_daily/${dateKey}/scores`);
+            dailyDocs.forEach(doc => {
+              const name = (doc.fields?.playerName?.stringValue || doc.fields?.name?.stringValue)?.trim();
+              if (name && !names.includes(name)) {
+                names.push(name);
+                const prev = window.nameSourcesMap.get(name) || [];
+                const tag = `📅 Diario (${dateKey})`;
+                if (!prev.includes(tag)) prev.push(tag);
+                window.nameSourcesMap.set(name, prev);
+              }
+            });
+          } catch (e) {}
+        }
+
+        if (names.length === 0) {
+          alert("No se encontraron partidas diarias registradas en los últimos 7 días.");
+          return;
+        }
+
+        document.getElementById("txtInput").value = names.join(", ");
+        if (confirm(`Se encontraron ${names.length} jugadores en los desafíos diarios recientes.\n\n¿Deseas analizarlos con IA ahora?`)) {
+          handleAnalyze(true);
+        }
+      } catch (err) {
+        alert("Error cargando tableros diarios: " + err.message);
+      } finally {
+        if (btn) btn.innerHTML = origText;
       }
     }
 
@@ -1093,6 +1301,9 @@ Responde ÚNICAMENTE un objeto JSON válido con esta estructura exacta sin texto
             </div>
 
             <div class="card-meta-row">
+              <span class="meta-label">Origen / Colección:</span>
+              <span class="meta-val" style="color: var(--cyan-arcane); font-weight: 600;">${escapeHtml(r.origen || 'Entrada Manual')}</span>
+
               <span class="meta-label">Traducción al Español:</span>
               <span class="meta-val translation">${escapeHtml(r.traduccion_espanol || r.termino)}</span>
 
